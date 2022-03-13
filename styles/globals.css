@@ -1,16 +1,11 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
+@import 'global-styles/media-queries.css';
+@import 'global-styles/default.css';
+@import 'global-styles/fonts.css';
+@import 'global-styles/variables.css';
+@import 'global-styles/basic.css';
+@import 'global-styles/typo.css';
+@import 'global-styles/flex.css';
+@import 'global-styles/grid.css';
+@import 'global-styles/utilities.css';
+@import 'global-styles/spacings.css';
+@import 'global-styles/colors.css';

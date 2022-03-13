@@ -1,0 +1,175 @@
+@import './media-queries.css';
+
+/* TODO: can be used in every project -> should be possible to adapt per project */
+.block-element {
+	display: block;
+}
+
+.use-font-style {
+	font: var(--font-style, var(--font-style--default));
+}
+
+.fragment {
+	display: contents;
+}
+
+.hidden {
+	pointer-events: none;
+	position: absolute;
+	opacity: 0;
+}
+
+.visually-hidden {
+	visibility: hidden;
+}
+
+.contents {
+	display: contents;
+}
+
+.cursor {
+	&--pointer {
+		cursor: pointer;
+	}
+}
+
+@each $i in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) {
+	.o--$(i) {
+		opacity: calc(0.1 * $(i));
+	}
+}
+
+.pointer-events {
+	&--none {
+		pointer-events: none;
+	}
+
+	&--force-none {
+		pointer-events: none !important;
+
+		& * {
+			pointer-events: none !important;
+		}
+	}
+}
+
+.scroll-anchor {
+	position: relative;
+	top: calc(var(--header-height, 0) * -1);
+}
+
+/* css attribute is set in basic.css */
+.user-select {
+	--user-select: auto;
+
+	&--text {
+		--user-select: text;
+	}
+
+	&--none {
+		--user-select: none;
+
+		&-force {
+			* {
+				--user-select: none;
+			}
+		}
+	}
+
+	&--all {
+		--user-select: all;
+	}
+}
+
+a,
+.a11y-outline {
+	outline-width: 0;
+	outline-style: dashed;
+	outline-color: var(--a11y-outline-color, var(--color-white));
+	outline-offset: var(--a11y-outline-offset, 0.25rem);
+
+	&:focus-visible {
+		outline-width: 2px;
+	}
+}
+
+.object-fit {
+	width: 100%;
+	height: 100%;
+	max-width: none;
+
+	&--contain {
+		object-fit: contain;
+	}
+
+	&--cover {
+		object-fit: cover;
+	}
+
+	&--scale-down {
+		object-fit: scale-down;
+	}
+}
+
+/* background-colors */
+
+@each $color, $i in (transparent, petrol, grey, red, green, black, white, dark-green, orange, light-green, brown, blue, light-grey) {
+	.bg--$(i),
+	.bg--$($color) {
+		background-color: var(--color--$(color));
+		--bg-color: var(--color--$(color));
+	}
+}
+
+/* text-colors */
+
+@each $color, $i in (petrol, grey, red, green, black, white, dark-green, orange, light-green, brown, blue, light-grey) {
+	.tc--$(i),
+	.tc--$(color) {
+		color: var(--color--$(color));
+		--tc: var(--color--$(color));
+	}
+}
+
+/* utility classes for breakpoints */
+
+@each $breakpoint, $letter in (large, medium, small, extra-small, mini), (-l, -m, -s, -xs, -xxs) {
+	.columns$(letter) {
+		@media (--$(breakpoint)-viewport-min) {
+			columns: 2 auto;
+		}
+	}
+
+	.visible$(letter) {
+		display: none;
+		@media (--$(breakpoint)-viewport-min) {
+			display: block;
+		}
+	}
+
+	.visible-inline-block$(letter) {
+		display: none;
+		@media (--$(breakpoint)-viewport-min) {
+			display: inline-block;
+		}
+	}
+
+	.visible-flex$(letter) {
+		display: none;
+		@media (--$(breakpoint)-viewport-min) {
+			display: flex;
+		}
+	}
+
+	.hidden$(letter) {
+		@media (--$(breakpoint)-viewport-min) {
+			display: none;
+		}
+	}
+
+	.contents$(letter) {
+		@media (--$(breakpoint)-viewport-min) {
+			display: contents;
+		}
+	}
+}

@@ -1,0 +1,31 @@
+
+/* HINT: do not change the order of the colors to prevent wrong colors due to different indexes */
+
+@each $color, $i in (transparent, petrol, grey, red, green, black, white, dark-green, orange, light-green, brown, blue, light-grey) {
+	/* color-text--n */
+	.c-t--$(color),
+	.c-t--$(i) {
+		--text-color: var(--color--$(color));
+		color: var(--color--$(color));
+	}
+
+	/* color-background--n */
+	.c-bg--$(color),
+	.c-bg--$(i) {
+		--background-color: var(--color--$(color));
+		background-color: var(--background-color);
+	}
+
+	/* headline-color--n */
+	.c-hl--$(color),
+	.c-hl--$(i) {
+		--headline-color: var(--color--$(color));
+		color: var(--headline-color);
+	}
+
+	/* link-color--n */
+	.c-a--$(color),
+	.c-a--$(i) {
+		--link-color: var(--color--$(color));
+	}
+}

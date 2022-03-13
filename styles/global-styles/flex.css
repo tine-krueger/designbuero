@@ -1,0 +1,167 @@
+/*TODO: can be used in every project -> where to put it?*/
+
+.flex {
+	display: flex;
+
+	&--direction-column {
+		flex-direction: column;
+
+		&-reverse {
+			flex-direction: column-reverse;
+		}
+	}
+
+	&--direction-row {
+		flex-direction: row;
+
+		&-reverse {
+			flex-direction: row-reverse;
+		}
+	}
+
+	&--wrap {
+		flex-wrap: wrap;
+	}
+
+	&--justify-content {
+		&-start {
+			justify-content: flex-start;
+		}
+
+		&-end {
+			justify-content: flex-end;
+		}
+
+		&-center {
+			justify-content: center;
+		}
+
+		&-between {
+			justify-content: space-between;
+		}
+
+		&-around {
+			justify-content: space-around;
+		}
+
+		&-evenly {
+			justify-content: space-evenly;
+		}
+	}
+
+	&--place-items {
+		&-center {
+			place-items: center;
+		}
+	}
+
+	&--place-content {
+		&-center {
+			place-content: center;
+		}
+	}
+
+	&--align-items {
+		&-start {
+			align-items: flex-start;
+		}
+
+		&-end {
+			align-items: flex-end;
+		}
+
+		&-center {
+			align-items: center;
+		}
+
+		&-stretch {
+			align-items: stretch;
+		}
+	}
+
+	&--align-content {
+		&-start {
+			align-content: flex-start;
+		}
+
+		&-end {
+			align-content: flex-end;
+		}
+
+		&-center {
+			align-content: center;
+		}
+
+		&-stretch {
+			align-content: stretch;
+		}
+
+		&-between {
+			align-content: space-between;
+		}
+
+		&-around {
+			align-content: space-around;
+		}
+	}
+
+	&--align-self {
+		&-start {
+			align-self: flex-start;
+		}
+
+		&-end {
+			align-self: flex-end;
+		}
+
+		&-center {
+			align-self: center;
+		}
+
+		&-stretch {
+			align-self: stretch;
+		}
+
+		&-baseline {
+			align-self: baseline;
+		}
+	}
+
+	&--justify-self {
+		&-start {
+			justify-self: flex-start;
+		}
+
+		&-end {
+			justify-self: flex-end;
+		}
+
+		&-center {
+			justify-self: center;
+		}
+
+		&-stretch {
+			justify-self: stretch;
+		}
+
+		&-baseline {
+			justify-self: baseline;
+		}
+	}
+
+	&--grow {
+		flex-grow: 1;
+	}
+
+	&--no-grow {
+		flex-grow: 0;
+	}
+
+	&--shrink {
+		flex-shrink: 1;
+	}
+
+	&--no-shrink {
+		flex-shrink: 0;
+	}
+}

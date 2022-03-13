@@ -1,0 +1,104 @@
+/* TODO: can be used in every project, but should be possible to adapt */
+
+.grid {
+	display: grid;
+	grid-column-gap: var(--gap, 0);
+
+	&--align-items {
+		&-start {
+			align-items: start;
+		}
+
+		&-end {
+			align-items: end;
+
+			@media (--small-viewport-min) {
+				&-d {
+					align-items: end;
+				}
+			}
+		}
+
+		&-center {
+			align-items: center;
+
+			@media (--small-viewport-min) {
+				&-d {
+					align-items: center;
+				}
+			}
+		}
+
+		&-stretch {
+			align-items: stretch;
+		}
+	}
+
+	&--justify-items {
+		&-start {
+			justify-items: start;
+		}
+
+		&-end {
+			justify-items: end;
+		}
+
+		&-center {
+			justify-items: center;
+		}
+
+		&-stretch {
+			justify-items: stretch;
+		}
+	}
+
+	&--align-self {
+		&-start {
+			align-self: start;
+		}
+
+		&-end {
+			align-self: end;
+		}
+
+		&-center {
+			align-self: center;
+		}
+
+		&-stretch {
+			align-self: stretch;
+		}
+
+		&-baseline {
+			align-self: baseline;
+		}
+	}
+
+	&--justify-self {
+		&-start {
+			justify-self: start;
+		}
+
+		&-end {
+			justify-self: end;
+		}
+
+		&-center {
+			justify-self: center;
+		}
+
+		&-stretch {
+			justify-self: stretch;
+		}
+
+		&-baseline {
+			justify-self: baseline;
+		}
+	}
+}
+
+@each $gapSize in (default, m, l, xl, xxl, giant) {
+	.gap--$(gapSize) {
+		--gap-size: var(--spacing--$(gapSize));
+	}
+}

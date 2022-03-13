@@ -1,0 +1,137 @@
+html {
+	font-family: var(--font-lato-regular);
+	font-weight: 400;
+}
+
+b,
+strong,
+.bold {
+	font-family: var(--font-lato-bold);
+	font-weight: 700;
+}
+
+.text {
+	&--uc {
+		text-transform: uppercase;
+	}
+
+	&--lc {
+		text-transform: lowercase;
+	}
+}
+
+.caption {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	font: var(--font-style--s);
+	letter-spacing: var(--letter-spacing);
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0 var(--spacing--m);
+
+	&--right {
+		transform: rotate(0deg);
+		
+	}
+}
+
+.eyebrow {
+	font: var(--font-style--s);
+	letter-spacing: var(--letter-spacing);
+	text-transform: uppercase;
+	margin: 0;
+	margin-bottom: var(--spacing--default);
+}
+
+p {
+	margin: var(--text-spacing) 0;
+	font: var(--font-style, var(--font-style--default));
+}
+
+.main-headline {
+}
+
+h1 {
+	font: var(--font-style, var(--font-style--sl));
+}
+
+h2 {
+	font: var(--font-style, var(--font-style--m));
+}
+
+h3 {
+	font: var(--font-style, var(--font-style--sm));
+}
+
+h1,
+h2,
+h3 {
+	color: var(--headline-color, var(--color--black));
+}
+
+a,
+.link {
+	color: var(--link-color, var(--color--red));
+	text-decoration: none;
+	cursor: pointer;
+	display: inline;
+	background-image: linear-gradient(var(--line-color, var(--color--petrol)), var(--line-color, var(--color--petrol)));
+	background-position: 0% 100%;
+	background-repeat: no-repeat;
+	background-size: 0% 1px;
+	transition: background-size ease 0.3s, color ease 0.3s;
+
+	&:hover,
+	&:active,
+	&.active,
+	&:focus {
+		background-size: 99% 1px;
+		color: var(--color--petrol);
+	}
+}
+
+.no-link {
+	&:hover,
+	&:active,
+	&.active,
+	&:focus {
+		background-size: 0% 1px;
+		color: initial;
+	}
+
+}
+
+@each $fontSize in giant, xxl, xl, l, sl, m, sm, default, s, xs {
+	.font-size--$(fontSize) {
+		font-size: var(--clamp--$(fontSize));
+	}
+}
+
+@each $fontStyle in (giant, xxl, xl, l, sl, m, sm, default, s, xs) {
+	.font-style--$(fontStyle) {
+		--font-style: var(--font-style--$(fontStyle));
+		font: var(--font-style--$(fontStyle));
+
+		@if $fontStyle == s {
+			letter-spacing: var(--letter-spacing);
+			text-transform: uppercase;
+		}
+
+		@if $fontStyle == xs {
+			letter-spacing: var(--letter-spacing);
+			text-transform: uppercase;
+		}
+	}
+}
+
+@each $textAlignment in left, right, center {
+	.text-align--$(textAlignment) {
+		text-align: $textAlignment;
+	}
+}
+
+@each $verticalAlignment in sub, super {
+	.vertical-align--$(verticalAlignment) {
+		vertical-align: $verticalAlignment;
+	}
+}

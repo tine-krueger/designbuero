@@ -1,0 +1,19 @@
+/* TODO: have to be adapted to the HRNS-project */
+
+@custom-media --large-viewport-max (max-width: 90rem); /* 1440px */
+@custom-media --large-viewport-min (min-width: 90.0625rem);
+
+@custom-media --medium-viewport-max (max-width: 64rem); /* 1024px */
+@custom-media --medium-viewport-min (min-width: 64.0625rem);
+
+@custom-media --small-viewport-max (max-width: 48rem); /* 768px */
+@custom-media --small-viewport-min (min-width: 48.0625rem);
+
+@custom-media --extra-small-viewport-max (max-width: 36rem); /* 576px */
+@custom-media --extra-small-viewport-min (min-width: 36.0625rem);
+
+@custom-media --mini-viewport-max (max-width: 21.5625rem); /* 345px */
+@custom-media --mini-viewport-min (min-width: 21.625rem);
+
+
+/* @custom-media --max-content-width (width > 86.25rem); */
