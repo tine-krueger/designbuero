@@ -5,6 +5,11 @@
 	display: block;
 }
 
+.content-width {
+	max-width: var(--content-width);
+	margin: 0 auto;
+}
+
 .use-font-style {
 	font: var(--font-style, var(--font-style--default));
 }
@@ -108,26 +113,6 @@ a,
 
 	&--scale-down {
 		object-fit: scale-down;
-	}
-}
-
-/* background-colors */
-
-@each $color, $i in (transparent, petrol, grey, red, green, black, white, dark-green, orange, light-green, brown, blue, light-grey) {
-	.bg--$(i),
-	.bg--$($color) {
-		background-color: var(--color--$(color));
-		--bg-color: var(--color--$(color));
-	}
-}
-
-/* text-colors */
-
-@each $color, $i in (petrol, grey, red, green, black, white, dark-green, orange, light-green, brown, blue, light-grey) {
-	.tc--$(i),
-	.tc--$(color) {
-		color: var(--color--$(color));
-		--tc: var(--color--$(color));
 	}
 }
 

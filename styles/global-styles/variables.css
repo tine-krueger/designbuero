@@ -1,42 +1,34 @@
 :root {
 	/* fonts */
-	--font-lato-regular: 'Lato-Regular';
-	--font-lato-bold: 'Lato-Bold';
-	--font-april-titling-regular: 'Abril-Titling-Regular';
+	--font-body: 'Mulish-Regular';
+	--font-body-bold: 'Mulish-Bold';
+	--font-headline: 'Roboto-Serif-Regular';
 
 	/* font-sizes desktop*/
-	--font-size--d-giant: 9.375rem; /* 150px */
-	--font-size--d-xxl: 7.5rem; /* 120px */
-	--font-size--d-xl: 7.1875rem; /* 115px */
-	--font-size--d-l: 5.625rem; /* 90px */
-	--font-size--d-sl: 2.625rem; /* 42px */
-	--font-size--d-m: 1.75rem; /* 28px */
-	--font-size--d-sm: 1.125rem; /*18px */
-	--font-size--d-default: 1rem;
+	--font-size--d-giant: 4.25rem; /* 68px */
+	--font-size--d-xl: 2.625rem; /* 42px */
+	--font-size--d-l: 38px; /* 28px */
+	--font-size--d-m: 1.625rem; /*18px */
+	--font-size--d-default: 1.25rem;
 	--font-size--d-s: 0.875rem; /* 14px */
 	--font-size--d-xs: 0.5625rem; /* 9px */
 
 	/* font-sizes mobile*/
-	--font-size--m-giant: 5.625rem;
-	--font-size--m-xxl: 5rem;
-	--font-size--m-xl: 5rem;
-	--font-size--m-l: 2.1875rem;
-	--font-size--m-sl: 1.875rem;
-	--font-size--m-m: 1.5rem;
-	--font-size--m-sm: 1.125rem;
+	
+	--font-size--m-giant: 3.1875rem;
+	--font-size--m-xl: 1.875rem;
+	--font-size--m-l: 1.5rem;
+	--font-size--m-m: 1.125rem;
 	--font-size--m-default: 1rem;
 	--font-size--m-s: 0.875rem;
 	--font-size--m-xs: 0.5625rem;
 
 	/* clamp */
 	--clamp--giant: clamp(var(--font-size--m-giant), 7vw, var(--font-size--d-giant));
-	--clamp--xxl: clamp(var(--font-size--m-xxl), 7vw, var(--font-size--d-xxl));
 	--clamp--xl: clamp(var(--font-size--m-xl), 7vw, var(--font-size--d-xl));
 	--clamp--l: clamp(var(--font-size--m-l), 7vw, var(--font-size--d-l));
-	--clamp--sl: clamp(var(--font-size--m-sl), 7vw, var(--font-size--d-sl));
 	--clamp--m: clamp(var(--font-size--m-m), 7vw, var(--font-size--d-m));
-	--clamp--sm: clamp(var(--font-size--m-sm), 7vw, var(--font-size--d-sm));
-	--clamp--default: clamp(var(--font-size--m-default), 7vw, var(--font-size--d-default));
+	--clamp--default: clamp(var(--font-size--m-default), 5vw, var(--font-size--d-default));
 	--clamp--s: clamp(var(--font-size--m-s), 7vw, var(--font-size--d-s));
 	--clamp--xs: clamp(var(--font-size--m-xs), 7vw, var(--font-size--d-xs));
 
@@ -47,56 +39,34 @@
 	--line-height--xl: 1.6;
 
 	/* font styles */
-	--font-style--giant: normal var(--clamp--giant) / var(--line-height--xl) var(--font-april-titling-regular);
-	--font-style--xxl: normal var(--clamp--xxl) / var(--line-height--s) var(--font-lato-bold);
-	--font-style--xl: normal var(--clamp--xl) / var(--line-height--l) var(--font-april-titling-regular);
-	--font-style--l: normal var(--clamp--l) / var(--line-height--xl) var(--font-april-titling-regular);
-	--font-style--sl: normal var(--clamp--sl) / var(--line-height--m) var(--font-lato-bold);
-	--font-style--m: normal var(--clamp--m) / var(--line-height--l) var(--font-lato-bold);
-	--font-style--sm: normal var(--clamp--sm) / var(--line-height--m) var(--font-lato-bold);
-	--font-style--default: normal var(--clamp--default) / var(--line-height--xl) var(--font-lato-regular);
-	--font-style--s: normal var(--clamp--s) / var(--line-height--m) var(--font-lato-regular);
-	--font-style--xs: normal var(--clamp--xs) / var(--line-height--xl) var(--font-lato-regular);
+	--font-style--giant: normal var(--clamp--giant) / var(--line-height--xl) var(--font-headline);
+	--font-style--xl: normal var(--clamp--xl) / var(--line-height--l) var(--font-headline);
+	--font-style--l: normal var(--clamp--l) / var(--line-height--xl) var(--font-headline);
+	--font-style--m: normal var(--clamp--m) / var(--line-height--l) var(--font-body-bold);
+	--font-style--default: normal var(--clamp--default) / var(--line-height--xl) var(--font-body);
+	--font-style--s: normal var(--clamp--s) / var(--line-height--m) var(--font-body);
+	--font-style--xs: normal var(--clamp--xs) / var(--line-height--xl) var(--font-body);
 
 	/* color-values */
-
-	/* HRNS-colors */
-	--color-petrol-hsl: 163, 14%, 56%;
-	--color-grey-hsl: 60, 1%, 37%;
-	--color-red-hsl: 353, 79%, 54%;
-	--color-green-hsl: 77, 67%, 37%;
+	--color-darkblue-hsl: 210, 65%, 31%;
+	--color-green-hsl: 157, 100%, 33%;
+	--color-petrol-hsl: 188, 100%, 34%;
+	--color-lightgreen-hsl: 70, 73%, 80%;
+	--color-lightblue-hsl: 196, 60%, 71%;
+	--color-darkred-hsl: 351, 57%, 35%;
 	--color-black-hsl: 0, 0%, 0%;
 	--color-white-hsl: 0, 0%, 100%;
 
-	/* Topic-colors */
-	--color-dark-green-hsl: 110, 16%, 28%;
-	--color-orange-hsl: 19, 79%, 58%;
-	--color-light-green-hsl: 83, 35%, 56%;
-	--color-brown-hsl: 23, 25%, 57%;
-	--color-blue-hsl: 188, 49%, 53%;
-
-	/* design-colors */
-	--color-light-grey-hsl: 0, 0%, 93%;
-	--color-light-petrol-hsl: 160, 4%, 87%;
-
-	/* hrns colors as hsl */
-	--color--petrol: hsl(var(--color-petrol-hsl));
-	--color--grey: hsl(var(--color-grey-hsl));
-	--color--red: hsl(var(--color-red-hsl));
+	/* colors as hsl */
+	--color--darkblue: hsl(var(--color-darkblue-hsl));
 	--color--green: hsl(var(--color-green-hsl));
+	--color--petrol: hsl(var(--color-petrol-hsl));
+	--color--lightgreen: hsl(var(--color-lightgreen-hsl));
+	--color--lightblue: hsl(var(--color-lightblue-hsl));
+	--color--darkred: hsl(var(--color-darkred-hsl));
 	--color--black: hsl(var(--color-black-hsl));
 	--color--white: hsl(var(--color-white-hsl));
-
-	/* topic-colos as hsl */
-	--color--dark-green: hsl(var(--color-dark-green-hsl));
-	--color--orange: hsl(var(--color-orange-hsl));
-	--color--light-green: hsl(var(--color-light-green-hsl));
-	--color--brown: hsl(var(--color-brown-hsl));
-	--color--blue: hsl(var(--color-blue-hsl));
-
-	/* design-colors */
-	--color--light-grey: hsl(var(--color-light-grey-hsl));
-	--color--light-petrol: hsl(var(--color-light-petrol-hsl));
+	
 
 	/* base-spacing */
 	--SBU: 0.25rem;
@@ -116,10 +86,10 @@
 	--letter-spacing: 0.3em;
 
 	/* header heights */
-	--header-height--mobile: 6.5625rem;
-	--header-height--desktop: 9.625rem;
+	/* --header-height--mobile: 6.5625rem;
+	--header-height--desktop: 9.625rem; */
 
-	/* --content-width: ; 1380px( alt: 1184px) */
+	--content-width: 71.25rem;
 
 	/* --main-container-horizontal-padding: calc(var(--spacing--l) + var(--spacing--default)); */
 

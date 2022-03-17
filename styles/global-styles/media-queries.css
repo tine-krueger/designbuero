@@ -16,4 +16,5 @@
 @custom-media --mini-viewport-min (min-width: 21.625rem);
 
 
-/* @custom-media --max-content-width (width > 86.25rem); */
+@custom-media --content-width-max (max-width: 71.25rem); /*1140px*/
+@custom-media --content-width-min (min-width: 71.3125rem);

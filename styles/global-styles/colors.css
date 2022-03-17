@@ -1,7 +1,7 @@
 
 /* HINT: do not change the order of the colors to prevent wrong colors due to different indexes */
 
-@each $color, $i in (transparent, petrol, grey, red, green, black, white, dark-green, orange, light-green, brown, blue, light-grey) {
+@each $color, $i in (transparent, darkblue, green, petrol, lightgreen, lightblue, darkred, black, white) {
 	/* color-text--n */
 	.c-t--$(color),
 	.c-t--$(i) {
@@ -27,5 +27,9 @@
 	.c-a--$(color),
 	.c-a--$(i) {
 		--link-color: var(--color--$(color));
+	}
+
+	.c-hili--$(i) {
+		--highlight-color: var(--color--$(color))
 	}
 }
