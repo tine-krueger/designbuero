@@ -1,16 +1,16 @@
 :root {
 	/* fonts */
-	--font-body: 'Mulish-Regular';
-	--font-body-bold: 'Mulish-Bold';
-	--font-headline: 'Roboto-Serif-Regular';
+	--font-body: 'Montserrat-Regular';
+	--font-body-bold: 'Montserrat-Bold';
+	--font-headline: 'SigmarOne-Regular';
 
 	/* font-sizes desktop*/
 	--font-size--d-giant: 4.25rem; /* 68px */
 	--font-size--d-xl: 2.625rem; /* 42px */
 	--font-size--d-l: 38px; /* 28px */
-	--font-size--d-m: 1.625rem; /*18px */
-	--font-size--d-default: 1.25rem;
-	--font-size--d-s: 0.875rem; /* 14px */
+	--font-size--d-m: 24px; /*18px */
+	--font-size--d-default: 17px;
+	--font-size--d-s: 14px; /* 14px */
 	--font-size--d-xs: 0.5625rem; /* 9px */
 
 	/* font-sizes mobile*/
@@ -20,7 +20,7 @@
 	--font-size--m-l: 1.5rem;
 	--font-size--m-m: 1.125rem;
 	--font-size--m-default: 1rem;
-	--font-size--m-s: 0.875rem;
+	--font-size--m-s: 13px;
 	--font-size--m-xs: 0.5625rem;
 
 	/* clamp */
@@ -48,25 +48,28 @@
 	--font-style--xs: normal var(--clamp--xs) / var(--line-height--xl) var(--font-body);
 
 	/* color-values */
-	--color-darkblue-hsl: 210, 65%, 31%;
-	--color-green-hsl: 157, 100%, 33%;
-	--color-petrol-hsl: 188, 100%, 34%;
-	--color-lightgreen-hsl: 70, 73%, 80%;
-	--color-lightblue-hsl: 196, 60%, 71%;
-	--color-darkred-hsl: 351, 57%, 35%;
-	--color-black-hsl: 0, 0%, 0%;
+	--color-grey-hsl: 191, 20%, 21%;
+	--color-yellow-hsl: 55, 87%, 56%;
+	--color-blue-hsl: 201, 49%, 34%;
+	--color-lightgreen-hsl: 80, 40%, 78%;
+	--color-shellwhite-hsl: 40, 100%, 97%;
+	--color-petrol-hsl: 188, 39%, 45%;
+	--color-green-hsl: 136, 37%, 40%;
 	--color-white-hsl: 0, 0%, 100%;
+	--color-red-hsl: 350, 70%, 67%;
+	--color-brown-hsl: 42, 20%, 51%;
 
 	/* colors as hsl */
-	--color--darkblue: hsl(var(--color-darkblue-hsl));
-	--color--green: hsl(var(--color-green-hsl));
-	--color--petrol: hsl(var(--color-petrol-hsl));
+	--color--grey: hsl(var(--color-grey-hsl));
+	--color--yellow: hsl(var(--color-yellow-hsl));
+	--color--blue: hsl(var(--color-blue-hsl));
 	--color--lightgreen: hsl(var(--color-lightgreen-hsl));
-	--color--lightblue: hsl(var(--color-lightblue-hsl));
-	--color--darkred: hsl(var(--color-darkred-hsl));
-	--color--black: hsl(var(--color-black-hsl));
+	--color--shellwhite: hsl(var(--color-shellwhite-hsl));
+	--color--petrol: hsl(var(--color-petrol-hsl));
+	--color--green: hsl(var(--color-green-hsl));
 	--color--white: hsl(var(--color-white-hsl));
-	
+	--color--red: hsl(var(--color-red-hsl));
+	--color--brown: hsl(var(--color--brown));
 
 	/* base-spacing */
 	--SBU: 0.25rem;

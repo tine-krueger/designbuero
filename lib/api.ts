@@ -51,3 +51,38 @@ export async function getHomepageData() {
         console.log(data)
     return data.posts
 }
+
+export async function getIllustrationData() {
+    const data = await fetchAPI(
+       ` {
+        posts(where: {categoryId: 2, orderby: {field: DATE, order: DESC}}) {
+          edges {
+            node {
+              featuredImage {
+                node {
+                  mediaItemUrl
+                }
+              }
+              id
+              tags {
+                edges {
+                  node {
+                    name
+                    tagId
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        }
+        category(idType: DATABASE_ID, id: 2) {
+          categoryId
+          name
+        }
+      }`
+    )
+
+    console.log('Illustration data:', data)
+    return data
+}

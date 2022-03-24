@@ -1,22 +1,38 @@
 @font-face {
-	font-family: 'Mulish-Regular';
-	src: url('/assets/fonts/Mulish-Regular.woff2') format('woff2'), url('/assets/fonts/Mulish-Regular.woff') format('woff');
-	font-weight: 400;
+	font-family: 'Montserrat-Regular';
+	src: url('/assets/fonts/Montserrat-Regular.woff2') format('woff2'), url('/assets/fonts/Montserrat-Regular.woff') format('woff');
+	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Mulish-Bold';
-	src: url('/assets/fonts/Mulish-Bold.woff2') format('woff2'), url('/assets/fonts/Mulish-Bold.woff') format('woff');
+	font-family: 'Montserrat-Light';
+	src: url('/assets/fonts/Montserrat-Light.woff2') format('woff2'), url('/assets/fonts/Montserrat-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat-Bold';
+	src: url('/assets/fonts/Montserrat-Bold.woff2') format('woff2'), url('/assets/fonts/Montserrat-Bold.woff') format('woff');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Roboto-Serif-Regular';
-	src: url('/assets/fonts/RobotoSerif-Regular.woff2') format('woff2'), url('/assets/fonts/RobotoSerif-Regular.woff') format('woff');
+	font-family: 'SigmarOne-Regular';
+	src: url('/assets/fonts/SigmarOne-Regular.woff2') format('woff2'), url('/assets/fonts/SigmarOne-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'JuliusSansOne-Regular';
+	src: url('/assets/fonts/JuliusSansOne-Regular.woff2') format('woff2'), url('/assets/fonts/JuliusSansOne-Regular.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;

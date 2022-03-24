@@ -18,10 +18,14 @@ body {
 		user-select: var(--user-select, auto);
 		word-wrap: break-word;
 		hyphens: auto;
-		color: var(--text-color, var(--color--black));
+		color: var(--text-color, var(--color--grey));
 	}
 }
 
 :target {
 	scroll-margin-top: var(--header-height, 0);
+}
+
+#ng-modal {
+	z-index: 10000;
 }

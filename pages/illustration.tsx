@@ -1,44 +1,36 @@
-import { NextPage } from "next"
+import { GetStaticProps, NextPage } from "next"
 import { ICustomImageProps } from "../components/custom-image/custom-image"
-import { Gallery } from "../components/gallery/gallery"
+import { GalleryWrapper, IPostProps } from "../components/gallery-group/gallery-wrapper"
+import { Gallery } from "../components/gallery-group/gallery/gallery"
+import { getIllustrationData } from "../lib/api"
 import { NGColor } from "../types/colors"
+import { IllustrationRootObject, mapData } from "../util/data-mapping/illustration-data"
 
-export interface IIllustrationProps {}
+export interface IIllustrationProps {
+    posts: IPostProps[]
+    category: string
+}
 
-const images: ICustomImageProps[] = [
-    {
-        src: 'https://source.unsplash.com/random/1200x800/?bird'
-    },
-    {
-        src: 'https://source.unsplash.com/random/900x500/?odessa'
-    },
-    {
-        src: 'https://source.unsplash.com/random/1000x1000/?berlin'
-    },
-    {
-        src: 'https://source.unsplash.com/random/1200x800/?vilnius'
-    },
-    {
-        src: 'https://source.unsplash.com/random/900x500/?riga'
-    },
-    {
-        src: 'https://source.unsplash.com/random/1000x1000/?Tallin'
-    },
-    {
-        src: 'https://source.unsplash.com/random/1200x800/?rotterdam'
-    },
-    {
-        src: 'https://source.unsplash.com/random/900x500/?Liverpool'
-    },
-    {
-        src: 'https://source.unsplash.com/random/1000x1000/?avignon'
-    },
-]
+export const getStaticProps: GetStaticProps = async() => {
+    const data: IllustrationRootObject = await getIllustrationData()
+    const posts: IPostProps[] = mapData(data)
+    const category: string = data.category.name
 
-const Illustration: NextPage<IIllustrationProps> = () => {
+    return {
+        props: {
+            posts,
+            category
+        }
+    }
+}
+
+const Illustration: NextPage<IIllustrationProps> = ({posts, category}) => {
+    // console.log(JSON.stringify(posts, null, 2))
+
+    /*@TODO: insert view if no post is available*/ 
     return (
-        <>
-            <Gallery images={images} highlightColor={NGColor.green}/>
+        <>  
+            <GalleryWrapper siteTitle={category} posts={posts}/>
         </>
     )
 }

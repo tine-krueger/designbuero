@@ -1,7 +1,7 @@
 
 /* HINT: do not change the order of the colors to prevent wrong colors due to different indexes */
 
-@each $color, $i in (transparent, darkblue, green, petrol, lightgreen, lightblue, darkred, black, white) {
+@each $color, $i in (transparent, grey, yellow, blue, lightgreen, shellwhite, petrol, green, white, red, brown) {
 	/* color-text--n */
 	.c-t--$(color),
 	.c-t--$(i) {
