@@ -1,0 +1,4 @@
+.image-grid {
+    height: 100vh;
+    grid-template-columns: 4fr 3fr;
+}
