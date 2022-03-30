@@ -5,13 +5,13 @@
 	--font-headline: 'SigmarOne-Regular';
 
 	/* font-sizes desktop*/
-	--font-size--d-giant: 4.25rem; /* 68px */
+	--font-size--d-giant: 95px; /* 68px */
 	--font-size--d-xl: 2.625rem; /* 42px */
 	--font-size--d-l: 38px; /* 28px */
 	--font-size--d-m: 24px; /*18px */
 	--font-size--d-default: 17px;
 	--font-size--d-s: 14px; /* 14px */
-	--font-size--d-xs: 0.5625rem; /* 9px */
+	--font-size--d-xs: 11px; /* 9px */
 
 	/* font-sizes mobile*/
 	
@@ -21,7 +21,7 @@
 	--font-size--m-m: 1.125rem;
 	--font-size--m-default: 1rem;
 	--font-size--m-s: 13px;
-	--font-size--m-xs: 0.5625rem;
+	--font-size--m-xs: 11px;
 
 	/* clamp */
 	--clamp--giant: clamp(var(--font-size--m-giant), 7vw, var(--font-size--d-giant));
@@ -39,7 +39,7 @@
 	--line-height--xl: 1.6;
 
 	/* font styles */
-	--font-style--giant: normal var(--clamp--giant) / var(--line-height--xl) var(--font-headline);
+	--font-style--giant: normal var(--clamp--giant) / var(--line-height--m) var(--font-body);
 	--font-style--xl: normal var(--clamp--xl) / var(--line-height--l) var(--font-headline);
 	--font-style--l: normal var(--clamp--l) / var(--line-height--xl) var(--font-headline);
 	--font-style--m: normal var(--clamp--m) / var(--line-height--l) var(--font-body-bold);
@@ -69,7 +69,7 @@
 	--color--green: hsl(var(--color-green-hsl));
 	--color--white: hsl(var(--color-white-hsl));
 	--color--red: hsl(var(--color-red-hsl));
-	--color--brown: hsl(var(--color--brown));
+	--color--brown: hsl(var(--color-brown-hsl));
 
 	/* base-spacing */
 	--SBU: 0.25rem;

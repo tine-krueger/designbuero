@@ -23,7 +23,7 @@ const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
         <div className={classes} {...attributes}>
             {images.map( (image, i) => (
                     <div key={uid(image)} className={styles[`image-wrapper`]} onClick={() => handleImageClick(image.image)}>
-                        <CustomImage className={styles.image} objectFit={'cover'} sizes={'(min-width: 1024px) 33.3vw, 100vw'} {...image.image} />
+                        <CustomImage className={styles.image} objectFit={'cover'} sizes={'(min-width: 1200px) 25vw, (min-width: 940px) 33.3vw, (min-width: 768px) 70vw,  100vw'} {...image.image} />
                     </div>
             ))}
             <div className={styles['text-1']}>

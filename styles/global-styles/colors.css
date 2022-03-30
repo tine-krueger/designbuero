@@ -32,4 +32,8 @@
 	.c-hili--$(i) {
 		--highlight-color: var(--color--$(color))
 	}
+
+	.c-hsl--$(i) {
+		--hsl-value: var(--color-$(color)-hsl);
+	}
 }

@@ -1,0 +1,88 @@
+.container {
+    --logo-height: 120px;
+    background-color: var(--background-color, var(--color--petrol));
+    padding: var(--spacing--default) var(--spacing--m);
+    position: sticky;
+    top: calc(var(--logo-height) * -1);
+    z-index: 1000;
+    
+}
+
+.home-link {
+    width: 100%;
+    max-width: 350px;
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.4s ease 0.01s, opacity 0.4s ease 0.01s;
+    .small & {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    &--small {
+        justify-self: start;
+        grid-row: 1 / span 1;
+        grid-column: 1 / 2;
+        height: 100%;
+        width: 175px;
+        transform: scale(0.8);
+        opacity: 0;
+        visibility: hidden;
+        transition: visibility 0.4s ease 0.01s, transform 0.4s ease 0.01s, opacity 0.4s ease 0.01s;
+
+        .small & {
+            transform: scale(1);
+            opacity: 1;
+            visibility: visible;
+            transition: transform 0.4s ease 0.01s, opacity 0.4s ease 0.01s;
+        }
+    }
+}
+.logo {
+    position: relative;
+    aspect-ratio: 595 / 204;
+    width: 100%;
+}
+
+.nav-wrapper {
+    position: relative;
+    width: 100%;
+    display: grid;
+    align-items: center;
+}
+
+.main-navigation {
+    justify-self: center;
+    grid-row: 1 / span 1;
+    grid-column: 1 / 2;
+    
+    &-list-item {
+        &:not(:first-child) {
+            span {
+                border-left: 1px solid var(--color--white);
+            }
+        }
+
+        a {
+            padding: var(--spacing--default) 0;
+        }
+
+        span {
+            padding: 0 var(--spacing--default);
+        } 
+    }
+}
+
+.social-nav {
+    justify-self: end;
+    grid-row: 1 / span 1;
+    grid-column: 1 / 2;
+}
+
+.social-nav-item {
+    padding: 0 calc(var(--spacing--default) / 2);
+    a {
+        width: 25px;
+        height: 25px; 
+    }
+}

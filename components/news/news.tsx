@@ -31,7 +31,7 @@ const UnmemoizedNews: FC<INewsProps> = (props) => {
             
 
                 <div className={styles['content-wrapper']}>
-                    <Headline {...headline} textColor={NGColor.darkblue} priority={2} /*priorityStyle={PriorityStyle.h3}*/ />
+                    <Headline {...headline} textColor={NGColor.blue} priority={2} /*priorityStyle={PriorityStyle.h3}*/ />
                     <p>{content}</p>
                     <Link  {...link}>
                         <a>{link.label}</a>

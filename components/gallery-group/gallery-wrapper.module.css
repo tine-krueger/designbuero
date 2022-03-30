@@ -35,8 +35,10 @@
 
 .container {
     width: 100%;
+    min-height: 100vh;
     padding: var(--spacing--m);
     grid-template-columns: minmax(0, 15.625rem) auto;
+    grid-template-rows: minmax(0, min-content) minmax(0, min-content);
     grid-gap: var(--spacing--m);
     grid-template-areas: 
         "headline headline"
@@ -51,7 +53,7 @@
 .navigation {
     grid-area: navbar;
     position: sticky;
-    top: var(--spacing--m);
+    top: 100px;
     align-self: start;
 }
 
