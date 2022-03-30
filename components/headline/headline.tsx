@@ -6,7 +6,8 @@ import { NGColor } from "../../types/colors"
 export enum PriorityStyle {
     h1 = 'font-style--xl',
     h2 = 'font-style--l',
-    h3 = 'font-style--m'
+    h3 = 'font-style--m',
+    main = 'font-style--giant'
 }
 
 export type THeadlineProperties = 1 | 2 | 3

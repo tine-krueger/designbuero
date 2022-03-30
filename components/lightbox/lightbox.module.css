@@ -7,6 +7,7 @@
     height: 100%;
     opacity: 0;
     transition: opacity 0.3s ease-in ; 
+    z-index: 10010;
   
 
     @media(--medium-viewport-min) {

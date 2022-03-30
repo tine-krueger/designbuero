@@ -1,0 +1,18 @@
+.contact {
+    justify-items: center;
+
+    &-button {
+        margin-top: calc(var(--spacing--default) * -1);
+    }
+}
+
+.contact-text-wrapper {
+    padding: var(--spacing--m) var(--spacing--m);
+    background-color: hsla(var(--color-lightgreen-hsl), 0.3);
+    width: 100%;
+}
+
+.contact-text {
+    margin: 0 auto;
+    width: max-content;
+}

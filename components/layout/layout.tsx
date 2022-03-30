@@ -1,11 +1,16 @@
+import { GlobalMenuStore } from "../../data/menu-data/menu-context";
+import { Footer } from "../footer/footer";
+import { Header } from "../header/header";
 
-export default function Layout({children}: any) {
+export default function Layout({children, headerClass, footerClass}: any) {
 
-  
     return (
         <>
-            {children}
-            <div id={"ng-modal"}></div>
+            <GlobalMenuStore>
+                <Header className={headerClass}/>  
+                {children}
+                <Footer className={footerClass}/>
+            </GlobalMenuStore>
         </>
     )
 }
