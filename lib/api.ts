@@ -86,3 +86,55 @@ export async function getIllustrationData() {
     console.log('Illustration data:', data)
     return data
 }
+
+export async function getBusinessGraphicsData() {
+  const data = await fetchAPI(
+     ` {
+      page(id: "61", idType: DATABASE_ID) {
+        bilderBusinessGraphics {
+          firstImageLeft {
+            altText
+            sourceUrl
+            title
+            mediaDetails {
+              height
+              width
+            }
+          }
+          firstImageRight {
+            altText
+            mediaDetails {
+              height
+              width
+            }
+            sourceUrl
+            title
+          }
+          secondImageLeft {
+            altText
+            mediaDetails {
+              height
+              width
+            }
+            sourceUrl
+            title
+          }
+          secondImageRight {
+            altText
+            mediaDetails {
+              height
+              width
+            }
+            sourceUrl
+            title
+          }
+        }
+        content
+        title
+      }
+    }`
+  )
+
+  console.log('Business-Gaphics data:', data)
+  return data
+}

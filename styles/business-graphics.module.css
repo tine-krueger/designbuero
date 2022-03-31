@@ -1,4 +1,21 @@
 .image-grid {
-    height: 100vh;
+    height: 80vh;
     grid-template-columns: 4fr 3fr;
+}
+.content-wrapper {
+    background-color: hsla(var(--color-blue-hsl), 0.15);
+    padding: var(--spacing--m);
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    
+}
+
+.portfolio-button {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100% !important;
+    width: 100%;
 }

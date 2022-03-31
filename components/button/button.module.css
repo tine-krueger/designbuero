@@ -1,11 +1,12 @@
 .container {
     --number-of-blobs: 4;
     --border-with: 1px;
-    --border-radius: 20px;
+    --border-radius: 0;
     --text-color: var(--color--grey);
+    display: block;
     z-index: 1;
     position: relative;
-    padding: calc(var(--spacing--default) / 2) var(--spacing--m);
+    padding: calc(var(--spacing--default)) var(--spacing--m);
     color: var(--text-color);
     background-color: transparent;
     outline: none;

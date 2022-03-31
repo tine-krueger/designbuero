@@ -48,7 +48,7 @@ interface Node {
   mediaItemUrl: string;
 }
 
-export function mapData(data: IllustrationRootObject): IPostProps[] {
+export function mapIllustrationData(data: IllustrationRootObject): IPostProps[] {
     const posts: IPostProps[] = []
     data.posts.edges.map( edge => {
         const tags: string[] = []
