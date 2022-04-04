@@ -9,7 +9,7 @@
         width: 100%;
         
         height: calc(100% - var(--ui-image-height) / 3);
-        background-color: var(--color--lightgreen);
+        background-color: var(--color--yellow);
         position: absolute;
         top: calc(var(--ui-image-height) / 3);
         left: 0;

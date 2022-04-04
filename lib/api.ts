@@ -86,3 +86,69 @@ export async function getIllustrationData() {
     console.log('Illustration data:', data)
     return data
 }
+
+export async function getBusinessGraphicsData() {
+  const data = await fetchAPI(
+     ` {
+      page(id: "61", idType: DATABASE_ID) {
+        bilderBusinessGraphics {
+          firstImageLeft {
+            altText
+            sourceUrl
+            title
+            mediaDetails {
+              height
+              width
+            }
+          }
+          firstImageRight {
+            altText
+            mediaDetails {
+              height
+              width
+            }
+            sourceUrl
+            title
+          }
+          secondImageLeft {
+            altText
+            mediaDetails {
+              height
+              width
+            }
+            sourceUrl
+            title
+          }
+          secondImageRight {
+            altText
+            mediaDetails {
+              height
+              width
+            }
+            sourceUrl
+            title
+          }
+        }
+        content
+        title
+      }
+      posts(first: 10, where: {categoryId: 14}) {
+        nodes {
+          testimonials {
+            company
+            name
+            quote
+            image {
+              altText
+              title
+              sourceUrl(size: MEDIUM)
+            }
+          }
+        }
+      }
+    }`
+  )
+
+  console.log('Business-Gaphics data:', JSON.stringify(data, null, 2))
+  return data
+}

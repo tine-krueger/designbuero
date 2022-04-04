@@ -3,10 +3,10 @@ import Head from 'next/head'
 import classNames from 'classnames/bind'
 import { getHomepageData } from '../lib/api'
 import { News } from '../components/news/news'
+import { Hero, IHeroProps } from '../components/hero/hero'
 import { NextPageWithLayout } from './_app'
 import { NGColor } from '../types/colors'
 import { CustomImage } from '../components/custom-image/custom-image'
-import { isNullOrUndefined } from 'util'
 
 export const getStaticProps: GetStaticProps = async() => {
   const initialData = await getHomepageData()
@@ -32,8 +32,7 @@ const heroProps: IHeroProps = {
 } 
 
 const Home: NextPageWithLayout & NextPage<IHomeProps> = ({initialData}) => {
-  const { nodes = null, ...rest} = initialData
-  const data = nodes
+  const data = initialData.nodes
   const news = data[0]
   return (
   <>

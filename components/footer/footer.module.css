@@ -1,0 +1,46 @@
+.container {
+    padding:var(--spacing--default) var(--spacing--m) ;
+    grid-template-columns: 1fr auto 1fr;
+    background-color: var(--background-color, var(--color--brown));
+}
+
+.logo {
+    position: relative;
+    width: 350px;
+    max-width: 150px;
+    height: 100%;
+}
+
+.legal-nav {
+    align-self: center;
+    &-item {
+        font: var(--font-style--xs);
+        &:not(:first-child) {
+            span {
+                border-left: 1px solid var(--color--white);
+            }
+        }
+
+        a {
+            padding: var(--spacing--default) 0;
+        }
+
+        span {
+            padding: 0 var(--spacing--default);
+        } 
+    }
+}
+
+.social-nav {
+    align-self: center;
+    justify-self: end;
+ 
+    .social-nav-item {
+        padding: 0 calc(var(--spacing--default) / 2);
+        a {
+            width: 20px;
+            height: 20px; 
+        }
+    }
+
+}

@@ -24,14 +24,18 @@ export type TSharedButtonProps = TButtonAsLink | TButtonAsButton | TButtonAsSpan
 
 export interface IBasicButtonProps extends ComponentProps<'button'> {
 	label?: string
+	layout?: 'round' | 'ellipse'
+	accent?: 'circle'
+	
 }
 
 export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
-
-    const classes = classNames(props.className, styles.container, 'text-align--center text--uc')
+	const {layout = 'ellipse', accent, ...attributes} = props
+	console.log(layout)
+    const classes = classNames(props.className, styles.container, styles[layout], accent ? styles[accent] : undefined, 'text-align--center text--uc')
 
 	if (props.as === 'link') {
-		const { label, children, as, className, download, ...rest } = props
+		const { label, children, as, className, download, layout, accent, ...rest } = props
 
         
 		return (
@@ -50,7 +54,7 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 			</Link>
 		)
 	} else if (props.as === 'span') {
-		const { label, children, as, className, ...rest } = props
+		const { label, children, layout, as, className, accent,...rest } = props
 		return (
 			<span {...rest} className={classes}>
 				{children ?? label}
@@ -65,7 +69,7 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 			</span>
 		)
 	} else {
-		const { label, children, as, className, ...rest } = props
+		const { label, children, layout, as, className, accent, ...rest } = props
 		return (
 			<button {...rest} className={classes}>
 				{children ?? label}
