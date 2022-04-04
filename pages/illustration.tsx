@@ -4,7 +4,7 @@ import { GalleryWrapper, IPostProps } from "../components/gallery-group/gallery-
 import { Gallery } from "../components/gallery-group/gallery/gallery"
 import { getIllustrationData } from "../lib/api"
 import { NGColor } from "../types/colors"
-import { IllustrationRootObject, mapData } from "../util/data-mapping/illustration-data"
+import { IllustrationRootObject, mapIllustrationData } from "../util/data-mapping/illustration-data"
 import { NextPageWithLayout } from "./_app"
 import styles from '../styles/illustration.module.css'
 import { Button } from "../components/button/button"
@@ -17,7 +17,7 @@ export interface IIllustrationProps {
 
 export const getStaticProps: GetStaticProps = async() => {
     const data: IllustrationRootObject = await getIllustrationData()
-    const posts: IPostProps[] = mapData(data)
+    const posts: IPostProps[] = mapIllustrationData(data)
     const category: string = data.category.name
 
     return {

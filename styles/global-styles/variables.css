@@ -41,7 +41,7 @@
 	/* font styles */
 	--font-style--giant: normal var(--clamp--giant) / var(--line-height--m) var(--font-body);
 	--font-style--xl: normal var(--clamp--xl) / var(--line-height--l) var(--font-headline);
-	--font-style--l: normal var(--clamp--l) / var(--line-height--xl) var(--font-headline);
+	--font-style--l: normal var(--clamp--l) / var(--line-height--xl) var(--font-body-bold);
 	--font-style--m: normal var(--clamp--m) / var(--line-height--l) var(--font-body-bold);
 	--font-style--default: normal var(--clamp--default) / var(--line-height--xl) var(--font-body);
 	--font-style--s: normal var(--clamp--s) / var(--line-height--m) var(--font-body);
