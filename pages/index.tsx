@@ -32,7 +32,8 @@ const heroProps: IHeroProps = {
 } 
 
 const Home: NextPageWithLayout & NextPage<IHomeProps> = ({initialData}) => {
-  const data = initialData.nodes
+  const {nodes = null, ...rest} = initialData
+  const data = nodes
   const news = data[0]
   return (
   <>
