@@ -132,9 +132,23 @@ export async function getBusinessGraphicsData() {
         content
         title
       }
+      posts(first: 10, where: {categoryId: 14}) {
+        nodes {
+          testimonials {
+            company
+            name
+            quote
+            image {
+              altText
+              title
+              sourceUrl(size: MEDIUM)
+            }
+          }
+        }
+      }
     }`
   )
 
-  console.log('Business-Gaphics data:', data)
+  console.log('Business-Gaphics data:', JSON.stringify(data, null, 2))
   return data
 }

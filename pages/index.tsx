@@ -6,6 +6,7 @@ import { News } from '../components/news/news'
 import { Hero, IHeroProps } from '../components/hero/hero'
 import { NextPageWithLayout } from './_app'
 import { NGColor } from '../types/colors'
+import { CustomImage } from '../components/custom-image/custom-image'
 
 export const getStaticProps: GetStaticProps = async() => {
   const initialData = await getHomepageData()
@@ -21,10 +22,7 @@ export interface IHomeProps {
 }
 
 const heroProps: IHeroProps = {
-  image: {
-    src: '/assets/img/dummys/bg02.jpg',
-    objectFit: 'cover'
-  },
+  image: <CustomImage src={'/assets/img/dummys/bg02.jpg'} objectFit={'cover'} priority/> ,
   headline: {
     text: 'desiNGbüro'
   },
