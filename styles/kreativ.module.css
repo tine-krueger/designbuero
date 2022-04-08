@@ -1,0 +1,87 @@
+.image-text {
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: var(--spacing--default);
+    background-color: hsla(var(--color-grey-hsl), 0.2);
+
+    .image {
+        grid-column: 1 / span 4;
+    }
+
+    .content {
+        grid-column: 5 / -1; 
+        padding: var(--spacing--m) var(--spacing--xl) var(--spacing--m) var(--spacing--l);
+    }
+}
+
+.image-grid {
+    height: 700px;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: var(--spacing--default);
+    background-color: hsla(var(--color-grey-hsl), 0.2);
+
+    .image {
+        &:first-child {
+            grid-column: 1 / span 4;
+            grid-row: 1 / span 2;
+        }
+        &:nth-child(2) {
+            grid-column: 5 / span 3;
+            grid-row: 1 / span 1;
+        }
+    
+        &:nth-child(3) {
+            grid-column: 8 / span 5;
+            grid-row: 1 / span 1;
+        }
+    
+        &:nth-child(4) {
+            grid-column: 1 / span 4;
+            grid-row: 3 / span 1;
+        }
+    
+        &:nth-child(5) {
+            grid-column: 5 / -1;
+            grid-row: 2 / span 2;
+        }
+    }
+    
+    .show-all {
+        grid-column: 1 / -1;
+        grid-row: 1 / 4;
+        justify-self: center;
+        margin-top: 160px;
+        height: min-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: initial;
+        font-size: var(--clamp--xl) !important;
+    }
+}
+
+
+.text-group-wrapper {
+    display: grid;
+    padding: var(--spacing--m);
+    grid-template-columns: 1fr 4fr;
+    background-color: hsla(var(--color-grey-hsl), 0.2);
+    .text-group {
+        display: grid;
+        grid-template-columns: 4fr 3fr;
+        grid-gap: var(--spacing--m);
+        grid-column: 2 / -1;
+        padding: var(--spacing--default) var(--spacing--m);
+    }
+
+    .get-in-touch {
+        height: min-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: initial;
+        font-size: var(--clamp--xl) !important;
+    }
+}
+
+

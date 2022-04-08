@@ -2,7 +2,7 @@
     justify-items: center;
 
     &-button {
-        margin-top: calc(var(--spacing--default) * -1);
+        margin-top: calc(var(--spacing--default) * -1) !important;
     }
 }
 

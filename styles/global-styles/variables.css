@@ -3,6 +3,8 @@
 	--font-body: 'Montserrat-Regular';
 	--font-body-bold: 'Montserrat-Bold';
 	--font-headline: 'SigmarOne-Regular';
+	--font-highlight: 'JuliusSansOne-Regular';
+	--font-highlight-2: 'Sacramento';
 
 	/* font-sizes desktop*/
 	--font-size--d-giant: 95px; /* 68px */
@@ -46,6 +48,8 @@
 	--font-style--default: normal var(--clamp--default) / var(--line-height--xl) var(--font-body);
 	--font-style--s: normal var(--clamp--s) / var(--line-height--m) var(--font-body);
 	--font-style--xs: normal var(--clamp--xs) / var(--line-height--xl) var(--font-body);
+	--font-style--highlight: normal var(--clamp--xl) / var(--line-height--l) var(--font-highlight);
+	--font-style--highlight-2: normal var(--clamp--xl) / var(--line-height--l) var(--font-highlight-2);
 
 	/* color-values */
 	--color-grey-hsl: 191, 20%, 21%;

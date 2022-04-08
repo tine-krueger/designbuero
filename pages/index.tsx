@@ -2,11 +2,12 @@ import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import classNames from 'classnames/bind'
 import { getHomepageData } from '../lib/api'
-import { News } from '../components/news/news'
+import { INewsProps, News } from '../components/news/news'
 import { Hero, IHeroProps } from '../components/hero/hero'
 import { NextPageWithLayout } from './_app'
 import { NGColor } from '../types/colors'
 import { CustomImage } from '../components/custom-image/custom-image'
+import { useEffect, useState } from 'react'
 
 export const getStaticProps: GetStaticProps = async() => {
   const initialData = await getHomepageData()
@@ -32,9 +33,16 @@ const heroProps: IHeroProps = {
 } 
 
 const Home: NextPageWithLayout & NextPage<IHomeProps> = ({initialData}) => {
-  const {nodes = null, ...rest} = initialData
-  const data = nodes
-  const news = data[0]
+
+  const [ news, setNews] =  useState<any | undefined>(undefined)
+
+  useEffect(() => {
+    if (initialData === null) {
+      return
+    }
+    setNews(initialData.nodes[0])
+  }, [initialData])
+
   return (
   <>
     <Head>

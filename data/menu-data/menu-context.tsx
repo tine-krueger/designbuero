@@ -25,7 +25,7 @@ const globalMenu: IGlobalMenuState = {
         },
         {
             label: 'Über',
-            href: '/ueber-mich',
+            href: '/about-me',
             type: 'internal'
         }
     ],

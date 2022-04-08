@@ -2,26 +2,10 @@ import { NodeNextRequest } from "next/dist/server/base-http/node";
 import { ITestimonialProps } from "../../components/testimonials/testimonial/testimonial";
 import { IBusinessGraphicsProps } from "../../pages/business-graphics";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export interface IWordpressBusinessGraphicsPageProps {
   page: IWordpressBusinessGraphicsProps;
   posts: Posts;
-
 }
-
 
 export interface IWordpressBusinessGraphicsProps {
   bilderBusinessGraphics: BilderBusinessGraphics;
@@ -70,11 +54,12 @@ interface Image {
 }
 
 export function businessGraphicsData(data: IWordpressBusinessGraphicsPageProps): IBusinessGraphicsProps {
-     
+    if (data === null) {
+      return data
+    }
     const {page, posts} = data
     const {bilderBusinessGraphics, ...rest} = page
     const {nodes} = posts
-    console.log(rest)
 
     const testimonials: ITestimonialProps[] = []
     nodes.map(node => {
@@ -85,7 +70,7 @@ export function businessGraphicsData(data: IWordpressBusinessGraphicsPageProps):
         image: {
           src: node.testimonials.image.sourceUrl,
           alt: node.testimonials.image.altText,
-          ...node.testimonials.image,
+          title: node.testimonials.image.title,
           sizes: '75px'
         },
       }
@@ -93,7 +78,7 @@ export function businessGraphicsData(data: IWordpressBusinessGraphicsPageProps):
     })
 
     const businessGraphicsData: IBusinessGraphicsProps = {
-        images: [
+        data: {images: [
             {
                 src: bilderBusinessGraphics.firstImageLeft.sourceUrl,
                 title: bilderBusinessGraphics.firstImageLeft.title,
@@ -121,7 +106,7 @@ export function businessGraphicsData(data: IWordpressBusinessGraphicsPageProps):
             },
         ],
         testimonials: testimonials,
-        ...rest
+        ...rest}
     }
 
     return businessGraphicsData

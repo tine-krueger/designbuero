@@ -1,13 +1,42 @@
 .container {
     padding: var(--spacing--m);
+
+    &.creative {
+        background-color: var(--color--brown);
+        display: flex;
+    } 
     
    
 }
 
 .headline {
+    font: var(--font-style--highlight);
     .business & {
         text-align: center;
         margin-bottom: var(--spacing--m);
+    }
+
+    .creative & {
+        text-align: right;
+        white-space: pre-line; 
+        height: min-content;
+        position: relative;
+        z-index: 1;
+        margin-right: var(--spacing--m);
+        margin-top: var(--spacing--default);
+
+        &::before {
+            content: '';
+            width:100%;
+            aspect-ratio: 1 / 1;
+            background-color: var(--color--white);
+            border-radius: 50%;
+            position: absolute;
+            top:0;
+            left: calc(var(--spacing--l) * -1);
+            z-index: -1;
+            transform: translateY(-25%);
+        }
     }
 }
 .wrapper {

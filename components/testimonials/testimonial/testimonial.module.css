@@ -4,16 +4,18 @@
     max-width: 300px;
     min-width: 300px;
     scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
 
-    &:not(:first-child) {
-        margin-left: var(--spacing--m);
-    }
+    
    
     &.business {
-        display: flex;
-        flex-direction: column;
         border: 2px solid hsla(var(--color-blue-hsl), 0.15);
         padding: 0 var(--spacing--default);
+
+        &:not(:first-child) {
+            margin-left: var(--spacing--m);
+        }
         &::after {
             content: "";
             position: absolute;
@@ -33,6 +35,11 @@
             transform: translateY(-60%);
         }
     }
+
+    &.creative {
+        justify-content: center;
+        
+    }
 }
 
 .quote-wrapper {
@@ -43,7 +50,49 @@
         flex-shrink: 1;
         display: flex;
         align-items: center;
-        
+    }
+
+    .creative & {
+        position: relative;
+        padding-left: var(--spacing--l);
+        border-radius: 3rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            mask-image: url('../../../public/assets/svg/quote.svg');
+            -webkit-mask-image: url('../../../public/assets/svg/quote.svg');
+            mask-size: 50%;
+            -webkit-mask-size: 50%;
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            background-color: var(--color--grey);
+            border-radius: 50%;
+            top: calc(var(--spacing--m) * -1);
+            left: 0;
+        }
+
+        /* &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 0 solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid hsla(var(--color-white-hsl), 0.5);
+            position: absolute;
+            bottom: -20px;
+            left: 5rem;
+        }   */
+    }
+}
+
+.quote {
+    .creative & {
+        margin: 0;
     }
 }
 
@@ -55,6 +104,11 @@
         grid-column-gap: var(--spacing--default);
         border-top: 2px solid hsla(var(--color-blue-hsl), 0.15);
         padding: var(--spacing--default) 0;
+    }
+
+    .creative & {
+        /* padding: var(--spacing--default) var(--spacing--m); */
+        padding-left: var(--spacing--l);
     }
 }
 
@@ -80,6 +134,12 @@
         padding-right: calc(var(--spacing--default) / 2);
         margin: 0;
         grid-column: 2 / -1;
+    }
+
+    .creative & {
+        font-family: var(--font-body-bold);
+	    font-weight: 500;
+        /* color: var(--color--white); */
     }
 }
 

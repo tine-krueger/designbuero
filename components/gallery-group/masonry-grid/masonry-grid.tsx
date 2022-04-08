@@ -28,6 +28,7 @@ const UnmemoizedImageGridGallery: FC<IMasonryGridGalleryProps & IInternalMasonry
                         <CustomImage key={uid(image)} className={classNames(styles.image, childElementsClasses?.image)} objectFit={objectFit} priority={imagesHavePriority} {...image}/>
                     )
                 })}
+                {children}
         </div>
     )
 }

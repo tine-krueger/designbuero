@@ -32,7 +32,15 @@
 
 @font-face {
 	font-family: 'JuliusSansOne-Regular';
-	src: url('/assets/fonts/JuliusSansOne-Regular.woff2') format('woff2'), url('/assets/fonts/JuliusSansOne-Regular.woff') format('woff');
+	src: url('/assets/fonts/JuliusSansOne-Regular01.woff2') format('woff2'), url('/assets/fonts/JuliusSansOne-Regular01.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Sacramento';
+	src: url('/assets/fonts/Sacramento-Regular.woff2') format('woff2'), url('/assets/fonts/Sacramento-Regular.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;

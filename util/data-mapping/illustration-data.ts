@@ -1,8 +1,9 @@
 import { IPostProps } from "../../components/gallery-group/gallery-wrapper";
+import { IIllustrationProps } from "../../pages/illustration";
 
 
 
-export interface IllustrationRootObject {
+export interface IWordpressPortfolioProps {
   posts: Posts;
   category: Category;
 }
@@ -10,6 +11,12 @@ export interface IllustrationRootObject {
 interface Category {
   categoryId: number;
   name: string;
+  description: string
+  catAdditionalFields: CatAdditionalFields
+}
+
+interface CatAdditionalFields {
+  categoryDescription2: string
 }
 
 interface Posts {
@@ -48,7 +55,7 @@ interface Node {
   mediaItemUrl: string;
 }
 
-export function mapIllustrationData(data: IllustrationRootObject): IPostProps[] {
+export function mapPortfolioData(data: IWordpressPortfolioProps): IIllustrationProps {
     const posts: IPostProps[] = []
     data.posts.edges.map( edge => {
         const tags: string[] = []
@@ -62,5 +69,19 @@ export function mapIllustrationData(data: IllustrationRootObject): IPostProps[] 
         }
         posts.push(post)
     })
-    return posts
+
+
+    const portfolioProps: IIllustrationProps = {
+      posts: posts,
+      category: {
+        name: data.category.name,
+        descriptions: [
+          data.category.description,
+          data.category.catAdditionalFields.categoryDescription2
+        ]
+      }
+    }
+
+
+    return portfolioProps
 }
