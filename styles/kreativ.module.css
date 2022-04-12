@@ -52,9 +52,6 @@
         justify-self: center;
         margin-top: 160px;
         height: min-content;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         text-transform: initial;
         font-size: var(--clamp--xl) !important;
     }
@@ -76,9 +73,6 @@
 
     .get-in-touch {
         height: min-content;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         text-transform: initial;
         font-size: var(--clamp--xl) !important;
     }

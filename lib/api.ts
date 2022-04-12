@@ -35,32 +35,89 @@ async function fetchAPI(query, { variables } = { variables: {} }) {
 export async function getHomepageData() {
     const data = await fetchAPI(
         `{
-            posts(where: {categoryId: 1, orderby: {field: DATE, order: DESC}}, first: 1) {
-              nodes {
-                id
-                title
-                postsadditionals {
-                    customexcerpt
-                    }
-                featuredImage {
-                    node {
-                        altText
-                        mediaDetails {
-                        file
-                        height
-                        width
-                        }
-                        sourceUrl
-                    }
+          news: posts(
+            first: 1
+            where: {categoryId: 18, orderby: {field: DATE, order: DESC}}
+          ) {
+            nodes {
+              featuredImage {
+                node {
+                  altText
+                  sourceUrl
+                  title
+                }
+              }
+              postsadditionals {
+                customexcerpt
+                link {
+                  target
+                  url
+                }
+              }
+              title
+            }
+          }
+          illustration: posts(
+            first: 1
+            where: {categoryId: 2, orderby: {field: DATE, order: DESC}}
+          ) {
+            nodes {
+              featuredImage {
+                node {
+                  altText
+                  sourceUrl
+                  title
+                }
+              }
+              categories {
+                nodes {
+                  name
                 }
               }
             }
+          }
+          kreativ: posts(
+            first: 1
+            where: {categoryId: 16, orderby: {field: DATE, order: DESC}}
+          ) {
+            nodes {
+              featuredImage {
+                node {
+                  altText
+                  sourceUrl
+                  title
+                }
+              }
+              categories {
+                nodes {
+                  name
+                }
+              }
+            }
+          }
+          businessGraphics: page(id: "61" ,idType: DATABASE_ID) {
+            bilderBusinessGraphics {
+              firstImageLeft {
+                altText
+                title
+                sourceUrl
+              }
+            }
+          }
+          nodeByUri(uri: "/") {
+            ... on Page {
+              landingAboutMe {
+                welcomeHeadline
+                welcomeText
+              }
+            }
+          }
         }`
     )
     if (!data) {
       return null
     }
-    return data.posts
+    return data
 }
 
 export async function getPortfolioDataByCatId(id: number) {

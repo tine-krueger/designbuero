@@ -20,16 +20,10 @@ interface BilderBusinessGraphics {
   secondImageRight: FirstImageLeft;
 }
 
-interface FirstImageLeft {
+export interface FirstImageLeft {
   altText: string;
   sourceUrl: string;
   title: string;
-  mediaDetails: MediaDetails;
-}
-
-interface MediaDetails {
-  height: number;
-  width: number;
 }
 
 interface Posts {

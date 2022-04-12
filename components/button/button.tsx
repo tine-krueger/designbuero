@@ -47,12 +47,11 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 		)
 
 	if (props.as === 'link') {
-		const { label, children, as, className, download, layout, accent, ...rest } = props
-
-        
+		const { label, children, as, className, download, layout, accent, href, ...rest } = props
+ 
 		return (
-			<Link {...rest}>
-				<a className={classes} download={download}>
+			<Link href={href} {...rest}>
+				<a className={classNames(classes, 'no-link')} download={download} >
 					{children ?? label}
                     <span className={styles["blob-wrapper"]}>
                         <span className={styles.blobs}>

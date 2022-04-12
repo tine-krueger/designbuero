@@ -1,5 +1,4 @@
 import classNames from "classnames"
-import { setLazyProp } from "next/dist/server/api-utils"
 import { ComponentProps, FC, memo, useEffect, useState } from "react"
 import { NGColor } from "../../types/colors"
 import { ICustomImageProps } from "../custom-image/custom-image"
