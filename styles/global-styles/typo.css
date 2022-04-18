@@ -42,18 +42,48 @@ h3 {
 h1,
 h2,
 h3 {
-	color: var(--headline-color, var(--color--black));
+	color: var(--headline-color, var(--color--grey));
 }
 
 a,
 .link {
-	
+	display: inline-block;
+	position: relative;
 
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		transform: scaleX(0);
+		height: 1px;
+		bottom: 0;
+		left: 0;
+		background-color: var(--text-color, var(--color--grey));
+		transform-origin: bottom right;
+		transition: transform 0.25s ease-out;
+	}
+
+	&:hover {
+		&::after {
+			transform: scaleX(1);
+  			transform-origin: bottom left;
+		}
+	}
 }
 
 .no-link {
-
-
+	&::after {
+		content: unset;
+		position: unset;
+		width: unset;
+		transform: unset;
+		height: unset;
+		bottom: unset;
+		left: unset;
+		background-color: unset;
+		transform-origin: unset;
+		transition: unset;
+	}
 }
 
 @each $fontSize in giant, xl, l, m, default, s, xs {

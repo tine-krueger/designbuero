@@ -14,6 +14,7 @@ import { kreativData } from "../util/data-mapping/kreative-data";
 import { Button } from "../components/button/button";
 import { HighlightedTextGroup } from "../components/text-with-highlight-term/highlighted-text-group";
 import { IImageTextProps, ImageText } from "../components/image-text/single-image-text/image-text";
+import heroImage from '../public/assets/img/dummys/bg02.jpg'
 
 
 export interface IKreativProps {
@@ -25,27 +26,33 @@ export interface IKreativProps {
 }
 
 export const getStaticProps: GetStaticProps = async() => {
-   const page = await getKreativData()
+    const page = await getKreativData()
+
+    if(page === null) {
+        return {
+            props: {}
+        }
+    }  
+
     const data = kreativData(page)
 
-   return {
-       props: {
-           ...data
-       }
-   }
+    return {
+        props: {
+            ...data
+        }
+    }
 }
  
 const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
     const { testimonials, images, textGroup, title, imageText, ...rest} = props
     // console.log(JSON.stringify(props, null, 2))
-    console.log()
     const gridChildClasses: TMasonryGridClasses = {
         image: classNames(styles.image)
     }
     return (
         <>  
             <Hero 
-                image={<CustomImage src={'/assets/img/dummys/bg02.jpg'} objectFit={'cover'} priority/>}
+                image={<CustomImage src={heroImage} objectFit={'cover'} priority/>}
                 headline={{text: 'CREATIVITY IS CONTAGIOUS. PASS IT ON.', priorityStyle: PriorityStyle.h2, textColor: NGColor.white}}
                 subheadline={{text: 'Albert Einstein'}}
                 layout='layout-2'

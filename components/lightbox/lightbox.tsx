@@ -3,13 +3,14 @@ import { FC, useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import { CustomImage } from "../custom-image/custom-image"
 import styles from './lightbox.module.css'
+import cross from '../../public/assets/svg/cross.svg'
 
 export interface ILightboxProps  {
     setOpen: (bool: boolean) => void,
     content: JSX.Element
 }
 
-export const Lightbox:FC<ILightboxProps> = (props) => {
+function Lightbox(props: ILightboxProps): JSX.Element{
     const { content, setOpen } = props
     const [ activeClass, setActiveClass] = useState<'active' | undefined>()
     const portal: HTMLElement | null =  document.getElementById("ng-modal")
@@ -24,7 +25,7 @@ export const Lightbox:FC<ILightboxProps> = (props) => {
                 <div className={styles.lightbox}>
                     <div className={classNames('flex flex--justify-content-end')} onClick={closeLightbox}>
                         <span className={styles['cross-wrapper']}>
-                            <CustomImage className={styles['closing-cross']} src='/assets/svg/cross.svg' />
+                            <CustomImage className={styles['closing-cross']} src={cross} />
                         </span>
                     </div>
                     <div className={styles.content}>
@@ -43,5 +44,7 @@ export const Lightbox:FC<ILightboxProps> = (props) => {
     }
     
 }
+
+export default Lightbox
 
 

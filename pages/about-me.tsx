@@ -15,6 +15,16 @@ export interface IAboutMeProps {
 
 export const getStaticProps: GetStaticProps = async() => {
    const data: IAboutMeWordpress =  await getAboutMeData()
+   
+   if(data === null) {
+    return {
+        props: {
+            content: null
+        }
+    }
+
+   }
+
    const page: IAboutMeProps = getAboutMeProps(data)
 
    return {
@@ -33,7 +43,7 @@ const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
         <>  
             <Headline className={styles.headline} text={'Hallo,'}/>
             <div className={classNames(styles['image-text-wrapper'])}>
-                {content.map( item => (
+                {content && content.map( item => (
                     <ImageText 
                         key={uid(item)}
                         className={classNames(styles['image-text'])} 

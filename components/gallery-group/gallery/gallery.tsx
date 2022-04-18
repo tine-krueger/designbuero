@@ -4,15 +4,18 @@ import styles from './gallery.module.css'
 import { CustomImage, ICustomImageProps } from '../../custom-image/custom-image'
 import { uid } from "react-uid";
 import { NGColor } from "../../../types/colors";
-import { Lightbox } from "../../lightbox/lightbox";
+// import { Lightbox } from "../../lightbox/lightbox";
 import { LightboxImage } from "../../lightbox/lightbox-image/lightbox-image";
 import { IPostProps } from "../gallery-wrapper";
+import dynamic from "next/dynamic";
 
 export interface IGalleryProps extends ComponentProps<'div'> {
     images: IPostProps[]
     highlightColor?: NGColor
     texts?: string[]
 }
+
+const LightboxComponent = dynamic(() => import('../../lightbox/lightbox'));
 
 const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
     const {className, children, images, highlightColor, texts,  ...attributes} = props
@@ -32,7 +35,7 @@ const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
                     <p>{text}</p>
                 </div> ) : undefined }  
             )}
-            {lightboxIsOpen && imageToShow && <Lightbox setOpen={setLightboxIsOpen} content={<LightboxImage {...imageToShow}/>}/>}
+            {lightboxIsOpen && imageToShow && <LightboxComponent setOpen={setLightboxIsOpen} content={<LightboxImage {...imageToShow}/>}/>}
         </div>
     )
 

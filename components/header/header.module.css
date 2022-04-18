@@ -89,5 +89,19 @@
         &::after {
             display: none;
         }
+
+        &:hover {
+            animation-name: infinite-spinning;
+            animation-duration: 1s;
+        }
     }
 }
+
+@keyframes infinite-spinning {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

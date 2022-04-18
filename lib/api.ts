@@ -1,6 +1,4 @@
-import { json } from "stream/consumers"
-
-const API_URL = process.env.WP_API_URL
+const API_URL = process.env.WP_API_URL as RequestInfo
 
 
 /*@ts-ignore*/
@@ -8,7 +6,7 @@ async function fetchAPI(query, { variables } = { variables: {} }) {
     const headers = { 'Content-Type': 'application/json'}
 /*@ts-ignore*/
     try {
-      const result: Response = await fetch('http://localhost:8888/designbuero_backend/graphql/', {
+      const result: Response = await fetch(API_URL, {
         method: 'POST',
         headers,
         body: JSON.stringify({query, variables})
@@ -24,12 +22,7 @@ async function fetchAPI(query, { variables } = { variables: {} }) {
       return data.data
   } catch(error) {
     console.log(error)
-  }
-
-
-
-
-    
+  }  
 }
 
 export async function getHomepageData() {

@@ -12,9 +12,17 @@ import { ImageGridGallery, IMasonryGridGalleryProps } from '../components/galler
 import styles from '../styles/home.module.css'
 import { Headline, IHeadlineProps } from '../components/headline/headline'
 import { Button } from '../components/button/button'
+import Background from '../public/assets/img/dummys/bg02.jpg'
 
 export const getStaticProps: GetStaticProps = async() => {
   const initialData: IHomeWordpress = await getHomepageData()
+
+  if(null === initialData) {
+    return {
+      props: {}
+    }
+  }
+
   const homeProps: IHomeProps = mapHomeProps(initialData)
   return {
       props: {
@@ -35,7 +43,7 @@ interface IWelcome {
 }
 
 const heroProps: IHeroProps = {
-  image: <CustomImage src={'/assets/img/dummys/bg02.jpg'} objectFit={'cover'} priority/> ,
+  image: <CustomImage src={Background} objectFit={'cover'} priority/> ,
   headline: {
     text: 'desiNGbüro'
   },
