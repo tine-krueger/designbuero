@@ -2,23 +2,32 @@ import { GetStaticProps, NextPage } from "next"
 import { ICustomImageProps } from "../components/custom-image/custom-image"
 import { GalleryWrapper, IPostProps } from "../components/gallery-group/gallery-wrapper"
 import { Gallery } from "../components/gallery-group/gallery/gallery"
-import { getIllustrationData } from "../lib/api"
+import { getPortfolioDataByCatId } from "../lib/api"
 import { NGColor } from "../types/colors"
-import { IllustrationRootObject, mapIllustrationData } from "../util/data-mapping/illustration-data"
+import { IWordpressPortfolioProps, mapPortfolioData } from "../util/data-mapping/illustration-data"
 import { NextPageWithLayout } from "./_app"
 import styles from '../styles/illustration.module.css'
 import { Button } from "../components/button/button"
 import classNames from "classnames"
+import { ICategoryProps } from "./kreativ/work"
 
 export interface IIllustrationProps {
     posts: IPostProps[]
-    category: string
+    category: ICategoryProps
 }
 
 export const getStaticProps: GetStaticProps = async() => {
-    const data: IllustrationRootObject = await getIllustrationData()
-    const posts: IPostProps[] = mapIllustrationData(data)
-    const category: string = data.category.name
+    const data: IWordpressPortfolioProps = await getPortfolioDataByCatId(2)
+
+    if (null === data ) {
+        return {
+            props: {
+                posts: null,
+                category: null
+            }
+        }
+    }
+    const {posts, category} = mapPortfolioData(data)
 
     return {
         props: {
@@ -35,7 +44,8 @@ const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts,
     /*TODO: Contact Form or E-Mail Provider Button on click*/
     return (
         <>  
-            <GalleryWrapper siteTitle={category} posts={posts}/>
+            {posts && category ? <GalleryWrapper siteTitle={category.name} posts={posts} categoryTexts={category.descriptions}/> :
+            <div>Uuups, No illustrations available at the moment. Please come back later!</div>}
             <div className={classNames(styles.contact, 'grid')}>
                 <div className={styles['contact-text-wrapper']}>
                     <p className={styles['contact-text']}>

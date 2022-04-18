@@ -1,0 +1,20 @@
+.services {
+    height: 300px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.welcome {
+    grid-template-columns: minmax(0, 500px) minmax(0, 200px);
+    grid-gap: var(--spacing--m);
+    padding-left: var(--spacing--giant);
+    padding-right: var(--spacing--l);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.button {
+    text-transform: initial;
+    font-size: var(--clamp--l) !important;
+    line-height: 1;
+    transform: rotate(12deg);
+}

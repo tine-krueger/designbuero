@@ -1,0 +1,8 @@
+.container {
+    strong {
+        --text-color: var(--color--blue);
+        font: var(--font-style--highlight);
+        font-size: var(--clamp--m);
+        color: var(--color--blue);
+    }
+}

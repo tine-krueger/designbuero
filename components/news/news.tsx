@@ -1,4 +1,4 @@
-import { ComponentProps, FC, memo } from "react"
+import { AnchorHTMLAttributes, ComponentProps, DetailedHTMLProps, FC, memo } from "react"
 import Image from 'next/image'
 import { CustomImage, ICustomImageProps } from "../custom-image/custom-image"
 import styles from './news.module.css'
@@ -11,8 +11,8 @@ export interface INewsProps extends ComponentProps<'section'> {
     image?: ICustomImageProps
     headline?: IHeadlineProps
     content?: string
-    link: LinkProps & {
-        label?: string
+    link: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
+        label: string
     }
 }
 
@@ -22,7 +22,7 @@ const UnmemoizedNews: FC<INewsProps> = (props) => {
     const classes = classNames(className, styles.container, 'grid content-width')
 
     return (
-        <section className={classNames(styles.section, ' m m-v--l')} {...attributes}>
+        <section className={classNames(styles.section, 'm m-v--l', `c-bg--${NGColor.yellow}`)} {...attributes}>
             <div className={classes}>
 
                 <div className={styles.image}>
@@ -31,11 +31,10 @@ const UnmemoizedNews: FC<INewsProps> = (props) => {
             
 
                 <div className={styles['content-wrapper']}>
-                    <Headline {...headline} textColor={NGColor.blue} priority={2} /*priorityStyle={PriorityStyle.h3}*/ />
+                    <Headline {...headline} textColor={NGColor.blue} priority={2} />
                     <p>{content}</p>
-                    <Link  {...link}>
-                        <a>{link.label}</a>
-                    </Link>
+                    <a {...link}>{link.label}</a>
+                  
                 </div>
 
             </div>

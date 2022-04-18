@@ -2,6 +2,7 @@ import { ComponentProps, FC, memo } from "react"
 import Link, { LinkProps } from 'next/link'
 import styles from './button.module.css'
 import classNames from "classnames"
+import { NGColor } from "../../types/colors"
 
 
 type TButtonAsButton = IBasicButtonProps &
@@ -26,21 +27,31 @@ export interface IBasicButtonProps extends ComponentProps<'button'> {
 	label?: string
 	layout?: 'round' | 'ellipse'
 	accent?: 'circle'
+	backgroundColor?: NGColor
+	blobColor?: NGColor
+
 	
 }
 
 export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 	const {layout = 'ellipse', accent, ...attributes} = props
 	console.log(layout)
-    const classes = classNames(props.className, styles.container, styles[layout], accent ? styles[accent] : undefined, 'text-align--center text--uc')
+    const classes = classNames(
+		styles.container, 
+		props.className,  
+		styles[layout], 
+		accent ? styles[accent] : undefined, 
+		'text-align--center text--uc', 
+		{[`c-bg--${props.backgroundColor}`]: props.backgroundColor},
+		{[`c-hili--${props.blobColor}`] : props.blobColor}
+		)
 
 	if (props.as === 'link') {
-		const { label, children, as, className, download, layout, accent, ...rest } = props
-
-        
+		const { label, children, as, className, download, layout, accent, href, ...rest } = props
+ 
 		return (
-			<Link {...rest}>
-				<a className={classes} download={download}>
+			<Link href={href} {...rest}>
+				<a className={classNames(classes, 'no-link')} download={download} >
 					{children ?? label}
                     <span className={styles["blob-wrapper"]}>
                         <span className={styles.blobs}>

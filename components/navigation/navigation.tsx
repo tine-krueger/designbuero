@@ -1,6 +1,7 @@
 import classNames from "classnames"
 import Link from "next/link"
-import { ComponentProps, FC, memo } from "react"
+import { useRouter } from "next/router"
+import { ComponentProps, FC, memo, MouseEvent, useState} from "react"
 import { uid } from "react-uid"
 import { NGColor } from "../../types/colors"
 import { CustomImage, ICustomImageProps } from "../custom-image/custom-image"
@@ -30,14 +31,26 @@ export const UnmemoizedNavigation: FC<INavigationProps & IInternalNavigationProp
     const { className, children,  navlist, childElementsClasses, ...attributes} = props
 
     const classes = classNames(className)
+
+    const router = useRouter()
     return (
         <nav className={classes} role='navigation' {...attributes}>
             <ul className={classNames(childElementsClasses?.list, 'flex')}>
                 {navlist.map( item => {
-                    return <li key={uid(item)} className={classNames(styles['list-item'], childElementsClasses?.listItem, 'font-style--s', `c-t--${NGColor.white}`)}>
+                    return <li 
+                        key={uid(item)} 
+                        className={classNames(
+                            styles['list-item'], 
+                            childElementsClasses?.listItem, 
+                            'font-style--s', 
+                            `c-t--${NGColor.white}`,
+                            item.type === 'internal' && router.pathname === item.href ? styles.active : ''
+                            )}
+                        onClick={handleLinkClick}
+                        >
                             { item.type === 'internal' ? (
                                 <Link href={item.href}>
-                                    <a target={item.openBlank ? '_blank' : '_self'}>
+                                    <a className={classNames(styles.link, 'no-link')} title={item.label} target={item.openBlank ? '_blank' : '_self'}>
                                         {item.image ? (
                                             <CustomImage className={styles.icon} src={item.image.src} objectFit={'contain'}/>
                                         ) : <span>{item.label}</span>}
@@ -45,7 +58,7 @@ export const UnmemoizedNavigation: FC<INavigationProps & IInternalNavigationProp
                                     </a>
                                 </Link>
                             ) : (
-                                <a href={item.href} target={item.openBlank ? '_blank' : '_self'}>
+                                <a className={classNames(styles.link, 'no-link')} href={item.href} title={item.label} target={item.openBlank ? '_blank' : '_self'}>
                                     {item.image ? (
                                             <CustomImage className={styles.icon} src={item.image.src} objectFit={'contain'}/>
                                         ) : <span>{item.label}</span>}
@@ -56,6 +69,13 @@ export const UnmemoizedNavigation: FC<INavigationProps & IInternalNavigationProp
             </ul>
         </nav>
     )
+
+    function handleLinkClick(event: MouseEvent<HTMLLIElement>): void {
+        const listElements  = event.currentTarget.parentElement?.children
+        if (listElements) {
+            Array.from(listElements).map( element => element.classList.remove(styles.active))
+        }
+    }
 }
 
 export const Navigation = memo(UnmemoizedNavigation)

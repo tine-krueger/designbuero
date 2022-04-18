@@ -3,3 +3,48 @@
     width: 100%;
     height: 100%;
 }
+
+.link {
+    position: relative;
+
+    &::before {
+        display: block;
+        content: attr(title);
+        font-family: var(--font-body-bold);
+	    font-weight: 700;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        padding: 0 var(--spacing--default);
+    }
+
+    &::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--color--white);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) scale(0, 0);
+        transition: transform 0.3s cubic-bezier(0.61, 0, 0.405, 1.63);
+    }
+
+    .active &,
+    &:active, 
+    &:focus {
+        font-family: var(--font-body-bold);
+	    font-weight: 700;
+        
+    }
+
+    .active &, 
+    &:hover,
+    &:active, 
+    &:focus {
+        &::after {
+            transform: translateX(-50%) scale(1, 1);
+        } 
+    }
+}

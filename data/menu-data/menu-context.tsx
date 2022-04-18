@@ -1,5 +1,7 @@
-import { ContextType, createContext, FC } from "react";
+import { createContext, FC } from "react";
 import { IGlobalMenuState, MenuContextType } from "./types";
+import instagram from '../../public/assets/png/instagram.png'
+import xing from '../../public/assets/png/xing.png'
 
 const globalMenu: IGlobalMenuState = {
     main: [
@@ -25,7 +27,7 @@ const globalMenu: IGlobalMenuState = {
         },
         {
             label: 'Über',
-            href: '/ueber-mich',
+            href: '/about-me',
             type: 'internal'
         }
     ],
@@ -34,7 +36,7 @@ const globalMenu: IGlobalMenuState = {
             href: 'https://www.instagram.com',
             type: 'external',
             image: {
-                src: '/assets/png/instagram.png'
+                src: instagram
             },
             openBlank: true
         },
@@ -42,7 +44,7 @@ const globalMenu: IGlobalMenuState = {
             href: 'https://www.xing.de',
             type: 'external',
             image: {
-                src: '/assets/png/xing.png'
+                src: xing
             },
             openBlank: true
         }

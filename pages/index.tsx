@@ -2,27 +2,48 @@ import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import classNames from 'classnames/bind'
 import { getHomepageData } from '../lib/api'
-import { News } from '../components/news/news'
+import { INewsProps, News } from '../components/news/news'
 import { Hero, IHeroProps } from '../components/hero/hero'
 import { NextPageWithLayout } from './_app'
 import { NGColor } from '../types/colors'
 import { CustomImage } from '../components/custom-image/custom-image'
+import { IHomeWordpress, mapHomeProps } from '../util/data-mapping/homepage-data'
+import { ImageGridGallery, IMasonryGridGalleryProps } from '../components/gallery-group/masonry-grid/masonry-grid'
+import styles from '../styles/home.module.css'
+import { Headline, IHeadlineProps } from '../components/headline/headline'
+import { Button } from '../components/button/button'
+import Background from '../public/assets/img/dummys/bg02.jpg'
 
 export const getStaticProps: GetStaticProps = async() => {
-  const initialData = await getHomepageData()
+  const initialData: IHomeWordpress = await getHomepageData()
+
+  if(null === initialData) {
+    return {
+      props: {}
+    }
+  }
+
+  const homeProps: IHomeProps = mapHomeProps(initialData)
   return {
       props: {
-          initialData
+          ...homeProps
       }
   }
 }
 
 export interface IHomeProps {
-  initialData: any
+  news?: INewsProps
+  services?: IMasonryGridGalleryProps
+  welcome?: IWelcome
+}
+
+interface IWelcome {
+  headline?: IHeadlineProps
+  text?: string
 }
 
 const heroProps: IHeroProps = {
-  image: <CustomImage src={'/assets/img/dummys/bg02.jpg'} objectFit={'cover'} priority/> ,
+  image: <CustomImage src={Background} objectFit={'cover'} priority/> ,
   headline: {
     text: 'desiNGbüro'
   },
@@ -31,10 +52,9 @@ const heroProps: IHeroProps = {
   }
 } 
 
-const Home: NextPageWithLayout & NextPage<IHomeProps> = ({initialData}) => {
-  const {nodes = null, ...rest} = initialData
-  const data = nodes
-  const news = data[0]
+const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcome}) => {
+  //  console.log(JSON.stringify(rest, null, 2))
+  
   return (
   <>
     <Head>
@@ -43,23 +63,26 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({initialData}) => {
     </Head>
     <div className={classNames('c-bg--8')}>
       <Hero {...heroProps}/>
-    
-     {news && <News 
-        headline={{
-          text: news.title
-        }}
-        content={news.postsadditionals.customexcerpt}
-        image={
-          {
-            src: news.featuredImage.node.sourceUrl,
-          }
-        }
-        link={{
-          href: '#',
-          label: 'Weiterlesen'
-        }}
       
-      ></News>}
+      {services && <ImageGridGallery className={classNames(styles.services, 'm m-v--l')} {...services}/>}
+      {welcome && <>
+        <section className={classNames(styles.welcome,'grid')}>
+          <div>
+            <Headline priority={2} {...welcome.headline}/>
+            <p>{welcome.text}</p>
+          </div>
+          <Button 
+            className={classNames(styles.button, 'font-style--highlight-2')}
+            as={'link'}
+            href={'/about-me'}
+            label={'Ich kann nicht anders!'} 
+            layout={'round'}
+            backgroundColor={NGColor.lightgreen}
+            accent={'circle'}
+          />
+        </section>
+      </>}
+      {news && <News {...news}/>}
     </div>
     </>
   )
