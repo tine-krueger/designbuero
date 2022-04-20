@@ -5,7 +5,6 @@ import { globalMenuContext } from "../../data/menu-data/menu-context"
 import { CustomImage } from "../custom-image/custom-image"
 import { Navigation } from "../navigation/navigation"
 import styles from './header.module.css'
-import logoDesingbuero from '../../public/assets/svg/Logo_desingbuero.svg'
 
 export interface IHeaderProps extends ComponentProps<'header'> {
     
@@ -34,14 +33,16 @@ export const UnmemoizedHeader: FC<IHeaderProps> = (props) => {
         <header className={classNames(classes)} >
             <Link href={'/'}>
                 <a className={classNames(styles['home-link'], 'no-link')}>
-                    <CustomImage className={styles.logo}  src={logoDesingbuero}/>
+               
+                    <CustomImage className={styles.logo}  src={'/assets/svg/Logo_desingbuero.svg'}/>
                 </a>
             </Link>
 
             <div className={styles['nav-wrapper']}>
                 <Link href={'/'}>
                     <a className={classNames(styles['home-link--small'], 'no-link')}>
-                        <CustomImage className={styles.logo}  src={logoDesingbuero}/>
+                     
+                        <CustomImage className={styles.logo}  src={'/assets/svg/Logo_desingbuero.svg'}/>
                     </a>
                 </Link>
                 <Navigation className={styles['main-navigation']} childElementsClasses={{list: styles['main-navigation-list'], listItem: styles['main-navigation-list-item']}} aria-label="main" navlist={globalMenuState.main}/>
