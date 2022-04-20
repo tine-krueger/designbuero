@@ -25,10 +25,11 @@ export interface IInternalNavigationProps {
 }
 export interface INavigationProps extends ComponentProps<'nav'> {
     navlist: INavItem[]
+    menuItemClick?: () => void
 }
 
 export const UnmemoizedNavigation: FC<INavigationProps & IInternalNavigationProps> = (props) => {
-    const { className, children,  navlist, childElementsClasses, ...attributes} = props
+    const { className, children,  navlist, childElementsClasses, menuItemClick, ...attributes} = props
 
     const classes = classNames(className)
 
@@ -75,6 +76,7 @@ export const UnmemoizedNavigation: FC<INavigationProps & IInternalNavigationProp
         if (listElements) {
             Array.from(listElements).map( element => element.classList.remove(styles.active))
         }
+        menuItemClick && menuItemClick()
     }
 }
 
