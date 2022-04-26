@@ -77,25 +77,25 @@ export function businessGraphicsData(data: IWordpressBusinessGraphicsPageProps):
                 src: bilderBusinessGraphics.firstImageLeft.sourceUrl,
                 title: bilderBusinessGraphics.firstImageLeft.title,
                 alt: bilderBusinessGraphics.firstImageLeft.altText,
-                sizes: '(min-width: 768px)60vw, 100vw'
+                sizes: '(min-width: 1600px) 915px, 60vw'
             },
             {
               src: bilderBusinessGraphics.firstImageRight.sourceUrl,
               title: bilderBusinessGraphics.firstImageRight.title,
               alt: bilderBusinessGraphics.firstImageRight.altText,
-              sizes: '(min-width: 768px)400vw, 100vw'
+              sizes: '40vw'
            },
             {
                 src: bilderBusinessGraphics.secondImageLeft.sourceUrl,
                 title: bilderBusinessGraphics.secondImageLeft.title,
                 alt: bilderBusinessGraphics.secondImageLeft.altText,
-                sizes: '(min-width: 768px)60vw, 100vw'
+                sizes: '(min-width: 1600px) 915px, 60vw'
             },
             {
                 src: bilderBusinessGraphics.secondImageRight.sourceUrl,
                 title: bilderBusinessGraphics.secondImageRight.title,
                 alt: bilderBusinessGraphics.secondImageRight.altText,
-                sizes: '(min-width: 768px)400vw, 100vw'
+                sizes: '40vw'
                 
             },
         ],

@@ -1,0 +1,109 @@
+@import '../../../styles/global-styles/media-queries.css';
+
+.image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.link {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+
+    .image {
+        transform: scale(1.25) rotate(0deg);
+        transition: transform 0.3s;
+    }
+
+    &:active {
+        .image {
+            transform: scale(1.125) rotate(5deg);
+        }
+    }
+}
+
+
+
+.overlay {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(var(--color-petrol-hsl), 0.4);
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 40%;
+        right: 0;
+        left: 50px;
+        height: 2px;
+        background-color: var(--color--white);
+    }
+    
+    @media (--medium-viewport-min) {
+        opacity: 0;
+        transition: opacity 0.4s;
+        transition-delay: 0.2s;
+
+        &::before {
+            left: 100%;
+            opacity: 0;
+            transition: all 0.4s;
+            transition-delay: 0s;
+        }
+
+        &:hover {
+            opacity: 1;
+            transition-delay: 0s ;
+    
+            &::before {
+                left: 50px;
+                opacity: 1;
+                transition-delay: 0s;
+            }
+    
+            .snippet {
+                transform: translate3d(0%, 0%, 0);
+                transition-delay: 0.3s;
+                opacity: 1;
+            }
+        }
+    }
+
+    .snippet-wrapper {
+        height: 60%;
+        width: 100%;
+        align-self: flex-end;
+        overflow: hidden;
+        padding-left: var(--spacing--default);
+        padding-right: var(--spacing--default);
+        @media (--medium-viewport-min) {
+            padding-left: 50px;
+            padding-right: var(--spacing--m);
+           
+        }
+    }
+    
+    .snippet {
+        text-align: center;
+        @media (--medium-viewport-min) {
+            text-align: left;
+            opacity: 0;
+            transform: translate3d(0%, -100%, 0);
+            transition: all 0.4s;
+        }
+    }
+
+    
+
+    
+}
+

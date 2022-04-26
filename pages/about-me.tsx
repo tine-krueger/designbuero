@@ -40,7 +40,7 @@ const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
     // console.log(JSON.stringify(content, null, 2))
    
     return (
-        <>  
+        <main>  
             <Headline className={styles.headline} text={'Hallo,'}/>
             <div className={classNames(styles['image-text-wrapper'])}>
                 {content && content.map( item => (
@@ -55,7 +55,7 @@ const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
                     />
                 ))}
             </div>
-        </>
+        </main>
     )
 }
 

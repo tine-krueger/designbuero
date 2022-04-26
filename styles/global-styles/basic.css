@@ -27,6 +27,13 @@ body {
 	scroll-margin-top: var(--header-height, 0);
 }
 
+main {
+	& > * {
+		max-width: var(--max-content-width);
+		margin: 0 auto;
+	}
+}
+
 #ng-modal {
 	z-index: 10000;
 }

@@ -7,7 +7,7 @@
 	--font-highlight-2: 'Sacramento';
 
 	/* font-sizes desktop*/
-	--font-size--d-giant: 95px; /* 68px */
+	--font-size--d-giant: 5.9375rem; /* 68px */
 	--font-size--d-xl: 2.625rem; /* 42px */
 	--font-size--d-l: 38px; /* 28px */
 	--font-size--d-m: 24px; /*18px */
@@ -17,7 +17,7 @@
 
 	/* font-sizes mobile*/
 	
-	--font-size--m-giant: 3.1875rem;
+	--font-size--m-giant: 2.5rem;
 	--font-size--m-xl: 1.875rem;
 	--font-size--m-l: 1.5rem;
 	--font-size--m-m: 1.125rem;
@@ -28,7 +28,7 @@
 	/* clamp */
 	--clamp--giant: clamp(var(--font-size--m-giant), 7vw, var(--font-size--d-giant));
 	--clamp--xl: clamp(var(--font-size--m-xl), 7vw, var(--font-size--d-xl));
-	--clamp--l: clamp(var(--font-size--m-l), 7vw, var(--font-size--d-l));
+	--clamp--l: clamp(var(--font-size--m-l), 10vw, var(--font-size--d-l));
 	--clamp--m: clamp(var(--font-size--m-m), 7vw, var(--font-size--d-m));
 	--clamp--default: clamp(var(--font-size--m-default), 5vw, var(--font-size--d-default));
 	--clamp--s: clamp(var(--font-size--m-s), 7vw, var(--font-size--d-s));
@@ -96,7 +96,10 @@
 	/* --header-height--mobile: 6.5625rem;
 	--header-height--desktop: 9.625rem; */
 
-	--content-width: 71.25rem;
+
+	--max-content-width: 1440px;
+	--max-main-image-width: 1600px;
+	--content-width: 1140px;
 
 	/* --main-container-horizontal-padding: calc(var(--spacing--l) + var(--spacing--default)); */
 

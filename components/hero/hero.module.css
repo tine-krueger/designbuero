@@ -1,11 +1,19 @@
+@import '../../styles/global-styles/media-queries.css';
+
 .container {
     min-height: calc(100vh - 220px);
-    max-height: max-content;
-    width: 100vw;
+    max-height: 37.5rem;
+    width: 100%;
+    max-width: var(--max-main-image-width);
+    margin: 0 auto;
     overflow: hidden;
 
     &.layout-1 {
-        border-radius: 0 0% 0 20% /0 0 0 50%;
+
+        @media (--medium-viewport-min) {
+            border-radius: 0 0% 0 20% /0 0 0 50%;
+        }
+        
     }
 }
 
@@ -25,8 +33,9 @@
 .content {
     position: relative;
     z-index: 10;
-    padding: var(--spacing--m);
-    margin-bottom: var(--spacing--l);
+    padding: var(--spacing--default);
+    justify-self: center;
+    
     &::before {
         content: "";
         position: absolute;
@@ -37,27 +46,50 @@
         opacity: 0.4;
     }
 
+    @media (--small-viewport-min) {
+        padding: var(--spacing--m);
+        margin-bottom: var(--spacing--l);
+        
+    }
+
     .layout-1 & {
         height: min-content;
-        width: 60%;
+        max-width: 39.375rem;
+
         &::before {
-            width: 53%;
+            width: 100%;
             height: 100%;
-            border-radius: 0 0% 20% 0/0 0 50% 0;
         }
+
+
+        @media (--medium-viewport-min) {
+            &::before {
+                width: 53%;
+                height: 100%;
+                border-radius: 0 0% 20% 0/0 0 50% 0;
+            }
+        }
+        
     }
 
     .layout-2 & {
         width: min-content;
         aspect-ratio: 1 / 1;
         align-items: center;
-        justify-self: end;
-        margin-right: var(--spacing--xl);
-        margin-top: var(--spacing--l);
+        justify-self: center;
+        margin-top: var(--spacing--default);
+        margin-bottom: var(--spacing--default);
+        
         &::before {
             width: 100%;
             aspect-ratio: 1 / 1;
             border-radius: 50%;
+        }
+
+        @media (--extra-small-viewport-min) {
+            margin-right: var(--spacing--xl);
+            margin-top: var(--spacing--l);
+            justify-self: end;
         }
     }
 }
@@ -76,9 +108,14 @@
     justify-self: end;
     
     .layout-1 & {
-        width: 48%;
+        width: 100%;
         margin-top: var(--spacing--default);
-        margin-right: var(--spacing--default);
-        border-radius: 0 0% 40% 0/0 0 85% 0;
+        padding-left: var(--spacing--m);
+
+        @media (--medium-viewport-min) {
+            width: 48%;
+            margin-right: var(--spacing--default);
+            border-radius: 0 0% 40% 0/0 0 85% 0;
+        }
     } 
 }

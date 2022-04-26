@@ -4,10 +4,11 @@ import { ComponentProps, FC, memo } from 'react'
 import { uid } from 'react-uid'
 import { NGColor } from '../../../types/colors'
 import { CustomImage, ICustomImageProps } from '../../custom-image/custom-image'
-import styles from './masonry-grid.module.css'
+import styles from './image-grid-gallery.module.css'
 
 export type TMasonryGridClasses = {
    image?: string
+   link?: string
 }
 
 interface IGalleryImage extends ICustomImageProps {
@@ -35,7 +36,7 @@ const UnmemoizedImageGridGallery: FC<IMasonryGridGalleryProps & IInternalMasonry
                     const {link, hoverOverlay, ...rest} = image
                     return link ? (
                                 <Link key={uid(image)} href={link.href}>
-                                    <a className={styles.link}>
+                                    <a className={classNames(styles.link, childElementsClasses?.link, 'no-link')}>
                                         <CustomImage 
                                             
                                             className={classNames(styles.image, childElementsClasses?.image)} 

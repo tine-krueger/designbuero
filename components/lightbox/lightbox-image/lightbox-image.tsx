@@ -8,8 +8,9 @@ export interface ILightboxImageProps extends ICustomImageProps{}
 export const UnmemoizedLightboxImage: FC<ILightboxImageProps> = (props) => {
     const {className, children, ...attributes} = props
     const classes = classNames(className, styles.container)
+    console.log(attributes)
     return(
-        <CustomImage className={classes} {...attributes} objectFit={'contain'}/>
+        <CustomImage className={classes} {...attributes} sizes={'(min-width: 1200px) 1140px, 80vw'} objectFit={'contain'}/>
     )
 }
 

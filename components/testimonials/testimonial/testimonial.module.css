@@ -1,14 +1,19 @@
+@import '../../../styles/global-styles/media-queries.css';
+
 .container {
     position: relative;
     width: 100%;
-    max-width: 300px;
-    min-width: 300px;
+    max-width: 285px;
+    min-width: 285px;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
 
-    
-   
+    @media (--extra-small-viewport-min) {
+        max-width: 300px;
+        min-width: 300px;
+    }
+
     &.business {
         border: 2px solid hsla(var(--color-blue-hsl), 0.15);
         padding: 0 var(--spacing--default);
@@ -22,7 +27,7 @@
             width: 40px;
             height: 40px;
             background-color: var(--color--blue);
-            background-image: url('../../../public/assets/svg/quote.svg');
+            background-image: url('/assets/svg/quote.svg');
             background-repeat: no-repeat;
             background-size: 50%;
             background-position: center;
@@ -38,7 +43,10 @@
 
     &.creative {
         justify-content: center;
-        
+
+        @media (--small-viewport-max) {
+            margin-right: var(--spacing--default);
+        }
     }
 }
 
@@ -62,8 +70,8 @@
             position: absolute;
             width: 50px;
             height: 50px;
-            mask-image: url('../../../public/assets/svg/quote.svg');
-            -webkit-mask-image: url('../../../public/assets/svg/quote.svg');
+            mask-image: url('/assets/svg/quote.svg');
+            -webkit-mask-image: url('/assets/svg/quote.svg');
             mask-size: 50%;
             -webkit-mask-size: 50%;
             mask-repeat: no-repeat;

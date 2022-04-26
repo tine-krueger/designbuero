@@ -1,5 +1,7 @@
 import classNames from "classnames"
-import { ComponentProps, FC, memo, useEffect, useState } from "react"
+import { ChangeEvent, ComponentProps, FC, memo, useEffect, useState } from "react"
+import SelectSearch, { SelectedOption, SelectedOptionValue, SelectSearchProps } from "react-select-search-nextjs"
+import { useMediaQuery } from "../../hooks/media-query-hook"
 import { NGColor } from "../../types/colors"
 import { ICustomImageProps } from "../custom-image/custom-image"
 import { Headline } from "../headline/headline"
@@ -20,26 +22,47 @@ export interface IGalleryWrapperProps extends ComponentProps<'div'> {
     categoryTexts?: string[]
 }
 
-
+interface ISelectOption {
+    name: string
+    value: string
+}
 
 export const UnmemoizedGalleryWrapper: FC<IGalleryWrapperProps> = (props) => {
 
     const {className, children, siteTitle, headlineColor = NGColor.green, posts, categoryTexts, ...attributes} = props
     const classes = classNames(className, styles.container, 'grid m m-v--m')
+    const isBreakpoint = useMediaQuery(768)
     const [shownPosts, setShownPosts ] = useState<IPostProps[]>([])
 
     const [tags, setTags] = useState<Set<string> | undefined>()
+
+    const [selectTags, setSelectTags] = useState<any>()
 
     useEffect(() => {
         setShownPosts(posts)
         getTags(posts)
     }, [])
 
+    useEffect(() => {
+
+        if (!tags) {
+            return
+        }
+
+        const selectOptions: ISelectOption[] = []
+        tags.forEach(tag => selectOptions.push({name: tag, value: tag}) )
+        setSelectTags(selectOptions)
+    }, [tags])
+
    
     return(
         <div className={classes} {...attributes}>
             <Headline className={styles.headline} textColor={headlineColor} onClick={handleHeadlineClick}>{siteTitle}</Headline>
-            {tags && <GalleryNavigation className={styles.navigation} categories={tags} onNavItemClick={handleNavbarClick}/>}
+            {!isBreakpoint ? (
+                tags && <GalleryNavigation className={styles.navigation} categories={tags} onNavItemClick={handleNavbarClick}/>
+                ) : (
+                    selectTags && <SelectSearch className={styles.select} options={selectTags} onChange={handleSelectChange} placeholder="Wähle eine Kategorie" printOptions={'always'}/>
+                )}
             
             <Gallery className={classNames(styles.gallery)} texts={categoryTexts} images={shownPosts}/>
 
@@ -60,6 +83,14 @@ export const UnmemoizedGalleryWrapper: FC<IGalleryWrapperProps> = (props) => {
 
     function handleHeadlineClick() {
         setShownPosts(posts)
+    }
+
+    function handleSelectChange(selectedValue: SelectedOptionValue | SelectedOptionValue[]) {
+            if (Array.isArray(selectedValue)) return
+            console.log(selectedValue)
+            /*@ts-ignore*/
+            const newPostArray = posts.filter(post => post.tags.includes(selectedValue as string))
+            setShownPosts(newPostArray)
     }
 }
 

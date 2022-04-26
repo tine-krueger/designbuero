@@ -43,7 +43,7 @@ const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts,
     /*TODO: insert view if no post is available*/ 
     /*TODO: Contact Form or E-Mail Provider Button on click*/
     return (
-        <>  
+        <main>  
             {posts && category ? <GalleryWrapper siteTitle={category.name} posts={posts} categoryTexts={category.descriptions}/> :
             <div>Uuups, No illustrations available at the moment. Please come back later!</div>}
             <div className={classNames(styles.contact, 'grid')}>
@@ -58,7 +58,7 @@ const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts,
                 <Button className={classNames(styles['contact-button'], 'c-bg--4 c-hili--7')} layout='round' accent="circle">Get <br/>in <br/>touch</Button>
             </div>
             
-        </>
+        </main>
     )
 }
 

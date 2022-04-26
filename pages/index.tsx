@@ -8,7 +8,7 @@ import { NextPageWithLayout } from './_app'
 import { NGColor } from '../types/colors'
 import { CustomImage } from '../components/custom-image/custom-image'
 import { IHomeWordpress, mapHomeProps } from '../util/data-mapping/homepage-data'
-import { ImageGridGallery, IMasonryGridGalleryProps } from '../components/gallery-group/masonry-grid/masonry-grid'
+import { ImageGridGallery, IMasonryGridGalleryProps } from '../components/gallery-group/masonry-grid/ImageGridGallery'
 import styles from '../styles/home.module.css'
 import { Headline, IHeadlineProps } from '../components/headline/headline'
 import { Button } from '../components/button/button'
@@ -43,7 +43,7 @@ interface IWelcome {
 }
 
 const heroProps: IHeroProps = {
-  image: <CustomImage src={Background} objectFit={'cover'} priority/> ,
+  image: <CustomImage src={Background} objectFit={'cover'} sizes={'(max-width: 1600px) 100vw, 1600px'} priority/> ,
   headline: {
     text: 'desiNGbüro'
   },
@@ -61,10 +61,14 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
       <title>DesiNGbüro - Nadine Giesler</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <div className={classNames('c-bg--8')}>
+    <main className={classNames('c-bg--8')}>
       <Hero {...heroProps}/>
       
-      {services && <ImageGridGallery className={classNames(styles.services, 'm m-v--l')} {...services}/>}
+      {services && <ImageGridGallery 
+        className={classNames(styles.services, 'm m-v--l')} 
+        childElementsClasses={{link: styles.link}}
+        {...services}
+      />}
       {welcome && <>
         <section className={classNames(styles.welcome,'grid')}>
           <div>
@@ -83,7 +87,7 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
         </section>
       </>}
       {news && <News {...news}/>}
-    </div>
+    </main>
     </>
   )
 }

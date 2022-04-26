@@ -33,18 +33,20 @@ const globalMenu: IGlobalMenuState = {
     ],
     socialNav: [
         {
-            href: 'https://www.instagram.com',
+            href: ' https://www.instagram.com/desingbuero/',
             type: 'external',
             image: {
-                src: instagram
+                src: instagram,
+                sizes: '25px'
             },
             openBlank: true
         },
         {
-            href: 'https://www.xing.de',
+            href: 'https://www.xing.com/profile/Nadine_Giesler/cv',
             type: 'external',
             image: {
-                src: xing
+                src: xing,
+                sizes: '25px'
             },
             openBlank: true
         }

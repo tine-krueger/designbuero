@@ -1,6 +1,6 @@
 
 
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 40 40">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 40 40" >
     <path stroke='#FFF' d="M 5, 5 L 35, 35" stroke-width="5"  stroke-linecap="round"/>
     <path stroke='#FFF' d="M 5, 35 L 35, 5" stroke-width="5"  stroke-linecap="round"/>
 </svg>

@@ -1,3 +1,4 @@
+import { DEFAULT_ECDH_CURVE } from "tls";
 import { IPostProps } from "../../components/gallery-group/gallery-wrapper";
 import { IIllustrationProps } from "../../pages/illustration";
 
@@ -52,7 +53,13 @@ interface FeaturedImage {
 }
 
 interface Node {
-  mediaItemUrl: string;
+  sourceUrl: string;
+  mediaDetails: IMediaDetails
+}
+
+interface IMediaDetails {
+  width: number
+  height: number
 }
 
 export function mapPortfolioData(data: IWordpressPortfolioProps): IIllustrationProps {
@@ -63,7 +70,9 @@ export function mapPortfolioData(data: IWordpressPortfolioProps): IIllustrationP
         
         const post: IPostProps = {
             image: {
-                src: edge.node.featuredImage.node.mediaItemUrl
+                src: edge.node.featuredImage.node.sourceUrl,
+                width: edge.node.featuredImage.node.mediaDetails.width,
+                height: edge.node.featuredImage.node.mediaDetails.height
             },
             tags: tags,
         }

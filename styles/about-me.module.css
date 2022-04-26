@@ -1,9 +1,15 @@
+@import './global-styles/media-queries.css';
+
 .headline {
     max-width: 1000px;
     margin: 0 auto;
     background-color: hsla(var(--color-grey-hsl), 0.05);
-    padding-left: var(--spacing--xxl);
+    padding-left: var(--spacing--m);
     padding-top: var(--spacing--l);
+
+    @media (--medium-viewport-min) {
+        padding-left: var(--spacing--xxl);
+    }
 }
 
 .image-text-wrapper {
@@ -14,26 +20,44 @@
 }
 
 .image-text {
-    grid-template-columns: auto auto;
-    padding: var(--spacing--m);
+    padding: var(--spacing--m) 0;
+
+    @media (--small-viewport-min) {
+        grid-template-columns: auto auto;
+        padding: var(--spacing--m);
+    }
     
     &:nth-child(odd) {
-        padding-left: var(--spacing--xxl);
+        /* padding-left: var(--spacing--m); */
 
-        .image {
-            grid-column: 2 / -1;
-            grid-row: 1;
+        @media (--small-viewport-min) {
+            
+            .image {
+                grid-column: 2 / -1;
+                grid-row: 1;
+            }
         }
+
+        @media (--medium-viewport-min) {
+            padding-left: var(--spacing--xxl);
+        }
+
+       
     }
 
     &:nth-child(even) {
-        padding-right: var(--spacing--xxl);
+        
+
+        @media (--medium-viewport-min) {
+            padding-right: var(--spacing--xxl);
+        }
     }
 
     &:not(:first-child) {
         .image {
             border-radius: 50%;
             overflow: hidden;
+            height: 300px;
         }
         &:nth-child(odd) {
             .image {
@@ -51,10 +75,34 @@
 
     .image {
         width: 300px;
+        max-width: 300px;
     }
 
     .text {
-        padding-left: var(--spacing--l);
-        padding-right: var(--spacing--l);
+        @media (--small-viewport-max) {
+            position: relative;
+            width: 95%;
+            justify-self: end;
+            margin-top: calc(var(--spacing--l) * -1);
+            z-index: 10;
+            padding: var(--spacing--default) var(--spacing--m);
+            &::before {
+                content: '';
+                background-color: var(--color--shellwhite);
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0.7;
+                position: absolute;
+                z-index: -1;
+                display: block;
+            }
+        }
+
+        @media (--small-viewport-min) {
+            padding-left: var(--spacing--l);
+            padding-right: var(--spacing--l);
+        }
     }
 }

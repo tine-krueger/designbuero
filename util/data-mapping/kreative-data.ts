@@ -70,27 +70,32 @@ export function kreativData(data: IWordpressKreativProps): IKreativProps {
         {
             src: bilderKreativ.topLeft.sourceUrl,
             title: bilderKreativ.topLeft.title,
-            alt: bilderKreativ.topLeft.altText
+            alt: bilderKreativ.topLeft.altText,
+            sizes: '(min-width: 1440px) 470px, 33vw'
         },
         {
             src: bilderKreativ.topCenter.sourceUrl,
             title: bilderKreativ.topCenter.title,
-            alt: bilderKreativ.topCenter.altText
+            alt: bilderKreativ.topCenter.altText,
+            sizes: '(min-width: 1440px) 348px, 25vw'
         },
         {
             src: bilderKreativ.topRight.sourceUrl,
             title: bilderKreativ.topRight.title,
-            alt: bilderKreativ.topRight.altText
+            alt: bilderKreativ.topRight.altText,
+            sizes: '(min-width: 1440px) 590px, 41vw'
         },
         {
             src: bilderKreativ.bottomLeft.sourceUrl,
             title: bilderKreativ.bottomLeft.title,
-            alt: bilderKreativ.bottomLeft.altText
+            alt: bilderKreativ.bottomLeft.altText,
+            sizes: '(min-width: 1440px) 470px, 33vw'
         },
         {
             src: bilderKreativ.bottomRight.sourceUrl,
             title: bilderKreativ.bottomRight.title,
-            alt: bilderKreativ.bottomRight.altText
+            alt: bilderKreativ.bottomRight.altText,
+            sizes: '(min-width: 1440px) 955px, 66vw'
         },
     ]
 
@@ -103,7 +108,8 @@ export function kreativData(data: IWordpressKreativProps): IKreativProps {
           image: {
             src: imageText.image.sourceUrl,
             title: imageText.image.title,
-            alt: imageText.image.altText
+            alt: imageText.image.altText,
+            sizes: '(min-width: 1440px) 470px, 33vw'
           }
         },
         ...rest

@@ -96,7 +96,8 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
             image: {
                 src: nodes[0].featuredImage.node.sourceUrl,
                 title: nodes[0].featuredImage.node.title,
-                alt: nodes[0].featuredImage.node.altText
+                alt: nodes[0].featuredImage.node.altText,
+                sizes: '(min-width:1440) 25vw, (min-width:1140) 33vw, 70vw'
             },
             headline: {
                 text: nodes[0].title
@@ -114,6 +115,7 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
                     src: illustration.nodes[0].featuredImage.node.sourceUrl,
                     alt: illustration.nodes[0].featuredImage.node.altText,
                     title: illustration.nodes[0].featuredImage.node.title,
+                    sizes: '(min-width: 768px) 375px, 100vw',
                     link: {
                         href: '/illustration'
                     },
@@ -126,7 +128,8 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
                     link: {
                         href: '/business-graphics'
                     },
-                    hoverOverlay: 'Business Graphics'
+                    hoverOverlay: 'Business Graphics',
+                    sizes: '(min-width: 768px) 375px, 100vw',
                 },
                 {
                     src: kreativ.nodes[0].featuredImage.node.sourceUrl,
@@ -135,7 +138,8 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
                     link: {
                         href: '/kreativ'
                     },
-                    hoverOverlay: kreativ.nodes[0].categories.nodes[0].name
+                    hoverOverlay: kreativ.nodes[0].categories.nodes[0].name,
+                    sizes: '(min-width: 768px) 375px, 100vw',
                 },
             ],
 
