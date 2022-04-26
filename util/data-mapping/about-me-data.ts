@@ -41,8 +41,10 @@ export function getAboutMeProps( data: IAboutMeWordpress): IAboutMeProps {
                     src: contentAboutMe.textImage1.image?.sourceUrl,
                     title: contentAboutMe.textImage1.image?.title,
                     alt: contentAboutMe.textImage1.image?.altText,
-                    // width: contentAboutMe.textImage1.image?.mediaDetails.width,
-                    // height: contentAboutMe.textImage1.image?.mediaDetails.height,
+                    layout: 'intrinsic',
+                    width: contentAboutMe.textImage1.image?.mediaDetails.width,
+                    height: contentAboutMe.textImage1.image?.mediaDetails.height,
+                    // sizes: '300px',
                     priority: true
                 } : null
             },
@@ -52,8 +54,10 @@ export function getAboutMeProps( data: IAboutMeWordpress): IAboutMeProps {
                     src: contentAboutMe.textImage2.image?.sourceUrl,
                     title: contentAboutMe.textImage2.image?.title,
                     alt: contentAboutMe.textImage2.image?.altText,
-                    // width: contentAboutMe.textImage2.image?.mediaDetails.width,
-                    // height: contentAboutMe.textImage2.image?.mediaDetails.height,
+                    layout: 'intrinsic',
+                    width: contentAboutMe.textImage2.image?.mediaDetails.width,
+                    height: contentAboutMe.textImage2.image?.mediaDetails.height,
+                    
                 } : null
             },
             {
@@ -62,8 +66,9 @@ export function getAboutMeProps( data: IAboutMeWordpress): IAboutMeProps {
                     src: contentAboutMe.textImage3.image?.sourceUrl,
                     title: contentAboutMe.textImage3.image?.title,
                     alt: contentAboutMe.textImage3.image?.altText,
-                    // width: contentAboutMe.textImage3.image?.mediaDetails.width,
-                    // height: contentAboutMe.textImage3.image?.mediaDetails.height,
+                    layout: 'intrinsic',
+                    width: contentAboutMe.textImage3.image?.mediaDetails.width,
+                    height: contentAboutMe.textImage3.image?.mediaDetails.height,
                 } : null
             }
         ],

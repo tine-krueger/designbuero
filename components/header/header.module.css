@@ -4,7 +4,6 @@
     --mobile-header-height: 92px;
     --logo-height: 120px;
     background-color: var(--background-color, var(--color--petrol));
-    
     z-index: 1000;
     position: relative;
 
@@ -13,17 +12,18 @@
         top: calc(var(--logo-height) * -1);
     }
 
-    @media (--medium-viewprt-max) {
+    @media (--medium-viewport-max) {
         &.open {
             position: sticky;
             top: 0;
         }
     }
+}
 
-   
-    
-    
-    
+.inner-wrapper {
+    width: 100%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
 }
 
 .home-link {
@@ -135,11 +135,6 @@
         &::after {
             display: none;
         }
-
-        &:hover {
-            animation-name: infinite-spinning;
-            animation-duration: 1s;
-        }
     }
 }
 
@@ -193,12 +188,3 @@
         justify-content: center;
     }
 }
-
-@keyframes infinite-spinning {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }

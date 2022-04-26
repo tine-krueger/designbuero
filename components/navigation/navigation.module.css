@@ -1,3 +1,5 @@
+@import '../../styles/global-styles/media-queries.css';
+
 .icon {
     position: relative;
     width: 100%;
@@ -18,18 +20,32 @@
         padding: 0 var(--spacing--default);
     }
 
-    &::after {
-        content: '';
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: var(--color--white);
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%) scale(0, 0);
-        transition: transform 0.3s cubic-bezier(0.61, 0, 0.405, 1.63);
+    @media (--medium-viewport-min) {
+        &::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--color--white);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0, 0);
+            transition: transform 0.3s cubic-bezier(0.61, 0, 0.405, 1.63);
+        }
+
+        .active &, 
+        &:hover,
+        &:active, 
+        &:focus {
+            &::after {
+                transform: translateX(-50%) scale(1, 1);
+            } 
+        }
+
     }
+
+   
 
     .active &,
     &:active, 
@@ -39,12 +55,5 @@
         
     }
 
-    .active &, 
-    &:hover,
-    &:active, 
-    &:focus {
-        &::after {
-            transform: translateX(-50%) scale(1, 1);
-        } 
-    }
+    
 }

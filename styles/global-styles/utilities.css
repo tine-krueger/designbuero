@@ -116,6 +116,13 @@ a,
 	}
 }
 
+.icon-hover {
+	&:hover {
+		animation-name: infinite-spinning;
+        animation-duration: 1s;
+	}
+}
+
 /* utility classes for breakpoints */
 
 @each $breakpoint, $letter in (large, medium, small, extra-small, mini), (-l, -m, -s, -xs, -xxs) {
@@ -158,3 +165,12 @@ a,
 		}
 	}
 }
+
+@keyframes infinite-spinning {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

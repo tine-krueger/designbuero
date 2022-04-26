@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import { ICustomImageProps } from "../components/custom-image/custom-image";
-import { ImageGridGallery, TMasonryGridClasses } from "../components/gallery-group/masonry-grid/masonry-grid";
+import { ImageGridGallery, TMasonryGridClasses } from "../components/gallery-group/masonry-grid/ImageGridGallery";
 import { NGColor } from "../types/colors";
 import { NextPageWithLayout } from "./_app";
 import styles from '../styles/business-graphics.module.css'
@@ -40,12 +40,12 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
         image: classNames(styles.image)
     }
     return (
-        <>  
+        <main>  
             {data?.images && <Hero 
                 image={<ImageGridGallery className={styles['image-grid']} childElementsClasses={gridChildClasses} images={data.images} objectFit={'cover'} imagesHavePriority={true}/>}
                 headline={{text: 'Business Graphics', textColor: NGColor.yellow}}
             />}
-            <div className={styles['content-wrapper']}>
+            <div className={classNames(styles['content-wrapper'], 'm m-t--m')}>
                 <div className={styles.content}>
                     {data?.content && parse(data.content)}
                     <Button className={classNames(styles['portfolio-button'], 'c-bg--yellow')}>Portfolio anfordern</Button>
@@ -53,7 +53,7 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
                 </div>
             </div>
             {data?.testimonials && <Testimonials headline={{text: 'Kundenstimmen'}} testimonials={data.testimonials}/>}
-        </>
+        </main>
     )
 }
 

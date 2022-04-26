@@ -31,7 +31,7 @@ export const UnmemoizedHero: FC<IHeroProps> = (props) => {
         <div className={classes} {...attributes}>
             <div className={styles.background} >{image}</div>
            
-           <div className={classNames(styles.content, 'grid grid--justify-items-center')}>
+           <div className={classNames(styles.content, 'grid')}>
                {headline && <Headline className={styles.headline} priority={1} textColor={NGColor.white} priorityStyle={PriorityStyle.main} {...headline}/>}
                {subheadline && <Headline className={classNames(styles.subheadline,'font-style--m')} textColor={NGColor.white} priority={2} {...subheadline} />}
            </div>

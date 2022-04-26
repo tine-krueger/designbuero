@@ -42,7 +42,7 @@ const KreativWork: NextPageWithLayout & NextPage<IKreativProps> = ({posts, categ
     /*TODO: insert view if no post is available*/ 
     /*TODO: Contact Form or E-Mail Provider Button on click*/
     return (
-        <>  
+        <main>  
             {posts && category ? (
                 <GalleryWrapper 
                     siteTitle={category.name} 
@@ -52,7 +52,7 @@ const KreativWork: NextPageWithLayout & NextPage<IKreativProps> = ({posts, categ
                 /> 
                 ):
             <div>Uuups, No work to show at the moment. Please come back later!</div>}
-        </>
+        </main>
     )
 }
 

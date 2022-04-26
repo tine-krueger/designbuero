@@ -22,14 +22,13 @@ const UnmemoizedNews: FC<INewsProps> = (props) => {
     const classes = classNames(className, styles.container, 'grid content-width')
 
     return (
-        <section className={classNames(styles.section, 'm m-v--l', `c-bg--${NGColor.yellow}`)} {...attributes}>
+        <section className={classNames(styles.section, 'm m-v--l')} {...attributes}>
             <div className={classes}>
 
                 <div className={styles.image}>
                     {image && <CustomImage className={classNames(styles['image-wrapper'])} objectFit={'cover'}  {...image}/>}
                 </div>
             
-
                 <div className={styles['content-wrapper']}>
                     <Headline {...headline} textColor={NGColor.blue} priority={2} />
                     <p>{content}</p>

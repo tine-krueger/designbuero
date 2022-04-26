@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import { CustomImage, ICustomImageProps } from "../components/custom-image/custom-image";
-import { ImageGridGallery, TMasonryGridClasses } from "../components/gallery-group/masonry-grid/masonry-grid";
+import { ImageGridGallery, TMasonryGridClasses } from "../components/gallery-group/masonry-grid/ImageGridGallery";
 import { NGColor } from "../types/colors";
 import { NextPageWithLayout } from "./_app";
 import styles from '../styles/kreativ.module.css'
@@ -15,6 +15,7 @@ import { Button } from "../components/button/button";
 import { HighlightedTextGroup } from "../components/text-with-highlight-term/highlighted-text-group";
 import { IImageTextProps, ImageText } from "../components/image-text/single-image-text/image-text";
 import heroImage from '../public/assets/img/dummys/bg02.jpg'
+import { useMediaQuery } from "../hooks/media-query-hook";
 
 
 export interface IKreativProps {
@@ -49,8 +50,10 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
     const gridChildClasses: TMasonryGridClasses = {
         image: classNames(styles.image)
     }
+
+    const isBreakpoint = useMediaQuery(768)
     return (
-        <>  
+        <main>  
             <Hero 
                 image={<CustomImage src={heroImage} objectFit={'cover'} priority/>}
                 headline={{text: 'CREATIVITY IS CONTAGIOUS. PASS IT ON.', priorityStyle: PriorityStyle.h2, textColor: NGColor.white}}
@@ -65,7 +68,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
                         image: styles.image,
                         content: styles.content
                     }}
-                    image={imageText.image} 
+                    image={!isBreakpoint ? imageText.image : null} 
                     text={
                     <>
                         <Headline priority={2} priorityStyle={PriorityStyle.h1} text={title}/>
@@ -80,7 +83,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
                 <ImageGridGallery 
                     className={styles['image-grid']} 
                     childElementsClasses={gridChildClasses} 
-                    images={images} 
+                    images={isBreakpoint ? [images[0]] : images} 
                     objectFit={'cover'}
                 >
                     <Button 
@@ -103,7 +106,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
                 )}
             
             {testimonials && <Testimonials className={classNames('m m-t')} headline={{text: 'Teilnehmer-\nfeedback'}} layout={'creative'} testimonials={testimonials}/>}
-        </>
+        </main>
     )
 }
 

@@ -116,12 +116,16 @@ export async function getHomepageData() {
 export async function getPortfolioDataByCatId(id: number) {
     const data = await fetchAPI(
        ` {
-        posts(where: {categoryId: ${id}, orderby: {field: DATE, order: DESC}}) {
+        posts(first: 30, where: {categoryId: ${id}, orderby: {field: DATE, order: DESC}}) {
           edges {
             node {
               featuredImage {
                 node {
-                  mediaItemUrl
+                  sourceUrl(size: LARGE)
+                  mediaDetails {
+                    height
+                    width
+                  }
                 }
               }
               id

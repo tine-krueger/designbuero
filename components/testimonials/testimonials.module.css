@@ -1,10 +1,22 @@
-.container {
-    padding: var(--spacing--m);
+@import '../../styles/global-styles/media-queries.css';
 
+.container {
+    
     &.creative {
         background-color: var(--color--brown);
         display: flex;
+
+        @media (--small-viewport-max) {
+            flex-wrap: wrap;
+        }
     } 
+
+    &.business {
+        padding: var(--spacing--default);
+        @media (--extra-small-viewport-min) {
+            padding: var(--spacing--m);
+        }
+    }
     
    
 }
@@ -22,8 +34,16 @@
         height: min-content;
         position: relative;
         z-index: 1;
-        margin-right: var(--spacing--m);
+        
         margin-top: var(--spacing--default);
+
+        @media (--small-viewport-max) {
+            padding-left: var(--spacing--default);
+        }
+
+        @media (--small-viewport-min) {
+            margin-right: var(--spacing--m);
+        }
 
         &::before {
             content: '';
@@ -43,4 +63,5 @@
     scroll-snap-type: x mandatory;
     overflow-x: scroll;
     padding: var(--spacing--m);
+    z-index: 10;
 }

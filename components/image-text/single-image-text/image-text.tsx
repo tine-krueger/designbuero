@@ -23,7 +23,13 @@ export const UnmemoizedImageText: FC<IImageTextProps & IInternalImageProps> = (p
     const classes = classNames(styles.container, className, 'grid')
     return (
         <div className={classes}>
-            {image && <CustomImage className={classNames(styles.image, childElementsClasses?.image)} objectFit='cover' {...image}/>}
+            {image && (
+                <CustomImage 
+                    className={
+                        classNames(styles.image, childElementsClasses?.image)
+                        } 
+                    objectFit='cover' {...image}
+                />)}
             <div className={classNames(styles.content, childElementsClasses?.content)}>
                 {text}
             </div>

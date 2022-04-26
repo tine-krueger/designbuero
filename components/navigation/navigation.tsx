@@ -61,7 +61,7 @@ export const UnmemoizedNavigation: FC<INavigationProps & IInternalNavigationProp
                             ) : (
                                 <a className={classNames(styles.link, 'no-link')} href={item.href} title={item.label} target={item.openBlank ? '_blank' : '_self'}>
                                     {item.image ? (
-                                            <CustomImage className={styles.icon} src={item.image.src} objectFit={'contain'}/>
+                                            <CustomImage className={styles.icon} src={item.image.src} sizes={item.image.sizes} objectFit={'contain'}/>
                                         ) : <span>{item.label}</span>}
                                 </a>
                             )}

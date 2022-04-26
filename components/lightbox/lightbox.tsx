@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import { CustomImage } from "../custom-image/custom-image"
 import styles from './lightbox.module.css'
-import cross from '../../public/assets/svg/cross.svg'
+import Cross from '../../public/assets/svg/cross.svg'
 
 export interface ILightboxProps  {
     setOpen: (bool: boolean) => void,
@@ -25,7 +25,7 @@ function Lightbox(props: ILightboxProps): JSX.Element{
                 <div className={styles.lightbox}>
                     <div className={classNames('flex flex--justify-content-end')} onClick={closeLightbox}>
                         <span className={styles['cross-wrapper']}>
-                            <CustomImage className={styles['closing-cross']} src={cross} />
+                            <Cross className={classNames(styles['closing-cross'], 'icon-hover')}/>
                         </span>
                     </div>
                     <div className={styles.content}>
