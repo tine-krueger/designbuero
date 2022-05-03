@@ -42,7 +42,7 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
     }
     return (
         <main>  
-            {data?.images && <Hero 
+            {data?.images && <Hero className={styles.hero}
                 image={<ImageGridGallery className={styles['image-grid']} childElementsClasses={gridChildClasses} images={data.images} objectFit={'cover'} imagesHavePriority={true}/>}
                 headline={{text: 'Business Graphics', textColor: NGColor.yellow}}
             />}
@@ -61,4 +61,4 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
 export default BusinessGraphics
 
 BusinessGraphics.headerColor = NGColor.blue
-BusinessGraphics.footerClass = 'c-bg--5'
+BusinessGraphics.footerClass = `c-bg--${NGColor.grey}`

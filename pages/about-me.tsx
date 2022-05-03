@@ -62,5 +62,5 @@ const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
 
 export default AboutMe
 
-AboutMe.headerColor = NGColor.lightgreen
-AboutMe.footerClass = `c-bg--${NGColor.grey}`
+AboutMe.headerColor = NGColor.brown
+AboutMe.footerClass = `c-bg--${NGColor.red}`

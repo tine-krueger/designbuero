@@ -1,3 +1,19 @@
+
+.hero {
+    border-radius: 0 !important;
+
+    & > div {
+        &:nth-child(2) {
+            text-align: center;
+            &::before {
+                border-radius: 0;
+                width: 100%;
+                background: var(--color--blue);
+            }
+        }
+    }
+}
+
 .image-grid {
     height: 100%;
     grid-template-columns: 4fr 3fr;
