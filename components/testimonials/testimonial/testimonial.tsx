@@ -39,10 +39,7 @@ import styles from './testimonial.module.css'
                 <p className={classNames(styles.name)}>{name}</p>
                 {company && <p className={classNames(styles.description)}>{company}</p>}
 
-            </div>
-            
-             
-                 
+            </div>  
          </div>
      )
  }

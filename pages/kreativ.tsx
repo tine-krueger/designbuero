@@ -31,7 +31,8 @@ export const getStaticProps: GetStaticProps = async() => {
 
     if(page === null) {
         return {
-            props: {}
+            props: {},
+            revalidate: 60
         }
     }  
 
@@ -40,7 +41,8 @@ export const getStaticProps: GetStaticProps = async() => {
     return {
         props: {
             ...data
-        }
+        },
+        revalidate: 60
     }
 }
  

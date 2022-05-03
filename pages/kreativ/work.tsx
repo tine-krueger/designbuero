@@ -23,7 +23,8 @@ export const getStaticProps: GetStaticProps = async() => {
             props: {
                 posts: null,
                 category: null
-            }
+            },
+            revalidate: 60
         }
     }
     const {posts, category}: IIllustrationProps = mapPortfolioData(data)
@@ -32,7 +33,8 @@ export const getStaticProps: GetStaticProps = async() => {
         props: {
             posts,
             category
-        }
+        },
+        revalidate: 60
     }
 }
 
