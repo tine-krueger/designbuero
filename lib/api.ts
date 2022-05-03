@@ -203,7 +203,7 @@ export async function getBusinessGraphicsData() {
         content
         title
       }
-      posts(first: 10, where: {categoryId: 14}) {
+      posts(first: 7, where: {categoryId: 14}) {
         nodes {
           testimonials {
             company
@@ -229,7 +229,7 @@ export async function getBusinessGraphicsData() {
 export async function getKreativData() {
   const data = await fetchAPI(
      ` {
-      posts(first: 10, where: {categoryId: 15}) {
+      posts(first: 7, where: {categoryId: 15}) {
         nodes {
           testimonials {
             name

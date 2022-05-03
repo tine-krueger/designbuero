@@ -24,7 +24,8 @@ export const getStaticProps: GetStaticProps = async() => {
             props: {
                 posts: null,
                 category: null
-            }
+            },
+            revalidate: 60
         }
     }
     const {posts, category} = mapPortfolioData(data)
@@ -33,7 +34,8 @@ export const getStaticProps: GetStaticProps = async() => {
         props: {
             posts,
             category
-        }
+        },
+        revalidate: 60
     }
 }
 

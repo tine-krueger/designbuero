@@ -19,7 +19,8 @@ export const getStaticProps: GetStaticProps = async() => {
 
   if(null === initialData) {
     return {
-      props: {}
+      props: {},
+      revalidate: 60
     }
   }
 
@@ -27,7 +28,8 @@ export const getStaticProps: GetStaticProps = async() => {
   return {
       props: {
           ...homeProps
-      }
+      },
+      revalidate: 60
   }
 }
 
