@@ -1,7 +1,7 @@
 @import '../../styles/global-styles/media-queries.css';
 
 .container {
-    min-height: calc(100vh - 220px);
+    height: calc(100vh - 220px);
     max-height: 37.5rem;
     width: 100%;
     max-width: var(--max-main-image-width);
@@ -95,8 +95,6 @@
 }
 
 .headline {
-    width: min-content;
-
     .layout-2 & {
         border-radius: 50%;
         padding: var(--spacing--m);
