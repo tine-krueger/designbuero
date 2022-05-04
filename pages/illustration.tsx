@@ -67,4 +67,4 @@ const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts,
 export default Illustration
 
 Illustration.headerColor = NGColor.green
-Illustration.footerClass = 'c-bg--yellow'
+Illustration.footerClass = 'c-bg--petrol'

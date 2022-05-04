@@ -43,7 +43,7 @@ export const UnmemoizedHeader: FC<IHeaderProps> = (props) => {
                 </Link>
 
                 <div className={styles['nav-wrapper']}>
-                    <Link href={'/'}>
+                <Link href={'/'}>
                         <a className={classNames(styles['home-link--small'], 'no-link')}>
                             <CustomImage className={styles.logo}  src={'/assets/svg/Logo_desingbuero.svg'}/>
                         </a>

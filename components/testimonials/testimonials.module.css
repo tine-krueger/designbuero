@@ -30,10 +30,11 @@
 
     .creative & {
         text-align: right;
-        white-space: pre-line; 
+        /* white-space: pre-line;  */
         height: min-content;
         position: relative;
         z-index: 1;
+        max-width: 300px;
         
         margin-top: var(--spacing--default);
 
