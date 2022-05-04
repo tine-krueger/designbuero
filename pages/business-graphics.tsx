@@ -43,8 +43,8 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
     return (
         <main>  
             {data?.images && <Hero className={styles.hero}
-                image={<ImageGridGallery className={styles['image-grid']} childElementsClasses={gridChildClasses} images={data.images} objectFit={'cover'} imagesHavePriority={true}/>}
-                headline={{text: 'Business Graphics', textColor: NGColor.yellow}}
+                image={<ImageGridGallery className={styles['image-grid']} childElementsClasses={gridChildClasses} images={data.images} objectFit={'contain'} imagesHavePriority={true}/>}
+                /*headline={{text: 'Business Graphics', textColor: NGColor.yellow}}*/
             />}
             <div className={classNames(styles['content-wrapper'], 'm m-t--m')}>
                 <div className={styles.content}>
