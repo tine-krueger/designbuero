@@ -1,18 +1,4 @@
-
-/* .hero {
-    border-radius: 0 !important;
-
-    & > div {
-        &:nth-child(2) {
-            text-align: center;
-            &::before {
-                border-radius: 0;
-                width: 100%;
-                background: var(--color--blue);
-            }
-        }
-    }
-} */
+@import './global-styles/media-queries.css';
 
 .image-grid {
     height: 100%;
