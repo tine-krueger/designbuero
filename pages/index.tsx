@@ -61,7 +61,6 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
   <>
     <Head>
       <title>DesiNGbüro - Nadine Giesler</title>
-      <link rel="icon" href="/favicon.ico" />
     </Head>
     <main className={classNames('c-bg--8')}>
       <Hero {...heroProps}/>

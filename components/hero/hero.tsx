@@ -10,7 +10,7 @@ export interface IHeroProps extends ComponentProps<'div'> {
     subheadline?: IHeadlineProps
     headlineColor?: NGColor
     subheadlineColor?: NGColor
-    layout?: 'layout-1' | 'layout-2'
+    layout?: 'layout-1' | 'layout-2' | 'layout-3'
 }
 
 

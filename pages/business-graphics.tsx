@@ -12,6 +12,7 @@ import parse from 'html-react-parser';
 import { Testimonials } from "../components/testimonials/testimonials";
 import { ITestimonialProps } from "../components/testimonials/testimonial/testimonial";
 import { Hero } from "../components/hero/hero";
+import { useMediaQuery } from "../hooks/media-query-hook";
 
 
 export interface IBusinessGraphicsProps {
@@ -40,11 +41,20 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
     const gridChildClasses: TMasonryGridClasses = {
         image: classNames(styles.image)
     }
+
+    const isBreakpoint = useMediaQuery(768)
     return (
         <main>  
-            {data?.images && <Hero className={styles.hero}
-                image={<ImageGridGallery className={styles['image-grid']} childElementsClasses={gridChildClasses} images={data.images} objectFit={'contain'} imagesHavePriority={true}/>}
-                /*headline={{text: 'Business Graphics', textColor: NGColor.yellow}}*/
+            {data?.images && <Hero className={styles.hero} layout={'layout-3'}
+                image={
+                <ImageGridGallery 
+                    className={styles['image-grid']} 
+                    childElementsClasses={gridChildClasses} 
+                    images={!isBreakpoint ? data.images : [data.images[0]]} 
+                    objectFit={'contain'} 
+                    imagesHavePriority={true}
+                /> }
+                headline={{text: 'Business Graphics', textColor: NGColor.grey}}
             />}
             <div className={classNames(styles['content-wrapper'], 'm m-t--m')}>
                 <div className={styles.content}>

@@ -6,6 +6,7 @@
     background-color: var(--background-color, var(--color--petrol));
     z-index: 1000;
     position: relative;
+    min-height: var(--mobile-header-height);
 
     @media (--medium-viewport-min) {
         position: sticky;
@@ -39,7 +40,7 @@
 
     &--small {
         height: 100%;
-        width: 175px;
+        width: 170px;
         justify-self: start;
         grid-row: 1 / span 1;
         grid-column: 1 / 2;
@@ -62,6 +63,7 @@
     position: relative;
     aspect-ratio: 595 / 204;
     width: 100%;
+    
 }
 
 .nav-wrapper {

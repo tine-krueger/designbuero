@@ -118,10 +118,16 @@
         height: min-content;
         text-transform: initial;
         font-size: var(--clamp--xl) !important;
+        justify-self: center;
 
         @media (--small-viewport-max) {
             align-self: center;
-            justify-self: center;
+            
+        }
+
+        @media (--small-viewport-min) {
+            grid-column: 2 / 3;
+            grid-row: 1;
         }
     }
 }
