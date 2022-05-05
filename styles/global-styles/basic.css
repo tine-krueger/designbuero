@@ -1,3 +1,5 @@
+@import './media-queries.css';
+
 html {
 	height: 100%;
 	padding: 0;
@@ -11,6 +13,7 @@ html {
 body {
 	font: var(--font-style, var(--font-style--default));
 	max-width: 100vw;
+	height: 100%;
 	padding: 0;
 	margin: 0;
 	/* background-color: hsla(var(--hsl-value, var(--color-white-hsl)), 0.3); */
@@ -21,6 +24,12 @@ body {
 		hyphens: auto;
 		color: var(--text-color, var(--color--grey));
 	}
+
+	&>div {
+		&:first-child {
+			height: 100%;
+		}
+	}
 }
 
 :target {
@@ -28,6 +37,19 @@ body {
 }
 
 main {
+	--header-height: var(--small-header-height);
+	--footer-height: var(--big-footer-height);
+	min-height: calc(100vh - var(--header-height) - var(--footer-height));
+
+	@media (--small-viewport-min) {
+		--footer-height: var(--small-footer-height);
+		--header-height: var(--small-header-height);
+		
+	}
+	@media (--medium-viewport-min) {
+		--header-height: var(--big-header-height);
+		
+	}
 	& > * {
 		max-width: var(--max-content-width);
 		margin: 0 auto;

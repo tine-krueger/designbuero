@@ -276,6 +276,10 @@ export async function getKreativData() {
             altText
             title
             sourceUrl
+            mediaDetails {
+              width
+              height
+            }
           }
         }
         title
