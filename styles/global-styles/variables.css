@@ -97,6 +97,10 @@
 	--header-height--desktop: 9.625rem; */
 
 
+	--small-header-height: 72.28px;
+	--big-header-height: 210.28px;
+	--small-footer-height: 113.59px;
+	--big-footer-height: 152.59px;
 	--max-content-width: 1440px;
 	--max-main-image-width: 1600px;
 	--content-width: 1140px;

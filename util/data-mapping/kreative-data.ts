@@ -50,6 +50,12 @@ interface Image {
   altText: string;
   sourceUrl: string;
   title: string;
+  mediaDetails?: IMediaDetails 
+}
+
+interface IMediaDetails {
+    width: number
+    height: number
 }
 
 
@@ -109,6 +115,10 @@ export function kreativData(data: IWordpressKreativProps): IKreativProps {
             src: imageText.image.sourceUrl,
             title: imageText.image.title,
             alt: imageText.image.altText,
+            layout: 'responsive',
+            objectFit: 'contain',
+            width: imageText.image.mediaDetails?.width,
+            height: imageText.image.mediaDetails?.height,
             sizes: '(min-width: 1440px) 470px, 33vw'
           }
         },
