@@ -38,6 +38,10 @@ export async function getHomepageData() {
                   altText
                   sourceUrl
                   title
+                  mediaDetails {
+                    height
+                    width
+                  }
                 }
               }
               postsadditionals {

@@ -53,13 +53,18 @@
               }
         }
         
-
         &.round {
             &::after {
                 display: block;
                 content: "";
                 clear: both;
               }
+        }
+
+        &.circle {
+            &::before {
+                height: calc(100% - var(--spacing--default));
+            } 
         }
       }
 
