@@ -44,6 +44,25 @@
         }
     }
 
+    @supports not (aspect-ratio: 1 / 1) {
+        &.round {
+            &::before {
+                float: left;
+                padding-top: 100%;
+                content: "";
+              }
+        }
+        
+
+        &.round {
+            &::after {
+                display: block;
+                content: "";
+                clear: both;
+              }
+        }
+      }
+
     &::after {
         content: "";
         z-index: -2;

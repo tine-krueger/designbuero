@@ -36,11 +36,11 @@ export const UnmemoizedHeader: FC<IHeaderProps> = (props) => {
     return (
         <header className={classNames(classes)} {...attributes} >
             <div className={classNames(styles['inner-wrapper'],'grid grid--justify-items-center')}>
-                <Link href={'/'}>
+                {!isBreakpoint && <Link href={'/'}>
                     <a className={classNames(styles['home-link'], 'no-link visible-m')}>
                         <CustomImage className={styles.logo}  src={'/assets/svg/Logo_desingbuero.svg'}/>
                     </a>
-                </Link>
+                </Link>}
 
                 <div className={styles['nav-wrapper']}>
                 <Link href={'/'}>
