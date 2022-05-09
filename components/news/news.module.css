@@ -105,6 +105,10 @@
         transform: rotate3d(1,1,1, -8deg);;
         box-shadow: 1px 1px 3px 2px rgba(0,0,0,0.10), 5px 6px 7px 2px rgba(0,0,0,0.1);
 
+        @supports not (aspect-ratio: 300 / 400) {
+            width: 80%;
+        }
+
         @media (--small-viewport-max) {
             left: var(--spacing--l);
         }

@@ -26,6 +26,10 @@
     max-width: var(--max-content-width);
     margin: 0 auto;
     height: var(--mobile-header-height);
+
+    @media (--medium-viewport-min) {
+        height: var(--big-header-height);
+    }
 }
 
 .home-link {
@@ -186,7 +190,7 @@
 
 .mobile-social-nav {
     background-color: var(--background-color);
-    padding: var(--spacing--default) var(--spacing--m);
+    padding: var(--spacing--default) var(--spacing--m) 90px;
 
     >ul {
         justify-content: center;

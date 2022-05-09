@@ -64,6 +64,10 @@ interface Node {
   altText: string;
   title: string;
   sourceUrl: string;
+  mediaDetails?: {
+    width: number
+    height: number
+  }
 }
 
 interface MediaDetails {
@@ -97,6 +101,9 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
                 src: nodes[0].featuredImage.node.sourceUrl,
                 title: nodes[0].featuredImage.node.title,
                 alt: nodes[0].featuredImage.node.altText,
+                layout: "responsive",
+                width: nodes[0].featuredImage.node.mediaDetails?.width,
+                height: nodes[0].featuredImage.node.mediaDetails?.height,
                 sizes: '(min-width:1440) 25vw, (min-width:1140) 33vw, 70vw'
             },
             headline: {
