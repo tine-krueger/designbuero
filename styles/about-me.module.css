@@ -93,16 +93,29 @@
                 height: 100%;
                 top: 0;
                 left: 0;
-                opacity: 0.7;
+                opacity: 0.9;
                 position: absolute;
                 z-index: -1;
                 display: block;
             }
         }
+    }
 
-        @media (--small-viewport-min) {
-            padding-left: var(--spacing--l);
-            padding-right: var(--spacing--l);
+    &:first-child {
+        .image {
+            @media (--small-viewport-max) {
+                padding-left: var(--spacing--default);
+            }
+        }
+        .text {
+            @media (--small-viewport-max) {
+                margin-top: 0;
+            }
+            @media (--small-viewport-min) {
+                margin-top: var(--spacing--default);
+                padding-left: var(--spacing--l);
+                padding-right: var(--spacing--l);
+            }
         }
     }
 }

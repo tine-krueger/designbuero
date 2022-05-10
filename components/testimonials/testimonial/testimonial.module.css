@@ -42,7 +42,13 @@
     }
 
     &.creative {
-        justify-content: center;
+        max-width: 300px;
+        min-width: 300px;
+
+        @media (--extra-small-viewport-min) {
+            max-width: 350px;
+            min-width: 350px;
+        }
 
         @media (--small-viewport-max) {
             margin-right: var(--spacing--default);
@@ -81,7 +87,7 @@
             background-color: var(--color--grey);
             border-radius: 50%;
             top: calc(var(--spacing--m) * -1);
-            left: 0;
+            left: 18px;
         }
 
         /* &::after {

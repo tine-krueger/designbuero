@@ -30,6 +30,13 @@
     @media (--small-viewport-min) {
         grid-area: navbar;
     }
+
+    li {
+        hyphens: none;
+        overflow-wrap: unset;
+        word-break: unset;
+        line-height: var(--line-height--xl);
+    }
 }
 
 .gallery {
