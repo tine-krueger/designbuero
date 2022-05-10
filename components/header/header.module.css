@@ -7,17 +7,14 @@
     z-index: 1000;
     position: relative;
     min-height: var(--mobile-header-height);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 
     @media (--medium-viewport-min) {
         position: sticky;
         top: calc(var(--logo-height) * -1);
-    }
-
-    @media (--medium-viewport-max) {
-        &.open {
-            position: sticky;
-            top: 0;
-        }
     }
 }
 

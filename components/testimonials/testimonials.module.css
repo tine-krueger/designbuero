@@ -5,6 +5,7 @@
     &.creative {
         background-color: var(--color--brown);
         display: flex;
+        padding-top: var(--spacing--default);
 
         @media (--small-viewport-max) {
             flex-wrap: wrap;

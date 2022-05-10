@@ -26,7 +26,7 @@ const UnmemoizedNews: FC<INewsProps> = (props) => {
             <div className={classes}>
 
                 <div className={styles.image}>
-                    {image && <CustomImage className={classNames(styles['image-wrapper'])} objectFit={'cover'}  {...image}/>}
+                    {image && <CustomImage className={classNames(styles['image-wrapper'])} objectFit={'contain'} layout={'responsive'}  {...image}/>}
                 </div>
             
                 <div className={styles['content-wrapper']}>
