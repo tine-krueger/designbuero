@@ -79,7 +79,10 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
           <Button 
             className={classNames(styles.button, 'font-style--highlight-2')}
             as={'link'}
-            href={'/about-me'}
+            link={{
+              type: 'internal',
+              href: '/about-me'
+            }}
             label={'Ich kann nicht anders!'} 
             layout={'round'}
             backgroundColor={NGColor.lightgreen}

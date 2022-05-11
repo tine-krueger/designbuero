@@ -268,6 +268,11 @@ export async function getKreativData() {
             sourceUrl
             title
           }
+          topMiddleRight {
+            altText
+            sourceUrl
+            title
+          }
         }
         textGruppeKreativ {
           textfield1

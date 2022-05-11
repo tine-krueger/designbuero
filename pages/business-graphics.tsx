@@ -59,7 +59,18 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
             <div className={classNames(styles['content-wrapper'], 'm m-t--m')}>
                 <div className={styles.content}>
                     {data?.content && parse(data.content)}
-                    <Button className={classNames(styles['portfolio-button'], 'c-bg--yellow')}>Portfolio anfordern</Button>
+                    <Button 
+                        className={classNames(styles['portfolio-button'], 'c-bg--yellow')}
+                        as='link'
+                        link={
+                            {
+                                type: 'mail',
+                                href: 'mailto:ng@desingbuero.de?subject=Anfrage%20Portfolio%20Business%20Graphics&body=Hallo%20Frau%20Giesler,%0D%0A%0D%0Abitte%20lassen%20Sie%20mir%20unverbindlich%20Ihr%20Portfolio%20zukommen.'
+                            }
+                        }
+                    >
+                        Portfolio anfordern
+                    </Button>
 
                 </div>
             </div>
