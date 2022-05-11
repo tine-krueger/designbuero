@@ -28,7 +28,7 @@
 	/* clamp */
 	--clamp--giant: clamp(var(--font-size--m-giant), 7vw, var(--font-size--d-giant));
 	--clamp--xl: clamp(var(--font-size--m-xl), 7vw, var(--font-size--d-xl));
-	--clamp--l: clamp(var(--font-size--m-l), 10vw, var(--font-size--d-l));
+	--clamp--l: clamp(var(--font-size--m-l), 7vw, var(--font-size--d-l));
 	--clamp--m: clamp(var(--font-size--m-m), 7vw, var(--font-size--d-m));
 	--clamp--default: clamp(var(--font-size--m-default), 5vw, var(--font-size--d-default));
 	--clamp--s: clamp(var(--font-size--m-s), 7vw, var(--font-size--d-s));

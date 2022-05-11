@@ -2,6 +2,7 @@
 
 .container {
     height: calc(100vh - 220px);
+    min-height: 30.3125rem;
     max-height: 37.5rem;
     width: 100%;
     max-width: var(--max-main-image-width);

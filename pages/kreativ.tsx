@@ -20,7 +20,7 @@ import { useMediaQuery } from "../hooks/media-query-hook";
 
 export interface IKreativProps {
     testimonials?: ITestimonialProps[]
-    images?: ICustomImageProps[]
+    images?: ICustomImageProps[] | null
     textGroup?: string[]
     title?: string
     imageText?: IImageTextProps
@@ -94,7 +94,10 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
                         blobColor={NGColor.green}
                         layout={'round'} 
                         as={'link'} 
-                        href='/kreativ/work'>Show <br/>All</Button>
+                        link={{
+                            type: 'internal',
+                            href: '/kreativ/work'
+                        }}>Show <br/>All</Button>
                 </ImageGridGallery>
                 )
             }
@@ -102,7 +105,17 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
             {textGroup && (
                 <section className={styles['text-group-wrapper']}>
                     <HighlightedTextGroup className={styles['text-group']} textGroup={textGroup}>
-                        <Button className={classNames(styles['get-in-touch'], 'font-style--highlight-2')} layout={'round'} backgroundColor={NGColor.petrol} blobColor={NGColor.green}>Get in <br/> touch!</Button>
+                        <Button 
+                            className={classNames(styles['get-in-touch'], 'font-style--highlight-2')} 
+                            layout={'round'} backgroundColor={NGColor.petrol} blobColor={NGColor.green}
+                            as={'link'}
+                            link={{
+                                type: 'mail',
+                                href: 'mailto:ng@desingbuero.de?subject=Anfrage%20Kreativ&body=Hallo%20Frau%20Giesler,'
+                            }}
+                        >
+                            Get in <br/> touch!
+                        </Button>
                     </HighlightedTextGroup>
                 </section>
                 )}

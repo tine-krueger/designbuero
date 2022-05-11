@@ -22,7 +22,7 @@ function Lightbox(props: ILightboxProps): JSX.Element{
         return ReactDOM.createPortal(
             <div className={classNames(styles.container, {[styles[`${activeClass}`]] : activeClass}, 'flex  flex--justify-content-center')}>
                 <div className={styles.shadow}></div>
-                <div className={styles.lightbox}>
+                <div className={classNames(styles.lightbox, 'grid')}>
                     <div className={classNames('flex flex--justify-content-end')} onClick={closeLightbox}>
                         <span className={styles['cross-wrapper']}>
                             <Cross className={classNames(styles['closing-cross'], 'icon-hover')}/>

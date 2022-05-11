@@ -39,11 +39,12 @@ interface TextGruppeKreativ {
 }
   
 interface BilderKreativ {
-  bottomLeft: Image;
-  bottomRight: Image;
-  topCenter: Image;
-  topLeft: Image;
-  topRight: Image;
+  bottomLeft?: Image;
+  bottomRight?: Image;
+  topCenter?: Image;
+  topLeft?: Image;
+  topRight?: Image;
+  topMiddleRight?: Image;
 }
 
 interface Image {
@@ -72,7 +73,8 @@ export function kreativData(data: IWordpressKreativProps): IKreativProps {
         testimonials.push(testimonial)
     })
 
-    const images: ICustomImageProps[] = [
+    const images: ICustomImageProps[] | null = bilderKreativ.topLeft && 
+    bilderKreativ.topCenter && bilderKreativ.topMiddleRight && bilderKreativ.topRight && bilderKreativ.bottomLeft && bilderKreativ.bottomRight ? [
         {
             src: bilderKreativ.topLeft.sourceUrl,
             title: bilderKreativ.topLeft.title,
@@ -84,6 +86,12 @@ export function kreativData(data: IWordpressKreativProps): IKreativProps {
             title: bilderKreativ.topCenter.title,
             alt: bilderKreativ.topCenter.altText,
             sizes: '(min-width: 1440px) 348px, 25vw'
+        },
+        {
+          src: bilderKreativ.topMiddleRight.sourceUrl,
+          title: bilderKreativ.topMiddleRight.title,
+          alt: bilderKreativ.topMiddleRight.altText,
+          sizes: '(min-width: 1440px) 590px, 41vw'
         },
         {
             src: bilderKreativ.topRight.sourceUrl,
@@ -103,7 +111,7 @@ export function kreativData(data: IWordpressKreativProps): IKreativProps {
             alt: bilderKreativ.bottomRight.altText,
             sizes: '(min-width: 1440px) 955px, 66vw'
         },
-    ]
+    ] : null
 
     const kreativProps: IKreativProps = {
         testimonials: testimonials,
