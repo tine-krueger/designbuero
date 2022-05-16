@@ -57,7 +57,17 @@ const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts,
 
                 </div>
                 
-                <Button className={classNames(styles['contact-button'], 'c-bg--4 c-hili--7')} layout='round' accent="circle">Get <br/>in <br/>touch</Button>
+                <Button 
+                    className={classNames(styles['contact-button'], 'c-bg--4 c-hili--7')} 
+                    layout='round' 
+                    accent="circle"
+                    as={'link'}
+                    link={{
+                        type: 'mail',
+                        href: 'mailto:ng@desingbuero.de?subject=Anfrage%20Illustration&body=Hallo%20Frau%20Giesler,'
+                    }}>
+                        Get <br/>in <br/>touch
+                    </Button>
             </div>
             
         </main>
