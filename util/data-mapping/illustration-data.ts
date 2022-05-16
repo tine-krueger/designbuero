@@ -65,9 +65,14 @@ interface IMediaDetails {
 export function mapPortfolioData(data: IWordpressPortfolioProps): IIllustrationProps {
     const posts: IPostProps[] = []
     data.posts.edges.map( edge => {
+        if ( edge.node.featuredImage === null) {
+          return
+        }
         const tags: string[] = []
         edge.node.tags.edges.map(edge => tags.push(edge.node.name))
+  
         
+
         const post: IPostProps = {
             image: {
                 src: edge.node.featuredImage.node.sourceUrl,
