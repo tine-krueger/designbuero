@@ -38,6 +38,7 @@
     transform: scale(1.25) rotate(0deg);
     transition: transform 0.2s ease;
     cursor: pointer;
+    padding-bottom: 66.66%;
 
     &:active {
         transform: scale(1.125) rotate(5deg);

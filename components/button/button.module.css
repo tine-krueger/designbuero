@@ -6,7 +6,7 @@
     display: block;
     z-index: 1;
     position: relative;
-    padding: calc(var(--spacing--default)) var(--spacing--m);
+    padding: var(--spacing--default) var(--spacing--m);
     color: var(--text-color);
     background-color: transparent;
     outline: none;
@@ -30,6 +30,7 @@
         justify-content: center;
 
         &.circle {
+            padding: var(--spacing--m);
             &::before {
                 content:"";
                 position: absolute;
