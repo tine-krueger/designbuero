@@ -86,18 +86,6 @@
 	}
 }
 
-a,
-.a11y-outline {
-	outline-width: 0;
-	outline-style: dashed;
-	outline-color: var(--a11y-outline-color, var(--color-white));
-	outline-offset: var(--a11y-outline-offset, 0.25rem);
-
-	&:focus-visible {
-		outline-width: 2px;
-	}
-}
-
 .object-fit {
 	width: 100%;
 	height: 100%;
