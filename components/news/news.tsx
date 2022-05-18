@@ -1,11 +1,11 @@
-import { AnchorHTMLAttributes, ComponentProps, DetailedHTMLProps, FC, memo } from "react"
-import Image from 'next/image'
+import { AnchorHTMLAttributes, ComponentProps, DetailedHTMLProps, FC, memo, useEffect, useRef } from "react"
 import { CustomImage, ICustomImageProps } from "../custom-image/custom-image"
 import styles from './news.module.css'
 import classNames from "classnames"
-import { Headline, IHeadlineProps, PriorityStyle } from "../headline/headline"
+import { Headline, IHeadlineProps } from "../headline/headline"
 import { NGColor } from "../../types/colors"
-import Link, { LinkProps } from "next/link"
+import Bird from "../../public/assets/svg/bird.svg"
+import Note from '../../public/assets/svg/note.svg'
 
 export interface INewsProps extends ComponentProps<'section'> {
     image?: ICustomImageProps
@@ -18,8 +18,21 @@ export interface INewsProps extends ComponentProps<'section'> {
 
 const UnmemoizedNews: FC<INewsProps> = (props) => {
     const {className, children, headline, link, content, image, ...attributes } = props
+    const birdRef = useRef<HTMLDivElement | null>(null)
 
     const classes = classNames(className, styles.container, 'grid content-width')
+
+    useEffect(() => {
+        if (!birdRef.current) return
+        const cachedBirdRef = birdRef.current
+        const observer = new IntersectionObserver( entrie => {
+            cachedBirdRef.classList.toggle('fly', entrie[0].isIntersecting)
+            
+        }, {threshold: 1})
+
+        observer.observe(cachedBirdRef)
+        return () => observer.unobserve(cachedBirdRef)
+    }, [birdRef])
 
     return (
         <section className={classNames(styles.section, 'm m-v--l')} {...attributes}>
@@ -33,9 +46,12 @@ const UnmemoizedNews: FC<INewsProps> = (props) => {
                     <Headline {...headline} textColor={NGColor.blue} priority={2} />
                     <p>{content}</p>
                     <a {...link}>{link.label}</a>
-                  
                 </div>
 
+            </div>
+            <div className={classNames(styles.bird, 'grid')} ref={birdRef}>
+                <Note className={styles.note}/>
+                <Bird></Bird>
             </div>
         </section>
     )
