@@ -8,8 +8,8 @@
         content: '';
         position: absolute;
         width: 100%;
-        height: 51px;
-        bottom: -20px;
+        height: 33px;
+        bottom: -8px;
         left: 0;
         background-color: var(--color--white);
         mask-image: url('/assets/svg/lines.svg');
@@ -61,17 +61,6 @@
     }
 }
 
-.line {
-    position: absolute;
-    bottom:-7rem;
-    left: 0;
-    height: 220px;
-    width: 100%;
-    background: red;
-    mask: url(/assets/svg/lines.svg) ;
-    mask-origin: content-box;
-}
-
 .container {
     position: relative;
     padding: var(--spacing--m) var(--spacing--m);
@@ -86,7 +75,7 @@
     }
     @media (--small-viewport-min) {
         grid-template-columns: 2fr 3fr;
-        padding: var(--spacing--m) var(--spacing--l);
+        padding: var(--spacing--m) var(--spacing--xxl) var(--spacing--l) var(--spacing--l);
     }
     
 
@@ -147,5 +136,94 @@
             grid-column: 2/3;
         }
         
+    }
+}
+
+.bird {
+    position: absolute;
+    bottom: 0;
+    right: var(--spacing--m);
+    width: fit-content;
+    height: 300px;
+    grid-template-rows: 30% 70%;
+    transform: translateY(15%);
+    z-index: 100;
+
+    @media (--large-viewport-min) {
+        right: var(--spacing--l);
+    }
+
+    svg {
+        height: 100%;
+    }
+
+    .note {
+        transform: translateX(-45%);
+        opacity: 1;
+    }
+
+    &:global(.fly) {
+        .note {
+            animation: fly-away 1.25s linear;
+
+        }
+    }
+}
+
+@keyframes fly-away {
+    0% {
+        transform: translate(-45%, 0);
+        opacity: 1;
+    }
+
+    10% {
+        transform: translate(0%, -40%);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translate(100%, -80%);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(0%, -120%);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translate(-80%, -160%);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(0%, -200%);
+        opacity: 1;
+    }
+
+    60% {
+        transform: translate(45%, -240%);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translate(0%, -280%);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translate(-45%, -320%);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translate(0%, -360%);
+        opacity: 0.5;
+    }
+
+   
+    100% {
+        transform: translate(45%, -400%);
+        opacity: 0;
     }
 }

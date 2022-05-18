@@ -125,6 +125,26 @@
         font-size: var(--clamp--xl) !important;
         justify-self: center;
 
+        &::before {
+            content: '';
+            background: url(/assets/svg/pointer.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 71px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-80%, -25%);
+            transition: transform 0.2s ease;
+        }
+
+        &:hover {
+            &::before {
+                transform: translate(-60%, -15%);
+            }
+        }
+
         @media (--small-viewport-max) {
             align-self: center;
             
