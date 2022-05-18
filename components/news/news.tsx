@@ -6,6 +6,7 @@ import { Headline, IHeadlineProps } from "../headline/headline"
 import { NGColor } from "../../types/colors"
 import Bird from "../../public/assets/svg/bird.svg"
 import Note from '../../public/assets/svg/note.svg'
+import { useMediaQuery } from "../../hooks/media-query-hook"
 
 export interface INewsProps extends ComponentProps<'section'> {
     image?: ICustomImageProps
@@ -18,6 +19,7 @@ export interface INewsProps extends ComponentProps<'section'> {
 
 const UnmemoizedNews: FC<INewsProps> = (props) => {
     const {className, children, headline, link, content, image, ...attributes } = props
+    const isBreakpoint = useMediaQuery(768)
     const birdRef = useRef<HTMLDivElement | null>(null)
 
     const classes = classNames(className, styles.container, 'grid content-width')
@@ -49,10 +51,10 @@ const UnmemoizedNews: FC<INewsProps> = (props) => {
                 </div>
 
             </div>
-            <div className={classNames(styles.bird, 'grid')} ref={birdRef}>
+            {!isBreakpoint && <div className={classNames(styles.bird, 'grid')} ref={birdRef}>
                 <Note className={styles.note}/>
                 <Bird></Bird>
-            </div>
+            </div>}
         </section>
     )
 }
