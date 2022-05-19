@@ -66,7 +66,7 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
       <Hero {...heroProps}/>
       
       {services && <ImageGridGallery 
-        className={classNames(styles.services, 'm m-v--l')} 
+        className={classNames(styles.services, 'm m-b--l m-t--m')} 
         childElementsClasses={{link: styles.link}}
         {...services}
       />}
@@ -76,8 +76,8 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
             <Headline priority={2} {...welcome.headline}/>
             <p>{welcome.text}</p>
           </div>
-          <Button 
-            className={classNames(styles.button, 'font-style--highlight-2')}
+          {/* <Button 
+            className={classNames(styles.button, 'font-style--highlight')}
             as={'link'}
             link={{
               type: 'internal',
@@ -87,7 +87,7 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
             layout={'round'}
             backgroundColor={NGColor.lightgreen}
             accent={'circle'}
-          />
+          /> */}
         </section>
       </>}
       {news && <News {...news}/>}

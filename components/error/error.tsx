@@ -12,12 +12,12 @@ export interface IErrorProps extends ComponentProps<'div'> {
 export function Error(props: IErrorProps) {
     const {className, errorType, errorText, ...rest} = props
 
-    const classes = classNames(styles.container, className, 'm m-v--xxl')
+    const classes = classNames(styles.container, className, 'p p-v--xxl')
     return (
-        <div className= {classes}>
+        <main className= {classes}>
             <Headline priorityStyle={PriorityStyle.h3} textColor={NGColor.grey}>
                 {errorType} | {errorText}
             </Headline>
-        </div>
+        </main>
     )
 }

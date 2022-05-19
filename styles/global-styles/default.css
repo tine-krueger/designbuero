@@ -24,6 +24,7 @@ select {
 }
 
 main {
+	min-height: calc(100vh - 80px - var(--big-header-height));
 	>* {
 		width: 100%;
 		max-width: var(--max-content-width);

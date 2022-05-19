@@ -14,8 +14,10 @@ import { kreativData } from "../util/data-mapping/kreative-data";
 import { Button } from "../components/button/button";
 import { HighlightedTextGroup } from "../components/text-with-highlight-term/highlighted-text-group";
 import { IImageTextProps, ImageText } from "../components/image-text/single-image-text/image-text";
-import heroImage from '../public/assets/img/dummys/bg02.jpg'
+import heroImage from '../public/assets/img/kreativ_hero.jpg'
+import Einstein from '../public/assets/svg/einstein.svg'
 import { useMediaQuery } from "../hooks/media-query-hook";
+ 
 
 
 export interface IKreativProps {
@@ -57,9 +59,8 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
     return (
         <main>  
             <Hero 
-                image={<CustomImage src={heroImage} objectFit={'cover'} priority/>}
-                headline={{text: 'CREATIVITY IS CONTAGIOUS. PASS IT ON.', priorityStyle: PriorityStyle.h2, textColor: NGColor.white}}
-                subheadline={{text: 'Albert Einstein'}}
+                image={<CustomImage src={heroImage} objectFit={'cover'} priority objectPosition={'top'}/>}
+                content={<Einstein></Einstein>}
                 layout='layout-2'
             />
 
@@ -89,10 +90,11 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
                     objectFit={'cover'}
                 >
                     <Button 
-                        className={classNames(styles['show-all'], 'font-style--highlight-2')} 
+                        className={classNames(styles['show-all'], 'font-style--highlight')} 
                         backgroundColor={NGColor.yellow}
                         blobColor={NGColor.green}
                         layout={'round'} 
+                        accent={'circle'}
                         as={'link'} 
                         link={{
                             type: 'internal',
@@ -106,7 +108,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
                 <section className={styles['text-group-wrapper']}>
                     <HighlightedTextGroup className={styles['text-group']} textGroup={textGroup}>
                         <Button 
-                            className={classNames(styles['get-in-touch'], 'font-style--highlight-2')} 
+                            className={classNames(styles['get-in-touch'], 'font-style--highlight')} 
                             layout={'round'} backgroundColor={NGColor.petrol} blobColor={NGColor.green}
                             as={'link'}
                             link={{

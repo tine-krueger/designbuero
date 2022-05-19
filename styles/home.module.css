@@ -4,6 +4,7 @@
     row-gap: var(--spacing--default);
     @media (--small-viewport-min) {
         grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+        grid-gap: var(--spacing--m);
     }
 
     .link {

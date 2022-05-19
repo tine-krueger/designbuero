@@ -23,7 +23,8 @@
         --border-radius: 50%;
         --number-of-blobs: 2 ;
         aspect-ratio: 1 / 1;
-        font-size: var(--clamp--m);
+        font: var(--font-style--l);
+        line-height: var(--line-height--m);
         box-shadow: 0px 1px 2px 1px hsla(var(--color-grey-hsl), 0.2), 0px 1px 4px 2px hsla(var(--color-grey-hsl), 0.2);
         display: flex;
         align-items: center;
