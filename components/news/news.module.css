@@ -141,12 +141,11 @@
 
 .bird {
     position: absolute;
-    bottom: 0;
+    bottom: 9px;
     right: var(--spacing--m);
     width: fit-content;
     height: 300px;
-    grid-template-rows: 30% 70%;
-    transform: translateY(15%);
+    grid-template-rows: 40% 60%;
     z-index: 100;
 
     @media (--large-viewport-min) {

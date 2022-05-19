@@ -2,14 +2,14 @@
 	/* fonts */
 	--font-body: 'Montserrat-Regular';
 	--font-body-bold: 'Montserrat-Bold';
-	--font-headline: 'SigmarOne-Regular';
+	--font-headline: 'JuliusSansOne-Regular';
 	--font-highlight: 'JuliusSansOne-Regular';
-	--font-highlight-2: 'Sacramento';
+	/* --font-highlight-2: 'Sacramento'; */
 
 	/* font-sizes desktop*/
 	--font-size--d-giant: 5.9375rem; /* 68px */
 	--font-size--d-xl: 2.625rem; /* 42px */
-	--font-size--d-l: 38px; /* 28px */
+	--font-size--d-l: 2.0625rem; /* 33px */
 	--font-size--d-m: 24px; /*18px */
 	--font-size--d-default: 17px;
 	--font-size--d-s: 14px; /* 14px */
@@ -43,13 +43,13 @@
 	/* font styles */
 	--font-style--giant: normal var(--clamp--giant) / var(--line-height--m) var(--font-body);
 	--font-style--xl: normal var(--clamp--xl) / var(--line-height--l) var(--font-headline);
-	--font-style--l: normal var(--clamp--l) / var(--line-height--xl) var(--font-body-bold);
+	--font-style--l: normal var(--clamp--l) / var(--line-height--xl) var(--font-headline);
 	--font-style--m: normal var(--clamp--m) / var(--line-height--l) var(--font-body-bold);
 	--font-style--default: normal var(--clamp--default) / var(--line-height--xl) var(--font-body);
 	--font-style--s: normal var(--clamp--s) / var(--line-height--m) var(--font-body);
 	--font-style--xs: normal var(--clamp--xs) / var(--line-height--xl) var(--font-body);
 	--font-style--highlight: normal var(--clamp--xl) / var(--line-height--l) var(--font-highlight);
-	--font-style--highlight-2: normal var(--clamp--xl) / var(--line-height--l) var(--font-highlight-2);
+	/* --font-style--highlight-2: normal var(--clamp--xl) / var(--line-height--l) var(--font-highlight-2); */
 
 	/* color-values */
 	--color-grey-hsl: 191, 20%, 21%;
@@ -101,7 +101,7 @@
 	--big-header-height: 210.28px;
 	--small-footer-height: 113.59px;
 	--big-footer-height: 152.59px;
-	--max-content-width: 1440px;
+	--max-content-width: 1600px;
 	--max-main-image-width: 1600px;
 	--content-width: 1140px;
 

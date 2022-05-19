@@ -83,7 +83,7 @@
         justify-self: end;
         height: min-content;
         text-transform: initial;
-        font-size: var(--clamp--xl) !important;
+        /* font-size: var(--clamp--xl) !important; */
 
         @media (--small-viewport-max) {
             align-self: start;
@@ -122,7 +122,7 @@
     .get-in-touch {
         height: min-content;
         text-transform: initial;
-        font-size: var(--clamp--xl) !important;
+        /* font-size: var(--clamp--xl) !important; */
         justify-self: center;
 
         &::before {

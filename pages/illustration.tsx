@@ -45,7 +45,7 @@ const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts,
     /*TODO: insert view if no post is available*/ 
     /*TODO: Contact Form or E-Mail Provider Button on click*/
     return (
-        <main>  
+        <main className={`c-bg--${NGColor.lightgreen}`}>  
             {posts && category ? <GalleryWrapper siteTitle={category.name} posts={posts} categoryTexts={category.descriptions}/> :
             <div>Uuups, No illustrations available at the moment. Please come back later!</div>}
             <div className={classNames(styles.contact, 'grid')}>
@@ -58,7 +58,7 @@ const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts,
                 </div>
                 
                 <Button 
-                    className={classNames(styles['contact-button'], 'c-bg--4 c-hili--7')} 
+                    className={classNames(styles['contact-button'], `c-bg--4 c-hili--${NGColor.red}`)} 
                     layout='round' 
                     accent="circle"
                     as={'link'}

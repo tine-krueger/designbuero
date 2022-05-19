@@ -30,7 +30,7 @@ interface ISelectOption {
 export const UnmemoizedGalleryWrapper: FC<IGalleryWrapperProps> = (props) => {
 
     const {className, children, siteTitle, headlineColor = NGColor.green, posts, categoryTexts, ...attributes} = props
-    const classes = classNames(className, styles.container, 'grid m m-v--m')
+    const classes = classNames(className, styles.container, 'grid m m-b--m')
     const isBreakpoint = useMediaQuery(768)
     const [shownPosts, setShownPosts ] = useState<IPostProps[]>([])
 

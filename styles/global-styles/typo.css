@@ -93,7 +93,7 @@ a,
 	}
 }
 
-@each $fontStyle in (giant, xl, l, m, default, s, xs, highlight, highlight-2 ) {
+@each $fontStyle in (giant, xl, l, m, default, s, xs, highlight) {
 	.font-style--$(fontStyle) {
 		--font-style: var(--font-style--$(fontStyle));
 		font: var(--font-style--$(fontStyle));
