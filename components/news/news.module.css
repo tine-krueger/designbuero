@@ -139,11 +139,18 @@
     }
 }
 
+.flowers {
+    position: absolute;
+    left: 0;
+    bottom: 20%;
+    z-index: 5;
+}
+
 .bird {
     position: absolute;
     bottom: 9px;
     right: var(--spacing--m);
-    width: fit-content;
+    width: 61px;
     height: 300px;
     grid-template-rows: 40% 60%;
     z-index: 100;
@@ -157,7 +164,7 @@
     }
 
     .note {
-        transform: translateX(-45%);
+        transform: translateX(-55%);
         opacity: 1;
     }
 

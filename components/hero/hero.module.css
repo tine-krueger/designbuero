@@ -103,6 +103,7 @@
         justify-self: center;
         margin-top: var(--spacing--default);
         margin-bottom: var(--spacing--default);
+        max-width: 400px;
     
         &::before {
             width: 100%;
