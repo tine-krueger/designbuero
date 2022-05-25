@@ -66,8 +66,8 @@ const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts,
                         type: 'mail',
                         href: 'mailto:ng@desingbuero.de?subject=Anfrage%20Illustration&body=Hallo%20Frau%20Giesler,'
                     }}>
-                        Get <br/>in <br/>touch
-                    </Button>
+                        Get<br/>in<br/>touch
+                </Button>
             </div>
             
         </main>

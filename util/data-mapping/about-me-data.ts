@@ -1,3 +1,4 @@
+import { title } from "process";
 import { IAboutMeProps } from "../../pages/about-me";
 
 export interface IAboutMeWordpress {
@@ -6,6 +7,7 @@ export interface IAboutMeWordpress {
 
 interface Page {
   contentAboutMe: ContentAboutMe;
+  title: string
 }
 
 interface ContentAboutMe {
@@ -32,8 +34,9 @@ interface MediaDetails {
 }
 
 export function getAboutMeProps( data: IAboutMeWordpress): IAboutMeProps {
-    const { page: {contentAboutMe}, ...rest} = data
+    const { page: {contentAboutMe, title}, ...rest} = data
     const aboutMeProps: IAboutMeProps = {
+        headline: title,
         content: [
             {
                 text: contentAboutMe.textImage1.text,

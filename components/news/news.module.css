@@ -44,13 +44,13 @@
     }
 
     @media (--content-width-min) {
-        --left-circle-diameter: 17rem;
+        --left-circle-diameter: 272px;
         --ui-image-height: var(--image-height, 400px);
         background-color: var(--color--yellow);
         &::after {
             content: '';
-            height: 17rem;
-            width: 17rem;
+            height: 272px;
+            width: 272px;
             background-color: var(--color--white);
             position: absolute;
             left: 0;
@@ -142,7 +142,8 @@
 .flowers {
     position: absolute;
     left: 0;
-    bottom: 20%;
+    bottom: 50%;
+    transform: translateY(96px);
     z-index: 5;
 }
 

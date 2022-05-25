@@ -37,7 +37,6 @@ export const getStaticProps: GetStaticProps = async() => {
  
 const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = ({data}) => {
     
-    // console.log(JSON.stringify(data, null, 2))
     const gridChildClasses: TMasonryGridClasses = {
         image: classNames(styles.image)
     }

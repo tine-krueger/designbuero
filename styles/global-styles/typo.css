@@ -116,6 +116,10 @@ a,
 	}
 }
 
+.has-text-align-center {
+	text-align: center;
+}
+
 @each $verticalAlignment in sub, super {
 	.vertical-align--$(verticalAlignment) {
 		vertical-align: $verticalAlignment;

@@ -8,9 +8,11 @@ import { getAboutMeData } from "../lib/api"
 import { getAboutMeProps, IAboutMeWordpress } from "../util/data-mapping/about-me-data"
 import { Headline } from "../components/headline/headline"
 import { uid } from "react-uid"
+import parse from 'html-react-parser'
 
 export interface IAboutMeProps { 
     content: IImageTextProps[]
+    headline: string
 }
 
 export const getStaticProps: GetStaticProps = async() => {
@@ -36,13 +38,13 @@ export const getStaticProps: GetStaticProps = async() => {
 }
  
 const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
-    const { content } = props
+    const { content, headline } = props
     
-    // console.log(JSON.stringify(content, null, 2))
+    console.log(JSON.stringify(props, null, 2))
    
     return (
-        <main>  
-            <Headline className={styles.headline} text={'Hallo,'}/>
+        <main className={styles.container}>  
+            <Headline className={styles.headline} text={headline}/>
             <div className={classNames(styles['image-text-wrapper'])}>
                 {content && content.map( item => (
                     <ImageText 
@@ -52,7 +54,8 @@ const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
                             image: classNames(styles.image),
                             content: classNames(styles.text)
                         }}
-                        {...item}
+                        image={item.image}
+                        text={<>{parse(item.text as string)}</>}
                     />
                 ))}
             </div>
