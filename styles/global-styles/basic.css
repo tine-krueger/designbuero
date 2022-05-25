@@ -19,8 +19,8 @@ body {
 
 	* {
 		user-select: var(--user-select, auto);
-		word-wrap: break-word;
-		hyphens: auto;
+		/* word-wrap: break-word;
+		hyphens: auto; */
 		color: var(--text-color, var(--color--grey));
 	}
 

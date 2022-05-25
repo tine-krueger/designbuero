@@ -1,9 +1,15 @@
 @import './global-styles/media-queries.css';
 
+.container {
+    /* max-width: var(--max-content-width); */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: hsla(var(--color-grey-hsl), 0.05);
+
+}
 .headline {
     max-width: 1000px;
     margin: 0 auto;
-    background-color: hsla(var(--color-grey-hsl), 0.05);
     padding-left: var(--spacing--m);
     padding-top: var(--spacing--l);
 
@@ -13,10 +19,9 @@
 }
 
 .image-text-wrapper {
-    background-color: hsla(var(--color-grey-hsl), 0.05);
     max-width: 1000px;
     margin: 0 auto;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .image-text {
@@ -104,7 +109,6 @@
     &:first-child {
         .image {
             @media (--small-viewport-max) {
-                padding-left: var(--spacing--default);
             }
         }
         .text {
@@ -113,7 +117,6 @@
             }
             @media (--small-viewport-min) {
                 margin-top: var(--spacing--default);
-                padding-left: var(--spacing--l);
                 padding-right: var(--spacing--l);
             }
         }

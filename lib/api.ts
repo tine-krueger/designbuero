@@ -306,6 +306,7 @@ export async function getAboutMeData() {
   const data = await fetchAPI(
      `{
       page(id: "139", idType: DATABASE_ID) {
+        title
         contentAboutMe {
           textImage1 {
             text
