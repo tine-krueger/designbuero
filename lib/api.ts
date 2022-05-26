@@ -56,7 +56,7 @@ export async function getHomepageData() {
           }
           illustration: posts(
             first: 1
-            where: {categoryId: 2, orderby: {field: DATE, order: DESC}}
+            where: {categoryId: 2, imageToFront: true, orderby: {field: DATE, order: DESC}}
           ) {
             nodes {
               featuredImage {
@@ -75,7 +75,7 @@ export async function getHomepageData() {
           }
           kreativ: posts(
             first: 1
-            where: {categoryId: 16, orderby: {field: DATE, order: DESC}}
+            where: {categoryId: 16, imageToFront: true, orderby: {field: DATE, order: DESC}}
           ) {
             nodes {
               featuredImage {

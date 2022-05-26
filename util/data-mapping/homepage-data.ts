@@ -87,7 +87,7 @@ interface Link {
 }
 
 export function mapHomeProps(data: IHomeWordpress): IHomeProps {
-    console.log(JSON.stringify(data, null, 2))
+    // console.log(JSON.stringify(data, null, 2))
     const {
         news:{nodes}, 
         kreativ, 
@@ -96,8 +96,8 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
         nodeByUri: {landingAboutMe}, 
         ...rest} = data
     const homeProps: IHomeProps = {
-        news: {
-            image: {
+        news: nodes[0] ?  {
+            image: nodes[0].featuredImage ? {
                 src: nodes[0].featuredImage.node.sourceUrl,
                 title: nodes[0].featuredImage.node.title,
                 alt: nodes[0].featuredImage.node.altText,
@@ -105,33 +105,29 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
                 width: nodes[0].featuredImage.node.mediaDetails?.width,
                 height: nodes[0].featuredImage.node.mediaDetails?.height,
                 sizes: '(min-width:1440) 25vw, (min-width:1140) 33vw, 70vw'
-            },
+            } : null,
             headline: {
                 text: nodes[0].title
             },
-            content: nodes[0].postsadditionals.customexcerpt,
-            link: {
+            content: nodes[0].postsadditionals.customexcerpt ? nodes[0].postsadditionals.customexcerpt : null,
+            link:  nodes[0].postsadditionals.link ? {
                 href: nodes[0].postsadditionals.link.url,
                 label: 'Weiterlesen',
                 target: nodes[0].postsadditionals.link.target
-            }
-        },
+            } : null
+        } : null,
         services: {
             images: [
                 {
-                    src: illustration.nodes[0].featuredImage.node.sourceUrl,
-                    alt: illustration.nodes[0].featuredImage.node.altText,
-                    title: illustration.nodes[0].featuredImage.node.title,
+                    src: illustration.nodes[0] ? illustration.nodes[0].featuredImage.node.sourceUrl : '/assets/img/fallback.jpg',
                     sizes: '(min-width: 768px) 375px, 100vw',
                     link: {
                         href: '/illustration'
                     },
-                    hoverOverlay: illustration.nodes[0].categories.nodes[0].name
+                    hoverOverlay: illustration.nodes[0] ? illustration.nodes[0].categories.nodes[0].name : 'Illustration'
                 },
                 {
                     src: businessGraphics.bilderBusinessGraphics.firstImageLeft.sourceUrl,
-                    alt: businessGraphics.bilderBusinessGraphics.firstImageLeft.altText,
-                    title: businessGraphics.bilderBusinessGraphics.firstImageLeft.title,
                     link: {
                         href: '/business-graphics'
                     },
@@ -139,24 +135,22 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
                     sizes: '(min-width: 768px) 375px, 100vw',
                 },
                 {
-                    src: kreativ.nodes[0].featuredImage.node.sourceUrl,
-                    alt: kreativ.nodes[0].featuredImage.node.altText,
-                    title: kreativ.nodes[0].featuredImage.node.title,
+                    src: kreativ.nodes[0] ? kreativ.nodes[0].featuredImage.node.sourceUrl : '/assets/img/fallback.jpg' ,
                     link: {
                         href: '/kreativ'
                     },
-                    hoverOverlay: kreativ.nodes[0].categories.nodes[0].name,
+                    hoverOverlay: kreativ.nodes[0] ? kreativ.nodes[0].categories.nodes[0].name : 'Kreativ',
                     sizes: '(min-width: 768px) 375px, 100vw',
                 },
             ],
 
         },
-        welcome: {
-            headline: {
-                text: landingAboutMe.welcomeHeadline
-            },
-            text: landingAboutMe.welcomeText
-        }
+        welcome: landingAboutMe ? {
+            headline: landingAboutMe.welcomeHeadline ? {
+                text: landingAboutMe.welcomeHeadline 
+            } : null,
+            text: landingAboutMe.welcomeText ? landingAboutMe.welcomeText : null
+        } : null
 
     }
 

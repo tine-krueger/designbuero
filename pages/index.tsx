@@ -34,14 +34,14 @@ export const getStaticProps: GetStaticProps = async() => {
 }
 
 export interface IHomeProps {
-  news?: INewsProps
+  news?: INewsProps | null
   services?: IMasonryGridGalleryProps
-  welcome?: IWelcome
+  welcome?: IWelcome | null
 }
 
 interface IWelcome {
-  headline?: IHeadlineProps
-  text?: string
+  headline?: IHeadlineProps | null
+  text?: string | null
 }
 
 const heroProps: IHeroProps = {
@@ -90,7 +90,7 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
           /> */}
         </section>
       </>}
-      {news && <News {...news}/>}
+      {(news || news != null)  && <News {...news}/>}
     </main>
     </>
   )
