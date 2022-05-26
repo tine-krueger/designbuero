@@ -10,12 +10,12 @@ import Flowers from '../../public/assets/svg/flowers.svg'
 import { useMediaQuery } from "../../hooks/media-query-hook"
 
 export interface INewsProps extends ComponentProps<'section'> {
-    image?: ICustomImageProps
+    image?: ICustomImageProps | null
     headline?: IHeadlineProps
-    content?: string
-    link: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
+    content?: string | null
+    link?: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
         label: string
-    }
+    } | null
 }
 
 const UnmemoizedNews: FC<INewsProps> = (props) => {
@@ -48,8 +48,8 @@ const UnmemoizedNews: FC<INewsProps> = (props) => {
             
                 <div className={styles['content-wrapper']}>
                     <Headline {...headline} textColor={NGColor.blue} priority={2} />
-                    <p>{content}</p>
-                    <a {...link}>{link.label}</a>
+                    <p>{content != null && content}</p>
+                    {(link || link != null) && <a {...link}>{link.label}</a>}
                 </div>
 
             </div>
