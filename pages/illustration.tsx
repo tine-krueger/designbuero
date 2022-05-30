@@ -40,10 +40,8 @@ export const getStaticProps: GetStaticProps = async() => {
 }
 
 const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({posts, category}) => {
-    // console.log(JSON.stringify(posts, null, 2))
 
     /*TODO: insert view if no post is available*/ 
-    /*TODO: Contact Form or E-Mail Provider Button on click*/
     return (
         <main className={`c-bg--${NGColor.lightgreen}`}>  
             {posts && category ? <GalleryWrapper siteTitle={category.name} posts={posts} categoryTexts={category.descriptions}/> :

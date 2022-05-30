@@ -355,3 +355,20 @@ export async function getAboutMeData() {
   }
   return data
 }
+
+export async function getPageData(pageID: number) {
+  const data = await fetchAPI(
+     `{
+      page(id: "${pageID}", idType: DATABASE_ID) {
+        content
+        title
+      }
+    }
+     `
+  )
+
+  if(!data) {
+    return null
+  }
+  return data
+}
