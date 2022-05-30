@@ -54,12 +54,12 @@ const globalMenu: IGlobalMenuState = {
     legal: [
         {
             label: 'Datenschutz',
-            href: '/datenschutz',
+            href: '/privacy',
             type: 'internal'
         },
         {
             label: 'Impressum',
-            href: '/impressum',
+            href: '/imprint',
             type: 'internal'
         }
     ]

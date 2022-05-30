@@ -1,0 +1,11 @@
+@import './global-styles/media-queries.css';
+
+.container {
+    padding: var(--spacing--m) var(--spacing--default);
+    max-width: 750px;
+    margin: 0 auto;
+
+    @media (--small-viewport-min) {
+        padding: var(--spacing--m);
+    }
+}

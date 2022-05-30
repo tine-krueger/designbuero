@@ -45,6 +45,11 @@ h3 {
 	color: var(--headline-color, var(--color--grey));
 }
 
+h4 {
+	font-family: var(--font-body-bold);
+	font-weight: 700;
+}
+
 a,
 .link {
 	display: inline-block;
