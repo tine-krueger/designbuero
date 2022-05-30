@@ -1,4 +1,5 @@
 @import '../../node_modules/the-new-css-reset/css/reset.css';
+@import '/media-queries.css';
 
 html {
 	font-size: 16px;
@@ -24,7 +25,16 @@ select {
 }
 
 main {
-	min-height: calc(100vh - 80px - var(--big-header-height));
+	min-height: calc(100vh - 40px - var(--big-footer-height));
+	overflow-x: hidden;
+	@media (--small-viewport-min) {
+		min-height: calc(100vh - var(--big-footer-height));
+	}
+	
+
+	@media (--medium-viewport-min) {
+		min-height: calc(100vh - 80px - var(--big-header-height));
+	}
 	>* {
 		width: 100%;
 		max-width: var(--max-content-width);
