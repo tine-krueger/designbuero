@@ -87,7 +87,7 @@ export const UnmemoizedGalleryWrapper: FC<IGalleryWrapperProps> = (props) => {
 
     function handleSelectChange(selectedValue: SelectedOptionValue | SelectedOptionValue[]) {
             if (Array.isArray(selectedValue)) return
-            console.log(selectedValue)
+           
             /*@ts-ignore*/
             const newPostArray = posts.filter(post => post.tags.includes(selectedValue as string))
             setShownPosts(newPostArray)

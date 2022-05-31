@@ -23,9 +23,6 @@ const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
     const [imageToShow, setImagetoShow] =useState<ICustomImageProps | undefined>()
 
    
-    useEffect(() => {
-        console.log(imageToShow)
-    }, [imageToShow])
     return (
         <div className={classes} {...attributes}>
             {images.map( (image, i) => (

@@ -62,7 +62,7 @@ interface IMediaDetails {
 
 export function kreativData(data: IWordpressKreativProps): IKreativProps {
     const {posts, page: {bilderKreativ, textGruppeKreativ, imageText, ...rest}} = data
-  //  console.log(JSON.stringify(data, null, 2))
+  
 
     const testimonials: ITestimonialProps[] = []
     posts.nodes.map( node => {

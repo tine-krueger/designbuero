@@ -17,6 +17,7 @@ import { IImageTextProps, ImageText } from "../components/image-text/single-imag
 import heroImage from '../public/assets/img/kreativ_hero.jpg'
 import Einstein from '../public/assets/svg/einstein.svg'
 import { useMediaQuery } from "../hooks/media-query-hook";
+import Zweig from '../public/assets/svg/zweig.svg'
  
 
 
@@ -50,7 +51,7 @@ export const getStaticProps: GetStaticProps = async() => {
  
 const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
     const { testimonials, images, textGroup, title, imageText, ...rest} = props
-    // console.log(JSON.stringify(props, null, 2))
+  
     const gridChildClasses: TMasonryGridClasses = {
         image: classNames(styles.image)
     }
@@ -119,6 +120,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
                             Get in <br/> touch!
                         </Button>
                     </HighlightedTextGroup>
+                    <Zweig className={classNames(styles.zweig, 'visible-s')}/>
                 </section>
                 )}
             

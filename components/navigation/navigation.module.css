@@ -53,7 +53,10 @@
         font-family: var(--font-body-bold);
 	    font-weight: 700;
         
-    }
+    }  
+}
 
-    
+.inline {
+    display: inline-block;
+    cursor: pointer;
 }

@@ -1,0 +1,54 @@
+.container {
+    padding: var(--spacing--default) var(--spacing--default);
+    max-width: 600px;
+    margin: 0 auto;
+    overflow-y: auto;
+
+    @media (--small-viewport-min) {
+        padding: var(--spacing--m) var(--spacing--l);
+    }
+}
+
+.content-wrapper {
+    width: max-content;
+    flex-direction: column;
+    margin: 0 auto;
+
+
+    @media (--extra-small-viewport-min) {
+        flex-direction: row;
+    }
+   
+
+    @media (--small-viewport-min) {
+        padding-left: var(--spacing--l);
+    }
+}
+
+.tel-mail {
+    
+
+    @media (--extra-small-viewport-min) {
+        margin-left: var(--spacing--m);
+        padding-top: var(--spacing--default);
+    }
+
+    a {
+        display: inline;
+        width: max-content;
+    }
+
+    svg {
+        width: 30px;
+        fill: var(--color--grey);
+    }
+}
+
+.contact-media {
+    grid-template-columns: 30px auto;
+    grid-gap: var(--spacing--default);
+    align-items: center;
+    margin-bottom: var(--spacing--default);
+
+    
+}

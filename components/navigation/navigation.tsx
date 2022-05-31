@@ -12,19 +12,38 @@ export type TNavigationClasses = {
     list?: string
     listItem?: string
 }
-export interface INavItem extends ComponentProps<'li'> {
+// export interface INavItem extends ComponentProps<'li'> {
+//     label?: string
+//     href: string
+//     type: 'internal' | 'external'
+//     image?: ICustomImageProps
+//     openBlank?: boolean
+    
+// }
+
+interface IBasicNavItemProps extends ComponentProps<'li'> {
     label?: string
-    href: string
-    type: 'internal' | 'external'
     image?: ICustomImageProps
     openBlank?: boolean
 }
+
+type TNavItemAsLink = IBasicNavItemProps & {
+    as: 'link'
+    href: string
+    type: 'internal' | 'external'
+}
+
+type TNavItemAsSpan = IBasicNavItemProps & {
+    as?: 'span'
+}
+
+export type TNavProps = TNavItemAsLink | TNavItemAsSpan
 
 export interface IInternalNavigationProps {
     childElementsClasses?: TNavigationClasses
 }
 export interface INavigationProps extends ComponentProps<'nav'> {
-    navlist: INavItem[]
+    navlist: TNavProps[]/*INavItem[]*/
     menuItemClick?: () => void
 }
 
@@ -38,7 +57,9 @@ export const UnmemoizedNavigation: FC<INavigationProps & IInternalNavigationProp
         <nav className={classes} role='navigation' {...attributes}>
             <ul className={classNames(childElementsClasses?.list, 'flex')}>
                 {navlist.map( item => {
-                    return <li 
+                    
+                    if (item.as === 'link') {
+                        return <li 
                         key={uid(item)} 
                         className={classNames(
                             styles['list-item'], 
@@ -66,6 +87,25 @@ export const UnmemoizedNavigation: FC<INavigationProps & IInternalNavigationProp
                                 </a>
                             )}
                         </li>
+
+                    } else {
+                        return <li 
+                        key={uid(item)} 
+                        className={classNames(
+                            styles['list-item'], 
+                            childElementsClasses?.listItem, 
+                            'font-style--s', 
+                            `c-t--${NGColor.white}`,
+                            )}
+                        onClick={item.onClick}
+                        >
+                            <div className={classNames(styles.link, 'no-link', styles.inline)}>
+                                <span title={item.label}>{item.label}</span>
+                            </div>
+                            
+                        </li>
+                    }
+                    
                 })}
             </ul>
         </nav>

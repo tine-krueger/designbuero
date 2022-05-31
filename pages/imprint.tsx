@@ -13,6 +13,14 @@ export interface IImprintProps {
 export const getStaticProps: GetStaticProps = async() => {
     const data = await getPageData(497)
    
+    if (data === null) {
+        return {
+            props: {
+                title: null,
+                content: null
+            }
+        }
+    }
 
     return {
         props: data.page,
@@ -22,14 +30,13 @@ export const getStaticProps: GetStaticProps = async() => {
 
 const Imprint: NextPageWithLayout & NextPage<IImprintProps> = (props) => {
     const {title, content} = props
-    console.log(JSON.stringify(props, null, 2))
-
-    /*TODO: insert view if no post is available*/ 
+   
     return (
         <section className={styles.container}>
-            <Headline className={'m m-b--m'}  priority={1} text={title}/>
+            {title != null && <Headline className={'m m-b--m'}  priority={1} text={title}/>}
 
-            <div dangerouslySetInnerHTML={{__html: content}} />
+            {content != null ? <div dangerouslySetInnerHTML={{__html: content}}  /> 
+            :<p>Uups, keine Verbindung zur Datenbank. Hier muss der Administrator ran!</p>}
 
         </section>
         
