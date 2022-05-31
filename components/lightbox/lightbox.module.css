@@ -19,10 +19,14 @@
 }
 
 .lightbox {
-    width: 80vw;
+    width: 95vw;
     height: 80vh;
     z-index: 5;
     grid-template-rows: max-content auto;
+
+    @media (--small-viewport-min) {
+        width: 80vw;
+    }
     
 }
 
@@ -68,4 +72,5 @@
     max-width: var(--content-width);
     margin-left: auto;
     margin-right: auto;
+    overflow: scroll;
 }

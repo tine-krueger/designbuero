@@ -226,7 +226,7 @@ export async function getBusinessGraphicsData() {
   if(!data) {
     return null
   }
-  console.log('Business-Gaphics data:', JSON.stringify(data, null, 2))
+ 
   return data
 }
 
@@ -298,7 +298,7 @@ export async function getKreativData() {
   if(!data) {
     return null
   }
-  console.log('kreativ data:', JSON.stringify(data, null, 2))
+ 
   return data
 }
 

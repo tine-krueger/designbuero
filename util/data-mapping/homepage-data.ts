@@ -87,7 +87,7 @@ interface Link {
 }
 
 export function mapHomeProps(data: IHomeWordpress): IHomeProps {
-    // console.log(JSON.stringify(data, null, 2))
+    
     const {
         news:{nodes}, 
         kreativ, 

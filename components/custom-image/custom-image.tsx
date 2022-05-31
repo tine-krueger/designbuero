@@ -8,7 +8,6 @@ export interface ICustomImageProps extends Omit<ImageProps, 'objectFit'> {
 
 export const wordpressLoader = ({ src, width}: any) => {
     const IMAGE_URL = process.env.WP_IMAGE_URL
-    console.log(IMAGE_URL)
     return `http://localhost:8888/designbuero_backend/wp-content/uploads/${src}?w=${width}`
 }
 

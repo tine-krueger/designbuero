@@ -2,6 +2,7 @@
 
 .container {
     background-color: var(--background-color, var(--color--brown));
+  
 }
 
 .inner-wrapper {
@@ -9,7 +10,12 @@
     max-width: var(--max-content-width);
     margin: 0 auto;
     padding: var(--spacing--default);
-    justify-items: center;
+    
+
+    @media (--extra-small-viewport-min) {
+        justify-items: center;
+        
+    }
     @media (--small-viewport-min) {
         grid-template-columns: 1fr auto 1fr;
         padding: var(--spacing--default) var(--spacing--m);
@@ -18,9 +24,15 @@
 }
 
 .copyright {
+
+    @media (--extra-small-viewport-max) {
+        justify-self: end;
+    }
     @media (--small-viewport-max) {
         grid-row: 2/3;
     }
+
+
 
 }
 
@@ -35,15 +47,27 @@
 
 .legal-nav {
     align-self: center;
+
+    ul {
+        @media (--extra-small-viewport-max) {
+            flex-direction: column;
+
+        }
+    }
     &-item {
         font: var(--font-style--xs);
         &:not(:first-child) {
             span {
-                border-left: 1px solid var(--color--white);
+
+                @media (--extra-small-viewport-min) {
+                    border-left: 1px solid var(--color--white);
+        
+                }
+                
             }
         }
 
-        a {
+        a, div {
             padding: var(--spacing--default) 0;
         }
 

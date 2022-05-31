@@ -39,8 +39,6 @@ export const getStaticProps: GetStaticProps = async() => {
  
 const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
     const { content, headline } = props
-    
-    console.log(JSON.stringify(props, null, 2))
    
     return (
         <main className={styles.container}>  

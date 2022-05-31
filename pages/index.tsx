@@ -55,7 +55,6 @@ const heroProps: IHeroProps = {
 } 
 
 const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcome}) => {
-  //  console.log(JSON.stringify(rest, null, 2))
   
   return (
   <>

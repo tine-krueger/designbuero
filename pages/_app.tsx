@@ -15,13 +15,6 @@ type AppPropsWithLayout = AppProps & {
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
-  // useEffect(() => {
-  //   console.log(Component.headerColor)
-  //   if (!Component.headerColor) {
-  //     return
-  //   }
-  //   document.body.className = `c-hsl--${Component.headerColor}`
-  // }, [Component])
 
   return (
     <Layout headerClass={`c-bg--${Component.headerColor}`} footerClass={Component.footerClass}>
