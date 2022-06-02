@@ -59,7 +59,7 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
   return (
   <>
     <Head>
-      <title>DesiNGbüro - Nadine Giesler</title>
+      <title>desiNGbüro - Nadine Giesler</title>
     </Head>
     <main className={classNames('c-bg--8')}>
       <Hero {...heroProps}/>

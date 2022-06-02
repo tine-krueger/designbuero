@@ -21,7 +21,7 @@ export const UnmemoizedContact: FC<IContactProps> = (props) => {
                 <div className={classNames(styles['content-wrapper'], 'flex')}>
                     <p> 
                         Nadine Giesler <br />
-                        desingbüro<br />
+                        desiNGbüro<br />
                         Feldstegel 16a<br />
                         21039 Hamburg
                     </p>

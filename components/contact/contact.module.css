@@ -18,11 +18,6 @@
     @media (--extra-small-viewport-min) {
         flex-direction: row;
     }
-   
-
-    @media (--small-viewport-min) {
-        padding-left: var(--spacing--l);
-    }
 }
 
 .tel-mail {

@@ -133,6 +133,10 @@
 
 .social-nav-item {
     padding: 0 calc(var(--spacing--default) / 2);
+
+    &:first-child {
+        margin-right: 6px;
+    }
     a {
         width: 25px;
         height: 25px; 
