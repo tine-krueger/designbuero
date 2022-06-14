@@ -1,4 +1,5 @@
 import { NodeNextRequest } from "next/dist/server/base-http/node";
+import { ICustomImageProps } from "../../components/custom-image/custom-image";
 import { ITestimonialProps } from "../../components/testimonials/testimonial/testimonial";
 import { IBusinessGraphicsProps } from "../../pages/business-graphics";
 
@@ -14,10 +15,10 @@ export interface IWordpressBusinessGraphicsProps {
 }
 
 interface BilderBusinessGraphics {
-  firstImageLeft: FirstImageLeft;
-  firstImageRight: FirstImageLeft;
-  secondImageLeft: FirstImageLeft;
-  secondImageRight: FirstImageLeft;
+  firstImageLeft?: FirstImageLeft;
+  firstImageRight?: FirstImageLeft;
+  secondImageLeft?: FirstImageLeft;
+  secondImageRight?: FirstImageLeft;
 }
 
 export interface FirstImageLeft {
@@ -57,48 +58,65 @@ export function businessGraphicsData(data: IWordpressBusinessGraphicsPageProps):
 
     const testimonials: ITestimonialProps[] = []
     nodes.map(node => {
+
+
       const testimonial: ITestimonialProps = {
         name: node.testimonials.name,
         company: node.testimonials.company,
         quote: node.testimonials.quote,
-        image: {
+        image: node.testimonials.image ? {
           src: node.testimonials.image.sourceUrl,
           alt: node.testimonials.image.altText,
           title: node.testimonials.image.title,
           sizes: '75px'
-        },
+        } : null,
       }
       testimonials.push(testimonial)
     })
 
+    let images: ICustomImageProps[] = []
+
+    if (bilderBusinessGraphics.firstImageLeft) {
+      images.push({
+        src: bilderBusinessGraphics.firstImageLeft?.sourceUrl,
+        title: bilderBusinessGraphics.firstImageLeft?.title,
+        alt: bilderBusinessGraphics.firstImageLeft?.altText,
+        sizes: '(min-width: 1600px) 915px, 60vw'
+      })
+    }
+
+    if (bilderBusinessGraphics.firstImageRight) {
+      images.push({ 
+        src: bilderBusinessGraphics.firstImageRight?.sourceUrl,
+        title: bilderBusinessGraphics.firstImageRight.title,
+        alt: bilderBusinessGraphics.firstImageRight.altText,
+        sizes: '40vw'
+      })
+    }
+
+    if (bilderBusinessGraphics.secondImageLeft) {
+      images.push({
+        src: bilderBusinessGraphics.secondImageLeft?.sourceUrl,
+        title: bilderBusinessGraphics.secondImageLeft.title,
+        alt: bilderBusinessGraphics.secondImageLeft.altText,
+        sizes: '(min-width: 1600px) 915px, 60vw'
+      })
+    }
+
+    if (bilderBusinessGraphics.secondImageRight) {
+      images.push({
+        src: bilderBusinessGraphics.secondImageRight?.sourceUrl,
+        title: bilderBusinessGraphics.secondImageRight?.title,
+        alt: bilderBusinessGraphics.secondImageRight?.altText,
+        sizes: '40vw'
+      })
+    }
+
+
     const businessGraphicsData: IBusinessGraphicsProps = {
-        data: {images: [
-            {
-                src: bilderBusinessGraphics.firstImageLeft.sourceUrl,
-                title: bilderBusinessGraphics.firstImageLeft.title,
-                alt: bilderBusinessGraphics.firstImageLeft.altText,
-                sizes: '(min-width: 1600px) 915px, 60vw'
-            },
-            {
-              src: bilderBusinessGraphics.firstImageRight.sourceUrl,
-              title: bilderBusinessGraphics.firstImageRight.title,
-              alt: bilderBusinessGraphics.firstImageRight.altText,
-              sizes: '40vw'
-           },
-            {
-                src: bilderBusinessGraphics.secondImageLeft.sourceUrl,
-                title: bilderBusinessGraphics.secondImageLeft.title,
-                alt: bilderBusinessGraphics.secondImageLeft.altText,
-                sizes: '(min-width: 1600px) 915px, 60vw'
-            },
-            {
-                src: bilderBusinessGraphics.secondImageRight.sourceUrl,
-                title: bilderBusinessGraphics.secondImageRight.title,
-                alt: bilderBusinessGraphics.secondImageRight.altText,
-                sizes: '40vw'
-                
-            },
-        ],
+        
+
+        data: {images: images.length > 0 ? images : undefined,
         testimonials: testimonials,
         ...rest}
     }

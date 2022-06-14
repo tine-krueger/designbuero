@@ -9,7 +9,7 @@ import styles from './testimonial.module.css'
 //  }
  
  export interface ITestimonialProps extends ComponentProps<'div'> {
-     image?: ICustomImageProps
+     image?: ICustomImageProps | null
      name?: string
      company?: string
      quote?: string
@@ -35,7 +35,7 @@ import styles from './testimonial.module.css'
              </div>
             
             <div className={classNames(styles['info-wrapper'])}>
-                {image && <CustomImage className={classNames(styles.image)} {...image} loading={'lazy'}/>}
+                {image && image !== null && <CustomImage className={classNames(styles.image)} {...image} loading={'lazy'}/>}
                 <p className={classNames(styles.name)}>{name}</p>
                 {company && <p className={classNames(styles.description)}>{company}</p>}
 
