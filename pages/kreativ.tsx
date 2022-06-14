@@ -17,7 +17,7 @@ import { IImageTextProps, ImageText } from "../components/image-text/single-imag
 import heroImage from '../public/assets/img/kreativ_hero.jpg'
 import Einstein from '../public/assets/svg/einstein.svg'
 import { useMediaQuery } from "../hooks/media-query-hook";
-import Zweig from '../public/assets/svg/zweig.svg'
+import Zweig from '../public/assets/svg/twig.svg'
  
 
 
