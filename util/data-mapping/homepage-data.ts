@@ -127,12 +127,14 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
                     hoverOverlay: illustration.nodes[0] ? illustration.nodes[0].categories.nodes[0].name : 'Illustration'
                 },
                 {
-                    src: businessGraphics.bilderBusinessGraphics.firstImageLeft.sourceUrl,
+                    // src: businessGraphics.bilderBusinessGraphics.firstImageLeft.sourceUrl,
+                    src: '/assets/img/bg_hero.jpg',
                     link: {
                         href: '/business-graphics'
                     },
                     hoverOverlay: 'Business Graphics',
                     sizes: '(min-width: 768px) 375px, 100vw',
+                    objectFit:'contain'
                 },
                 {
                     src: kreativ.nodes[0] ? kreativ.nodes[0].featuredImage.node.sourceUrl : '/assets/img/fallback.jpg' ,

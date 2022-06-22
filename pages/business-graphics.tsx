@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import { ICustomImageProps } from "../components/custom-image/custom-image";
+import { CustomImage, ICustomImageProps } from "../components/custom-image/custom-image";
 import { ImageGridGallery, TMasonryGridClasses } from "../components/gallery-group/masonry-grid/ImageGridGallery";
 import { NGColor } from "../types/colors";
 import { NextPageWithLayout } from "./_app";
@@ -13,6 +13,7 @@ import { Testimonials } from "../components/testimonials/testimonials";
 import { ITestimonialProps } from "../components/testimonials/testimonial/testimonial";
 import { Hero } from "../components/hero/hero";
 import { useMediaQuery } from "../hooks/media-query-hook";
+import bgImage from '../public/assets/img/bg_hero.jpg'
 
 
 export interface IBusinessGraphicsProps {
@@ -45,14 +46,7 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
     return (
         <main>  
             {data?.images && <Hero className={styles.hero} layout={'layout-3'}
-                image={
-                <ImageGridGallery 
-                    className={styles['image-grid']} 
-                    childElementsClasses={gridChildClasses} 
-                    images={!isBreakpoint ? data.images : [data.images[0]]} 
-                    objectFit={'contain'} 
-                    imagesHavePriority={true}
-                /> }
+                image={<CustomImage src={bgImage} objectFit={'contain'} priority objectPosition={'top'} sizes={'(min-width: 1600px) 1600px, 100vw'}/>}
                 headline={{text: 'Business Graphics', textColor: NGColor.grey}}
             />}
             <div className={classNames(styles['content-wrapper'], 'm m-t--m')}>
