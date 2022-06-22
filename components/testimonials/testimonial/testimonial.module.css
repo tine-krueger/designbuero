@@ -162,7 +162,7 @@
         padding-right: calc(var(--spacing--default) / 2);
         margin: 0;
         grid-column: 2/-1;
-        justify-self: center;
+        justify-self: start;
         font-size: small;
     }
 }
