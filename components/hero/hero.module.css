@@ -87,7 +87,7 @@
 
     .layout-1 & {
         height: min-content;
-        max-width: 39.375rem;
+        max-width: 45.375rem;
 
         &::before {
             width: 100%;
@@ -97,9 +97,9 @@
 
         @media (--medium-viewport-min) {
             &::before {
-                width: 60%;
+                width: 83%;
                 height: 100%;
-                border-bottom-right-radius: 50%;
+                border-bottom-right-radius: 250px;
             }
         }
         
@@ -192,9 +192,10 @@
         padding-left: var(--spacing--m);
 
         @media (--medium-viewport-min) {
-            width: 48%;
+            width: 85%;
             margin-right: var(--spacing--default);
             border-radius: 0 0% 40% 0/0 0 85% 0;
+            letter-spacing: 0.08em;
         }
     } 
 }
