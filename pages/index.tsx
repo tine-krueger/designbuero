@@ -50,7 +50,7 @@ const heroProps: IHeroProps = {
     text: 'desiNGbüro'
   },
   subheadline: {
-    text: 'Fine illustrations, neat graphics... \n Exploring creativity.'
+    text: 'Frische Illustrationen . Knackiges Präsentationsdesign . Saubere Grafik . Inspirierende Kreativ-Workshops'
   }
 } 
 
