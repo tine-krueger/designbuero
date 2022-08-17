@@ -94,7 +94,7 @@ export async function getHomepageData() {
           }
           businessGraphics: page(id: "61" ,idType: DATABASE_ID) {
             bilderBusinessGraphics {
-              firstImageLeft {
+              homeImage {
                 altText
                 title
                 sourceUrl
@@ -167,7 +167,7 @@ export async function getBusinessGraphicsData() {
      ` {
       page(id: "61", idType: DATABASE_ID) {
         bilderBusinessGraphics {
-          firstImageLeft {
+          homeImage {
             altText
             sourceUrl
             title
@@ -175,33 +175,6 @@ export async function getBusinessGraphicsData() {
               height
               width
             }
-          }
-          firstImageRight {
-            altText
-            mediaDetails {
-              height
-              width
-            }
-            sourceUrl
-            title
-          }
-          secondImageLeft {
-            altText
-            mediaDetails {
-              height
-              width
-            }
-            sourceUrl
-            title
-          }
-          secondImageRight {
-            altText
-            mediaDetails {
-              height
-              width
-            }
-            sourceUrl
-            title
           }
         }
         content

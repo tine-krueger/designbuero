@@ -45,7 +45,7 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
     const isBreakpoint = useMediaQuery(768)
     return (
         <main>  
-            {data?.images && <Hero className={styles.hero} layout={'layout-3'}
+            {<Hero className={styles.hero} layout={'layout-3'}
                 image={<CustomImage src={bgImage} objectFit={'contain'} priority objectPosition={'top'} sizes={'(min-width: 1600px) 1600px, 100vw'}/>}
                 headline={{text: 'Business Graphics', textColor: NGColor.grey}}
             />}
