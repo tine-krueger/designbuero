@@ -46,9 +46,6 @@ interface IWelcome {
 
 const heroProps: IHeroProps = {
   image: <CustomImage src={Background} objectFit={'cover'} sizes={'(max-width: 1600px) 100vw, 1600px'} priority/> ,
-  headline: {
-    text: 'desiNGbüro'
-  },
   subheadline: {
     text: 'Frische Illustrationen . Knackiges Präsentationsdesign . Saubere Grafik . Inspirierende Kreativ-Workshops'
   }

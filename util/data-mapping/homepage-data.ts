@@ -34,7 +34,7 @@ interface BusinessGraphics {
 }
 
 interface BilderBusinessGraphics {
-    firstImageLeft: FirstImageLeft;
+    homeImage: FirstImageLeft;
 }
 
 interface CategoryNode {
@@ -87,7 +87,7 @@ interface Link {
 }
 
 export function mapHomeProps(data: IHomeWordpress): IHomeProps {
-    
+
     const {
         news:{nodes}, 
         kreativ, 
@@ -127,8 +127,8 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
                     hoverOverlay: illustration.nodes[0] ? illustration.nodes[0].categories.nodes[0].name : 'Illustration'
                 },
                 {
-                    // src: businessGraphics.bilderBusinessGraphics.firstImageLeft.sourceUrl,
-                    src: '/assets/img/bg_hero.jpg',
+                    src: businessGraphics.bilderBusinessGraphics.homeImage ? businessGraphics.bilderBusinessGraphics.homeImage.sourceUrl : '/assets/img/fallback.jpg',
+                    // src: '/assets/img/bg_hero.jpg',
                     link: {
                         href: '/business-graphics'
                     },
