@@ -1,0 +1,6 @@
+User-agent: * 
+Allow: /*
+Disallow: /api/*
+
+
+Sitemap: https://cheery-chimera-2ef95a.netlify.app/sitemap.xml
