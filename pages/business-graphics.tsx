@@ -58,7 +58,7 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
                         link={
                             {
                                 type: 'mail',
-                                href: 'mailto:ng@desingbuero.de?subject=Anfrage%20Portfolio%20Business%20Graphics&body=Hallo%20Frau%20Giesler,%0D%0A%0D%0Abitte%20lassen%20Sie%20mir%20unverbindlich%20Ihr%20Portfolio%20zukommen.'
+                                href: 'mailto:ng@desingbuero.de?subject=Anfrage%20Portfolio&body=Hallo%20Frau%20Giesler,%0D%0A%0D%0Abitte%20lassen%20Sie%20mir%20unverbindlich%20Ihr%20Portfolio%20zukommen.'
                             }
                         }
                     >
