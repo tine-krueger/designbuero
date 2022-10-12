@@ -1,78 +1,80 @@
+import classNames from 'classnames/bind'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import classNames from 'classnames/bind'
-import { getHomepageData } from '../lib/api'
-import { INewsProps, News } from '../components/news/news'
-import { Hero, IHeroProps } from '../components/hero/hero'
-import { NextPageWithLayout } from './_app'
-import { NGColor } from '../types/colors'
 import { CustomImage } from '../components/custom-image/custom-image'
-import { IHomeWordpress, mapHomeProps } from '../util/data-mapping/homepage-data'
 import { ImageGridGallery, IMasonryGridGalleryProps } from '../components/gallery-group/masonry-grid/ImageGridGallery'
-import styles from '../styles/home.module.css'
 import { Headline, IHeadlineProps } from '../components/headline/headline'
-import { Button } from '../components/button/button'
+import { Hero, IHeroProps } from '../components/hero/hero'
+import { INewsProps, News } from '../components/news/news'
+import { getHomepageData } from '../lib/api'
 import Background from '../public/assets/img/dummys/bg02.jpg'
+import styles from '../styles/home.module.css'
+import { NGColor } from '../types/colors'
+import { IHomeWordpress, mapHomeProps } from '../util/data-mapping/homepage-data'
+import { NextPageWithLayout } from './_app'
 
-export const getStaticProps: GetStaticProps = async() => {
-  const initialData: IHomeWordpress = await getHomepageData()
+export const getStaticProps: GetStaticProps = async () => {
+	const initialData: IHomeWordpress = await getHomepageData()
 
-  if(null === initialData) {
-    return {
-      props: {},
-      revalidate: 60
-    }
-  }
+	if (null === initialData) {
+		return {
+			props: {},
+			revalidate: 60,
+		}
+	}
 
-  const homeProps: IHomeProps = mapHomeProps(initialData)
-  return {
-      props: {
-          ...homeProps
-      },
-      revalidate: 60
-  }
+	const homeProps: IHomeProps = mapHomeProps(initialData)
+	return {
+		props: {
+			...homeProps,
+		},
+		revalidate: 60,
+	}
 }
 
 export interface IHomeProps {
-  news?: INewsProps | null
-  services?: IMasonryGridGalleryProps
-  welcome?: IWelcome | null
+	news?: INewsProps | null
+	services?: IMasonryGridGalleryProps
+	welcome?: IWelcome | null
 }
 
 interface IWelcome {
-  headline?: IHeadlineProps | null
-  text?: string | null
+	headline?: IHeadlineProps | null
+	text?: string | null
 }
 
 const heroProps: IHeroProps = {
-  image: <CustomImage src={Background} objectFit={'cover'} sizes={'(max-width: 1600px) 100vw, 1600px'} priority/> ,
-  subheadline: {
-    text: 'Frische Illustrationen . Knackiges Präsentationsdesign . Saubere Grafik . Inspirierende Kreativ-Workshops'
-  }
-} 
+	image: <CustomImage src={Background} objectFit={'cover'} sizes={'(max-width: 1600px) 100vw, 1600px'} priority />,
+	headline: {
+		text: 'desiNGbüro',
+	},
+	subheadline: {
+		text: (
+			<>
+				Frische <b>Illustrationen </b>. Knackiges <b>Präsentationsdesign</b> . Saubere <b>Grafik</b> . Inspirierende <b>Kreativ-Workshops</b>
+			</>
+		),
+	},
+}
 
-const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcome}) => {
-  
-  return (
-  <>
-    <Head>
-      <title>desiNGbüro - Nadine Giesler</title>
-    </Head>
-    <main className={classNames('c-bg--8')}>
-      <Hero {...heroProps}/>
-      
-      {services && <ImageGridGallery 
-        className={classNames(styles.services, 'm m-b--l m-t--m')} 
-        childElementsClasses={{link: styles.link}}
-        {...services}
-      />}
-      {welcome && <>
-        <section className={classNames(styles.welcome,'grid')}>
-          <div>
-            <Headline priority={2} {...welcome.headline}/>
-            <p>{welcome.text}</p>
-          </div>
-          {/* <Button 
+const Home: NextPageWithLayout & NextPage<IHomeProps> = ({ news, services, welcome }) => {
+	return (
+		<>
+			<Head>
+				<title>desiNGbüro - Nadine Giesler</title>
+			</Head>
+			<main className={classNames('c-bg--8')}>
+				<Hero {...heroProps} />
+
+				{services && <ImageGridGallery className={classNames(styles.services, 'm m-b--l m-t--m')} childElementsClasses={{ link: styles.link }} {...services} />}
+				{welcome && (
+					<>
+						<section className={classNames(styles.welcome, 'grid')}>
+							<div>
+								<Headline priority={2} {...welcome.headline} />
+								<p>{welcome.text}</p>
+							</div>
+							{/* <Button 
             className={classNames(styles.button, 'font-style--highlight')}
             as={'link'}
             link={{
@@ -84,18 +86,16 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({news, services, welcom
             backgroundColor={NGColor.lightgreen}
             accent={'circle'}
           /> */}
-        </section>
-      </>}
-      {(news || news != null)  && <News {...news}/>}
-    </main>
-    </>
-  )
+						</section>
+					</>
+				)}
+				{(news || news != null) && <News {...news} />}
+			</main>
+		</>
+	)
 }
 
 export default Home
 
 Home.footerClass = 'c-bg--blue'
 Home.headerColor = NGColor.petrol
-
-
-
