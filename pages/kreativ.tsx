@@ -62,7 +62,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 				<title>desingbüro - {title}</title>
 			</Head>
 			<main>
-				<Hero image={<CustomImage src={heroImage} objectFit={'cover'} priority objectPosition={'top'} />} content={<Einstein></Einstein>} layout="layout-2" />
+				<Hero image={<CustomImage src={heroImage} alt={'Hero Background Paint'} objectFit={'cover'} priority objectPosition={'top'} />} content={<Einstein></Einstein>} layout="layout-2" />
 
 				{imageText && (
 					<ImageText

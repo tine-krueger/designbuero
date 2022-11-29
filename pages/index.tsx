@@ -44,7 +44,7 @@ interface IWelcome {
 }
 
 const heroProps: IHeroProps = {
-	image: <CustomImage src={Background} objectFit={'cover'} sizes={'(max-width: 1600px) 100vw, 1600px'} priority />,
+	image: <CustomImage src={Background} alt={'Hero Background Pattern'} objectFit={'cover'} sizes={'(max-width: 1600px) 100vw, 1600px'} priority />,
 	headline: {
 		text: 'desiNGbüro',
 	},

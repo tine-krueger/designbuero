@@ -1,33 +1,31 @@
 const API_URL = process.env.WP_API_URL as RequestInfo
 
-
 /*@ts-ignore*/
 async function fetchAPI(query, { variables } = { variables: {} }) {
-    const headers = { 'Content-Type': 'application/json'}
-/*@ts-ignore*/
-    try {
-      const result: Response = await fetch(API_URL, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({query, variables})
-        
-      })
-      const data = await result.json()
+	const headers = { 'Content-Type': 'application/json' }
+	/*@ts-ignore*/
+	try {
+		const result: Response = await fetch(API_URL, {
+			method: 'POST',
+			headers,
+			body: JSON.stringify({ query, variables }),
+		})
+		const data = await result.json()
 
-      if (!data) {
-        console.log(data.errors)
-        console.log('error details', query, variables)
-        throw new Error('Failes to fetch API!')
-      }
-      return data.data
-  } catch(error) {
-    console.log(error)
-  }  
+		if (!data) {
+			console.log(data.errors)
+			console.log('error details', query, variables)
+			throw new Error('Failes to fetch API!')
+		}
+		return data.data
+	} catch (error) {
+		console.log(error)
+	}
 }
 
 export async function getHomepageData() {
-    const data = await fetchAPI(
-        `{
+	const data = await fetchAPI(
+		`{
           news: posts(
             first: 1
             where: {categoryId: 18, orderby: {field: DATE, order: DESC}}
@@ -110,22 +108,24 @@ export async function getHomepageData() {
             }
           }
         }`
-    )
-    if (!data) {
-      return null
-    }
-    return data
+	)
+	if (!data) {
+		return null
+	}
+	return data
 }
 
 export async function getPortfolioDataByCatId(id: number) {
-    const data = await fetchAPI(
-       ` {
+	const data = await fetchAPI(
+		` {
         posts(first: 50, where: {categoryId: ${id}, orderby: {field: DATE, order: DESC}}) {
           edges {
             node {
               featuredImage {
                 node {
                   sourceUrl(size: LARGE)
+                  altText
+                  title
                   mediaDetails {
                     height
                     width
@@ -154,17 +154,17 @@ export async function getPortfolioDataByCatId(id: number) {
           }
         }
       }`
-    )
+	)
 
-    if(!data) {
-      return null
-    }
-    return data
+	if (!data) {
+		return null
+	}
+	return data
 }
 
 export async function getBusinessGraphicsData() {
-  const data = await fetchAPI(
-     ` {
+	const data = await fetchAPI(
+		` {
       page(id: "61", idType: DATABASE_ID) {
         bilderBusinessGraphics {
           homeImage {
@@ -195,17 +195,17 @@ export async function getBusinessGraphicsData() {
         }
       }
     }`
-  )
-  if(!data) {
-    return null
-  }
- 
-  return data
+	)
+	if (!data) {
+		return null
+	}
+
+	return data
 }
 
 export async function getKreativData() {
-  const data = await fetchAPI(
-     ` {
+	const data = await fetchAPI(
+		` {
       posts(first: 7, where: {categoryId: 15}) {
         nodes {
           testimonials {
@@ -267,17 +267,17 @@ export async function getKreativData() {
         title
       }
     }`
-  )
-  if(!data) {
-    return null
-  }
- 
-  return data
+	)
+	if (!data) {
+		return null
+	}
+
+	return data
 }
 
 export async function getAboutMeData() {
-  const data = await fetchAPI(
-     `{
+	const data = await fetchAPI(
+		`{
       page(id: "139", idType: DATABASE_ID) {
         title
         contentAboutMe {
@@ -321,27 +321,27 @@ export async function getAboutMeData() {
       }
     }
      `
-  )
+	)
 
-  if(!data) {
-    return null
-  }
-  return data
+	if (!data) {
+		return null
+	}
+	return data
 }
 
 export async function getPageData(pageID: number) {
-  const data = await fetchAPI(
-     `{
+	const data = await fetchAPI(
+		`{
       page(id: "${pageID}", idType: DATABASE_ID) {
         content
         title
       }
     }
      `
-  )
+	)
 
-  if(!data) {
-    return null
-  }
-  return data
+	if (!data) {
+		return null
+	}
+	return data
 }

@@ -1,9 +1,8 @@
-import { ComponentProps, FC, memo } from "react"
+import classNames from 'classnames'
 import Link, { LinkProps } from 'next/link'
+import { ComponentProps, FC, memo } from 'react'
+import { NGColor } from '../../types/colors'
 import styles from './button.module.css'
-import classNames from "classnames"
-import { NGColor } from "../../types/colors"
-
 
 type TButtonAsButton = IBasicButtonProps &
 	Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof IBasicButtonProps> & {
@@ -11,13 +10,13 @@ type TButtonAsButton = IBasicButtonProps &
 	}
 
 export type TButtonAsLink = IBasicButtonProps & {
-		as: 'link'
-		link: TInternalLink | TExternalLink
-		download?: boolean
-	}
+	as: 'link'
+	link: TInternalLink | TExternalLink
+	download?: boolean
+}
 
 export type TInternalLink = LinkProps & {
-	type: 'internal',
+	type: 'internal'
 	download?: boolean
 }
 
@@ -39,52 +38,40 @@ export interface IBasicButtonProps extends ComponentProps<'button'> {
 	accent?: 'circle'
 	backgroundColor?: NGColor
 	blobColor?: NGColor
-
-	
 }
 
 export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
-	const {layout = 'ellipse', accent, backgroundColor, blobColor, ...attributes} = props
-    const classes = classNames(
-		styles.container, 
-		props.className,  
-		styles[layout], 
-		accent ? styles[accent] : undefined, 
-		'text-align--center text--uc', 
-		{[`c-bg--${backgroundColor}`]: backgroundColor},
-		{[`c-hili--${blobColor}`] : blobColor}
-		)
+	const { layout = 'ellipse', accent, backgroundColor, blobColor, ...attributes } = props
+	const classes = classNames(styles.container, props.className, styles[layout], accent ? styles[accent] : undefined, 'text-align--center text--uc', { [`c-bg--${backgroundColor}`]: backgroundColor }, { [`c-hili--${blobColor}`]: blobColor })
 
 	if (props.as === 'link') {
 		const { label, children, className, link, blobColor, backgroundColor, ...rest } = props
-		
+
 		switch (link.type) {
 			case 'internal': {
-				const { type, download, ...attrbiutes} = link
+				const { type, download, ...attrbiutes } = link
 
 				return (
-					<Link {...attrbiutes}>
-						<a className={classNames(classes, 'no-link')} download={download} >
-							{children ?? label}
-							<span className={styles["blob-wrapper"]}>
-								<span className={styles.blobs}>
-									<span className={styles.blob}></span>
-									<span className={styles.blob}></span>
-									<span className={styles.blob}></span>
-									<span className={styles.blob}></span>
-								</span>
+					<Link className={classNames(classes, 'no-link')} download={download} {...attrbiutes}>
+						{children ?? label}
+						<span className={styles['blob-wrapper']}>
+							<span className={styles.blobs}>
+								<span className={styles.blob}></span>
+								<span className={styles.blob}></span>
+								<span className={styles.blob}></span>
+								<span className={styles.blob}></span>
 							</span>
-						</a>
+						</span>
 					</Link>
 				)
 			}
 
 			case 'file': {
-				const { type, download, ...attributes} = link
+				const { type, download, ...attributes } = link
 				return (
 					<a className={classNames(classes, 'no-link')} download target={'_blank'} rel={'noopener'} {...attributes}>
 						{children ?? label}
-						<span className={styles["blob-wrapper"]}>
+						<span className={styles['blob-wrapper']}>
 							<span className={styles.blobs}>
 								<span className={styles.blob}></span>
 								<span className={styles.blob}></span>
@@ -95,13 +82,13 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 					</a>
 				)
 			}
-		
+
 			default:
-				const { type, download, ...attributes} = link
+				const { type, download, ...attributes } = link
 				return (
 					<a className={classNames(classes, 'no-link')} download={download} {...attributes}>
 						{children ?? label}
-						<span className={styles["blob-wrapper"]}>
+						<span className={styles['blob-wrapper']}>
 							<span className={styles.blobs}>
 								<span className={styles.blob}></span>
 								<span className={styles.blob}></span>
@@ -112,20 +99,19 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 					</a>
 				)
 		}
-		
 	} else if (props.as === 'span') {
 		const { label, children, layout, as, className, accent, blobColor, backgroundColor, ...rest } = props
 		return (
 			<span {...rest} className={classes}>
 				{children ?? label}
-                <span className={styles["blob-wrapper"]}>
-                    <span className={styles.blobs}>
-                        <span className={styles.blob}></span>
-                        <span className={styles.blob}></span>
-                        <span className={styles.blob}></span>
-                        <span className={styles.blob}></span>
-                    </span>
-                </span>
+				<span className={styles['blob-wrapper']}>
+					<span className={styles.blobs}>
+						<span className={styles.blob}></span>
+						<span className={styles.blob}></span>
+						<span className={styles.blob}></span>
+						<span className={styles.blob}></span>
+					</span>
+				</span>
 			</span>
 		)
 	} else {
@@ -133,14 +119,14 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 		return (
 			<button {...rest} className={classes}>
 				{children ?? label}
-                <span className={styles["blob-wrapper"]}>
-                    <span className={styles.blobs}>
-                        <span className={styles.blob}></span>
-                        <span className={styles.blob}></span>
-                        <span className={styles.blob}></span>
-                        <span className={styles.blob}></span>
-                    </span>
-                </span>
+				<span className={styles['blob-wrapper']}>
+					<span className={styles.blobs}>
+						<span className={styles.blob}></span>
+						<span className={styles.blob}></span>
+						<span className={styles.blob}></span>
+						<span className={styles.blob}></span>
+					</span>
+				</span>
 			</button>
 		)
 	}
