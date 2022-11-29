@@ -1,11 +1,11 @@
-import { createContext, FC, useState } from 'react'
+import { createContext, FC, PropsWithChildren, useState } from 'react'
 import instagram from '../../public/assets/png/instagram.png'
 import xing from '../../public/assets/png/xing.png'
 import { IGlobalMenuState, MenuContextType } from './types'
 
 export interface IGlobalMenuStoreProps {}
 
-export const GlobalMenuStore: FC<IGlobalMenuStoreProps> = (props) => {
+export const GlobalMenuStore: FC<PropsWithChildren<IGlobalMenuStoreProps>> = (props) => {
 	const globalMenu: IGlobalMenuState = {
 		main: [
 			{

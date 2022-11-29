@@ -20,7 +20,7 @@ export function maybeWithLink<T>(Component: ComponentType<T>): ComponentType<T |
 					const { href, type, targetBlank, download, ...attributes } = props
 					return (
 						<Link href={href} target={targetBlank ? '_blank' : '_self'} download={download}>
-							<Component {...(attributes as unknown as T)} />
+							<Component {...(attributes as unknown as ILinkProps & T)} />
 						</Link>
 					)
 				}
@@ -28,12 +28,12 @@ export function maybeWithLink<T>(Component: ComponentType<T>): ComponentType<T |
 					const { href, type, targetBlank, download, ...attributes } = props
 					return (
 						<a href={href}>
-							<Component {...(attributes as unknown as T)} />
+							<Component {...(attributes as unknown as ILinkProps & T)} />
 						</a>
 					)
 				}
 			}
 		}
-		return <Component {...props} />
+		return <Component {...(props as any)} />
 	}
 }

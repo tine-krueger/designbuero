@@ -1,4 +1,4 @@
-import classNames from 'classnames/bind'
+import classNames from 'classnames'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { CustomImage } from '../components/custom-image/custom-image'
