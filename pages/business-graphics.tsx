@@ -48,7 +48,7 @@ const BusinessGraphics: NextPageWithLayout & NextPage<IBusinessGraphicsProps> = 
 				<title>desingbüro - Business Graphics</title>
 			</Head>
 			<main>
-				{<Hero className={styles.hero} layout={'layout-3'} image={<CustomImage src={bgImage} objectFit={'contain'} priority objectPosition={'top'} sizes={'(min-width: 1600px) 1600px, 100vw'} />} headline={{ text: 'Business Graphics', textColor: NGColor.grey }} />}
+				{<Hero className={styles.hero} layout={'layout-3'} image={<CustomImage src={bgImage} alt={'Hero Background Pattern'} objectFit={'contain'} priority sizes={'(min-width: 1600px) 1600px, 100vw'} />} headline={{ text: 'Business Graphics', textColor: NGColor.grey }} />}
 				<div className={classNames(styles['content-wrapper'], 'm m-t--m')}>
 					<div className={styles.content}>
 						{data?.content && parse(data.content)}

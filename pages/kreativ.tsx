@@ -56,13 +56,14 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 	}
 
 	const isBreakpoint = useMediaQuery(768)
+	const newTitle = `desingbuero - ${title}`
 	return (
 		<>
 			<Head>
-				<title>desingbüro - {title}</title>
+				<title>{newTitle}</title>
 			</Head>
 			<main>
-				<Hero image={<CustomImage src={heroImage} objectFit={'cover'} priority objectPosition={'top'} />} content={<Einstein></Einstein>} layout="layout-2" />
+				<Hero image={<CustomImage src={heroImage} alt={'Hero Background Paint'} objectFit={'cover'} priority objectPosition={'top'} />} content={<Einstein></Einstein>} layout="layout-2" />
 
 				{imageText && (
 					<ImageText

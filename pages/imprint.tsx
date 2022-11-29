@@ -31,11 +31,11 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Imprint: NextPageWithLayout & NextPage<IImprintProps> = (props) => {
 	const { title, content } = props
-
+	const newTitle = `desingbuero - ${title}`
 	return (
 		<>
 			<Head>
-				<title>desingbüro - {title}</title>
+				<title>{newTitle}</title>
 			</Head>
 			<main>
 				<section className={styles.container}>

@@ -39,11 +39,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
 	const { content, headline } = props
+	const title = `desingbuero - ${headline}`
 
 	return (
 		<>
 			<Head>
-				<title>desingbüro - {headline}</title>
+				<title>{title}</title>
 			</Head>
 			<main className={styles.container}>
 				<Headline className={styles.headline} text={headline} />
