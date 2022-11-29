@@ -100,7 +100,7 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
 								src: nodes[0].featuredImage.node.sourceUrl,
 								title: nodes[0].featuredImage.node.title,
 								alt: nodes[0].featuredImage.node.altText,
-								layout: 'responsive',
+								fill: false,
 								width: nodes[0].featuredImage.node.mediaDetails?.width,
 								height: nodes[0].featuredImage.node.mediaDetails?.height,
 								sizes: '(min-width:1440) 25vw, (min-width:1140) 33vw, 70vw',
@@ -133,7 +133,6 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
 				},
 				{
 					src: businessGraphics.bilderBusinessGraphics.homeImage ? businessGraphics.bilderBusinessGraphics.homeImage.sourceUrl : '/assets/img/fallback.jpg',
-					// src: '/assets/img/bg_hero.jpg',
 					alt: businessGraphics.bilderBusinessGraphics.homeImage.altText,
 					title: businessGraphics.bilderBusinessGraphics.homeImage.title,
 					link: {

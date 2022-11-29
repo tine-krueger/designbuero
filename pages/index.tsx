@@ -44,7 +44,7 @@ interface IWelcome {
 }
 
 const heroProps: IHeroProps = {
-	image: <CustomImage src={Background} alt={'Hero Background Pattern'} objectFit={'cover'} sizes={'(max-width: 1600px) 100vw, 1600px'} priority />,
+	image: <CustomImage className={styles['hero-image']} src={Background} alt={'Hero Background Pattern'} objectFit={'cover'} sizes={'(max-width: 1600px) 100vw, 1600px'} priority />,
 	headline: {
 		text: 'desiNGbüro',
 	},
@@ -74,18 +74,6 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({ news, services, welco
 								<Headline priority={2} {...welcome.headline} />
 								<p>{welcome.text}</p>
 							</div>
-							{/* <Button 
-            className={classNames(styles.button, 'font-style--highlight')}
-            as={'link'}
-            link={{
-              type: 'internal',
-              href: '/about-me'
-            }}
-            label={'Ich kann nicht anders!'} 
-            layout={'round'}
-            backgroundColor={NGColor.lightgreen}
-            accent={'circle'}
-          /> */}
 						</section>
 					</>
 				)}

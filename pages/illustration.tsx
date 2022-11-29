@@ -40,10 +40,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({ posts, category }) => {
 	/*TODO: insert view if no post is available*/
+
+	const title = `desingbuero - ${category.name}`
 	return (
 		<>
 			<Head>
-				<title>desingbüro - {category.name}</title>
+				<title>{title}</title>
 			</Head>
 			<main className={`c-bg--${NGColor.lightgreen}`}>
 				{posts && category ? <GalleryWrapper siteTitle={category.name} posts={posts} categoryTexts={category.descriptions} /> : <div>Uuups, No illustrations available at the moment. Please come back later!</div>}

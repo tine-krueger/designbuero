@@ -33,10 +33,12 @@ const Privacy: NextPageWithLayout & NextPage<IPrivacyProps> = (props) => {
 	const { title, content } = props
 
 	/*TODO: insert view if no post is available*/
+
+	const newTitle = `desingbuero - ${title}`
 	return (
 		<>
 			<Head>
-				<title>desingbüro - {title}</title>
+				<title>{newTitle}</title>
 			</Head>
 			<main>
 				<section className={styles.container}>
