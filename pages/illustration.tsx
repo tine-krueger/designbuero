@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const Illustration: NextPageWithLayout & NextPage<IIllustrationProps> = ({ posts, category }) => {
 	/*TODO: insert view if no post is available*/
 
-	const title = `desingbuero - ${category.name}`
+	const title = `desingbuero - ${category?.name}`
 	return (
 		<>
 			<Head>
