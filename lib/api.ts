@@ -206,6 +206,30 @@ export async function getBusinessGraphicsData() {
 export async function getKreativData() {
 	const data = await fetchAPI(
 		` {
+      events {
+        nodes {
+          title
+          id
+          plz
+          address
+          city
+          venueName
+          content
+          occurrences {
+            endTime
+            startDate
+            startTime
+            dateString
+          }
+          featuredImage {
+            node {
+              altText
+              title
+              sourceUrl
+            }
+          }
+        }
+      }
       posts(first: 7, where: {categoryId: 15}) {
         nodes {
           testimonials {
@@ -265,6 +289,7 @@ export async function getKreativData() {
           }
         }
         title
+       
       }
     }`
 	)
