@@ -1,0 +1,13 @@
+.container {
+	padding: var(--spacing--default) var(--spacing--m);
+}
+
+.headline {
+	margin-bottom: var(--spacing--default);
+}
+
+.workshops {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: var(--spacing--m);
+}

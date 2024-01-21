@@ -1,68 +1,22 @@
 import { ICustomImageProps } from '../../components/custom-image/custom-image'
 import { ITestimonialProps } from '../../components/testimonials/testimonial/testimonial'
+import { WorkshopProps } from '../../components/workshops/workshop/workshop.types'
 import { IKreativProps } from '../../pages/kreativ'
+import { KreativPageProps, Posts, WorkshopPostsProps } from '../../types/types'
+import { mappedEventsByOccurrences } from './mapped-events-by-occurrences'
 
 export interface IWordpressKreativProps {
 	posts: Posts
-	page: Page
-}
-
-interface Posts {
-	nodes: Node[]
-}
-
-interface Node {
-	testimonials: Testimonials
-}
-
-interface Testimonials {
-	name: string
-	quote: string
-}
-
-interface Page {
-	bilderKreativ: BilderKreativ
-	textGruppeKreativ: TextGruppeKreativ
-	imageText: ImageText
-	title: string
-}
-
-interface ImageText {
-	text: string
-	image: Image
-}
-
-interface TextGruppeKreativ {
-	textfield1: string
-	textfield2: string
-	textfield3: string
-}
-
-interface BilderKreativ {
-	bottomLeft?: Image
-	bottomRight?: Image
-	topCenter?: Image
-	topLeft?: Image
-	topRight?: Image
-	topMiddleRight?: Image
-}
-
-interface Image {
-	altText: string
-	sourceUrl: string
-	title: string
-	mediaDetails?: IMediaDetails
-}
-
-interface IMediaDetails {
-	width: number
-	height: number
+	page: KreativPageProps
+	events: WorkshopPostsProps
 }
 
 export function kreativData(data: IWordpressKreativProps): IKreativProps {
 	const {
 		posts,
 		page: { bilderKreativ, textGruppeKreativ, imageText, ...rest },
+		events,
+		...attributes
 	} = data
 
 	const testimonials: ITestimonialProps[] = []
@@ -116,6 +70,8 @@ export function kreativData(data: IWordpressKreativProps): IKreativProps {
 			  ]
 			: null
 
+	const occurencesAsEvents: WorkshopProps[] = mappedEventsByOccurrences(events)
+
 	const kreativProps: IKreativProps = {
 		testimonials: testimonials,
 		images: images,
@@ -133,6 +89,7 @@ export function kreativData(data: IWordpressKreativProps): IKreativProps {
 				sizes: '(min-width: 1440px) 470px, 33vw',
 			},
 		},
+		workshops: occurencesAsEvents,
 		...rest,
 	}
 

@@ -17,6 +17,9 @@ import Einstein from '../public/assets/svg/einstein.svg'
 import Zweig from '../public/assets/svg/twig.svg'
 import styles from '../styles/kreativ.module.css'
 import { NGColor } from '../types/colors'
+
+import { WorkshopProps } from '../components/workshops/workshop/workshop.types'
+import Workshops from '../components/workshops/workshops'
 import { kreativData } from '../util/data-mapping/kreative-data'
 import { NextPageWithLayout } from './_app'
 
@@ -26,6 +29,7 @@ export interface IKreativProps {
 	textGroup?: string[]
 	title?: string
 	imageText?: IImageTextProps
+	workshops?: WorkshopProps[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -49,7 +53,9 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
-	const { testimonials, images, textGroup, title, imageText, ...rest } = props
+	const { testimonials, images, textGroup, title, imageText, workshops, ...rest } = props
+
+	console.log(JSON.stringify(workshops, null, 2))
 
 	const gridChildClasses: TMasonryGridClasses = {
 		image: classNames(styles.image),
@@ -119,6 +125,8 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 								Get in <br /> touch!
 							</Button>
 						</HighlightedTextGroup>
+
+						{workshops && <Workshops className={styles.workshops} workshops={workshops} />}
 						<Zweig className={classNames(styles.zweig, 'visible-s')} />
 					</section>
 				)}
