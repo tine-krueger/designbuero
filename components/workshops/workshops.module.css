@@ -1,5 +1,9 @@
+@import '../../styles/global-styles/media-queries.css';
+
 .container {
-	padding: var(--spacing--default) var(--spacing--m);
+	@media (--medium-viewport-min) {
+		padding: var(--spacing--default) var(--spacing--m);
+	}
 }
 
 .headline {
@@ -8,6 +12,10 @@
 
 .workshops {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
 	grid-gap: var(--spacing--m);
+
+	@media (--small-viewport-min) {
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	}
 }
