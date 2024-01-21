@@ -55,8 +55,6 @@ export const getStaticProps: GetStaticProps = async () => {
 const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 	const { testimonials, images, textGroup, title, imageText, workshops, ...rest } = props
 
-	console.log(JSON.stringify(workshops, null, 2))
-
 	const gridChildClasses: TMasonryGridClasses = {
 		image: classNames(styles.image),
 	}
