@@ -124,7 +124,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 							</Button>
 						</HighlightedTextGroup>
 
-						{workshops && <Workshops className={styles.workshops} workshops={workshops} />}
+						<Workshops className={styles.workshops} workshops={workshops} />
 						<Zweig className={classNames(styles.zweig, 'visible-s')} />
 					</section>
 				)}
