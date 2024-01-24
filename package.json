@@ -9,6 +9,9 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@kontent-ai/rich-text-resolver": "^1.0.0",
+		"@portabletext/react": "^3.0.11",
+		"@portabletext/types": "^2.0.8",
 		"@svgr/webpack": "^6.5.1",
 		"html-react-parser": "^3.0.4",
 		"next": "13.0.5",

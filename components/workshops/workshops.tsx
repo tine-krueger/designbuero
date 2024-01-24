@@ -12,9 +12,13 @@ const Workshops: FC<WorkshopsProps> = (props) => {
 		<div className={classNames(styles.container, className)}>
 			<Headline className={styles.headline} priority={2} priorityStyle={PriorityStyle.h1} text={'Workshops'} textColor={NGColor.petrol} />
 			<div className={classNames(styles.workshops)}>
-				{workshops.map((workshop, index) => {
-					return <WorkShop key={index} {...workshop} />
-				})}
+				{workshops ? (
+					workshops.map((workshop, index) => {
+						return <WorkShop key={index} {...workshop} />
+					})
+				) : (
+					<p className={styles['no-workshops']}>Gerade stehen keine Workshops an, aber in Kürze gibt es wieder neue Infos!</p>
+				)}
 			</div>
 		</div>
 	)
