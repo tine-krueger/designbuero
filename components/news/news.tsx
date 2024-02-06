@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { AnchorHTMLAttributes, ComponentProps, DetailedHTMLProps, FC, memo, useEffect, useRef } from 'react'
+import { AnchorHTMLAttributes, DetailedHTMLProps, FC, memo, useEffect, useRef } from 'react'
 import { useMediaQuery } from '../../hooks/media-query-hook'
 import Bird from '../../public/assets/svg/bird.svg'
 import Flowers from '../../public/assets/svg/flowers.svg'
@@ -9,10 +9,11 @@ import { CustomImage, ICustomImageProps } from '../custom-image/custom-image'
 import { Headline, IHeadlineProps } from '../headline/headline'
 import styles from './news.module.css'
 
-export interface INewsProps extends ComponentProps<'section'> {
+export interface INewsProps {
 	image?: ICustomImageProps | null
 	headline?: IHeadlineProps
 	content?: string | null
+	className?: string
 	link?:
 		| (DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
 				label: string
@@ -21,7 +22,7 @@ export interface INewsProps extends ComponentProps<'section'> {
 }
 
 const UnmemoizedNews: FC<INewsProps> = (props) => {
-	const { className, children, headline, link, content, image, ...attributes } = props
+	const { className, headline, link, content, image, ...attributes } = props
 	const isBreakpoint = useMediaQuery(768)
 	const isUnderContentWidthMax = useMediaQuery(1140)
 	const birdRef = useRef<HTMLDivElement | null>(null)

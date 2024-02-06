@@ -67,7 +67,24 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 				<title>{newTitle}</title>
 			</Head>
 			<main>
-				<Hero image={<CustomImage src={heroImage} alt={'Hero Background Paint'} objectFit={'cover'} priority objectPosition={'top'} />} content={<Einstein></Einstein>} layout="layout-2" />
+				<Hero image={<CustomImage src={heroImage} alt={'Hero Background Paint'} objectFit={'cover'} priority objectPosition={'top'} />} content={
+				
+					<Einstein/>
+					
+				
+				}  disrupter={workshops && workshops?.length > 0 ? <Button
+					className={classNames(styles['get-in-touch'], 'font-style--highlight')}
+					layout={'round'}
+					backgroundColor={NGColor.yellow}
+					blobColor={NGColor.green}
+					as={'link'}
+					link={{
+						type: 'external',
+						href: '/kreativ#workshops',
+					}}
+				>
+					Gönn <br /> dir deine <br /> kreative <br /> Auszeit!
+				</Button> : undefined} layout="layout-2" />
 
 				{imageText && (
 					<ImageText
@@ -124,7 +141,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 							</Button>
 						</HighlightedTextGroup>
 
-						<Workshops className={styles.workshops} workshops={workshops} />
+						<Workshops id={'workshops'} className={styles.workshops} workshops={workshops} />
 						<Zweig className={classNames(styles.zweig, 'visible-s')} />
 					</section>
 				)}
