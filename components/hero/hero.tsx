@@ -1,10 +1,10 @@
 import classNames from 'classnames'
-import { ComponentProps, FC, memo } from 'react'
+import { FC, memo } from 'react'
 import { NGColor } from '../../types/colors'
 import { Headline, IHeadlineProps, PriorityStyle } from '../headline/headline'
 import styles from './hero.module.css'
 
-export interface IHeroProps extends ComponentProps<'div'> {
+export interface IHeroProps  {
 	image: JSX.Element
 	headline?: IHeadlineProps
 	subheadline?: IHeadlineProps
@@ -12,6 +12,7 @@ export interface IHeroProps extends ComponentProps<'div'> {
 	subheadlineColor?: NGColor
 	layout?: 'layout-1' | 'layout-2' | 'layout-3'
 	content?: JSX.Element
+	className?: string
 }
 
 export const UnmemoizedHero: FC<IHeroProps> = (props) => {
