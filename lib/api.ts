@@ -52,6 +52,11 @@ export async function getHomepageData() {
               title
             }
           }
+          events(first: 1) {
+            nodes {
+              title
+            }
+          }
           illustration: posts(
             first: 1
             where: {categoryId: 2, imageToFront: true, orderby: {field: DATE, order: DESC}}
