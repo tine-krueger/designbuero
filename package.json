@@ -50,8 +50,5 @@
 		"prettier": "3.2.5",
 		"the-new-css-reset": "^1.11.2",
 		"typescript": "5.3.3"
-	},
-	"engines": {
-		"node": ">=18 <19"
 	}
 }
