@@ -7,6 +7,7 @@ export interface IHomeWordpress {
 	illustration: KreativIllustration
 	businessGraphics: BusinessGraphics
 	nodeByUri: NodeByUri
+	events?: any[] | null
 }
 
 interface NodeByUri {
@@ -90,6 +91,7 @@ export function mapHomeProps(data: IHomeWordpress): IHomeProps {
 		illustration,
 		businessGraphics,
 		nodeByUri: { landingAboutMe },
+	
 		...rest
 	} = data
 	const homeProps: IHomeProps = {
