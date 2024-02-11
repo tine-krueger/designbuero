@@ -64,14 +64,12 @@
 
 		@media (--small-viewport-max) {
 			align-self: end;
+			transform: translateY(20px);
 		}
-
 
 		@media (--small-viewport-min) {
 			margin-left: 165px;
 		}
-
-
 
 		&::before {
 			content: '';
@@ -152,6 +150,9 @@
 		position: relative;
 		z-index: 1;
 
+		
+
+
 		&::before {
 			width: 100%;
 			aspect-ratio: 1 / 1;
@@ -163,6 +164,12 @@
 			margin-right: var(--spacing--xl);
 			justify-self: end;
 		}
+
+		@media (--small-viewport-max) {
+			.container--with-disrupter& {
+				margin-top: calc(var(--spacing--l) * -1);
+			}
+		}	
 
 		@supports not (aspect-ratio: 1 / 1) {
 			width: 400px;
@@ -181,6 +188,7 @@
 			height: 100%;
 			padding: 16px;
 
+			
 			@media (--extra-small-viewport-max) {
 				max-width: 70vw;
 			}

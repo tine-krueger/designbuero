@@ -19,7 +19,7 @@ export interface IHeroProps  {
 export const UnmemoizedHero: FC<IHeroProps> = (props) => {
 	const { className, image, headline, subheadline, layout = 'layout-1', headlineColor = NGColor.white, subheadlineColor = NGColor.white, content, disrupter, ...attributes } = props
 
-	const classes = classNames(className, styles.container, styles[layout], 'grid grid--align-items-center grid--justify-items-center')
+	const classes = classNames(className, styles.container, styles[layout], 'grid grid--align-items-center grid--justify-items-center', {[styles['container--with-disrupter']]: disrupter})
 
 	return (
 		<div className={classes} {...attributes}>
