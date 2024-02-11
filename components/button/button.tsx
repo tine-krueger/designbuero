@@ -69,7 +69,7 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 			case 'file': {
 				const { type, download, ...attributes } = link
 				return (
-					<a className={classNames(classes, 'no-link')} download target={'_blank'} rel={'noopener noreferrer'} {...attributes}>
+					<a className={classNames(classes, 'no-link')} download target={'_blank'} rel={'noopener'} {...attributes}>
 						{children ?? label}
 						<span className={styles['blob-wrapper']}>
 							<span className={styles.blobs}>
@@ -84,9 +84,9 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 			}
 
 			default:
-				const { type, download, target, ...attributes } = link
+				const { type, download, ...attributes } = link
 				return (
-					<a className={classNames(classes, 'no-link')} download={download} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} {...attributes}>
+					<a className={classNames(classes, 'no-link')} download={download} {...attributes}>
 						{children ?? label}
 						<span className={styles['blob-wrapper']}>
 							<span className={styles.blobs}>

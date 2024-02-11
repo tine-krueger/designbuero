@@ -4,7 +4,6 @@ import { NGColor } from '../../../types/colors'
 import { Button } from '../../button/button'
 import { CustomImage } from '../../custom-image/custom-image'
 import { Headline } from '../../headline/headline'
-import { PortableBody } from '../../portable-body/portable-body'
 import styles from './workshop.module.css'
 import { WorkshopProps } from './workshop.types'
 
@@ -26,19 +25,13 @@ export const WorkShop: FC<WorkshopProps> = (props) => {
 				<br />
 				Ort: {city}
 			</p>
-			{content && (
-				<div className={styles.content}>
-					<PortableBody value={content} />
-				</div>
-			)}
-
+			{content && <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />}
 			<Button
 				className={classNames(styles['register-button'], 'c-bg--6 c-hili--7')}
 				as="link"
 				link={{
 					type: 'mail',
 					href: `mailto:ng@desingbuero.de?subject=Anfrage%20Portfolio&body=Hallo%20Frau%20Giesler%2C%20%0A%0Ahiermit%20m%C3%B6chte%20ich%20mich%20verbindlich%20an%20folgendem%20Workshop%20anmelden%3A%0A%0ATitel%3A%20${title}%0ADatum%3A%20${startDate}%20%0AUhrzeit%3A%20${startTime}%20Uhr%20`,
-					target: '_blank',
 				}}
 			>
 				Anmelden

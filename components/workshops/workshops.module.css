@@ -19,14 +19,3 @@
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	}
 }
-
-.no-workshops {
-	--text-color: var(--color--blue);
-	font: var(--font-style--highlight);
-	font-size: var(--clamp--m);
-	color: var(--color--blue);
-
-	@media (--small-viewport-min) {
-		grid-column: 1/3;
-	}
-}

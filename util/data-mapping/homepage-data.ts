@@ -7,7 +7,6 @@ export interface IHomeWordpress {
 	illustration: KreativIllustration
 	businessGraphics: BusinessGraphics
 	nodeByUri: NodeByUri
-	events?: any[] | null
 }
 
 interface NodeByUri {

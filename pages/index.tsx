@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { CustomImage } from '../components/custom-image/custom-image'
-import { IMasonryGridGalleryProps, ImageGridGallery } from '../components/gallery-group/masonry-grid/ImageGridGallery'
+import { ImageGridGallery, IMasonryGridGalleryProps } from '../components/gallery-group/masonry-grid/ImageGridGallery'
 import { Headline, IHeadlineProps } from '../components/headline/headline'
 import { Hero, IHeroProps } from '../components/hero/hero'
 import { INewsProps, News } from '../components/news/news'
@@ -55,7 +55,6 @@ const heroProps: IHeroProps = {
 			</>
 		),
 	},
-	content: <a href={'/kreativ/#workshops'}>Workshop</a>,
 }
 
 const Home: NextPageWithLayout & NextPage<IHomeProps> = ({ news, services, welcome }) => {

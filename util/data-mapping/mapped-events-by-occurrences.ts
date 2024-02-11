@@ -1,13 +1,10 @@
 import { WorkshopProps } from '../../components/workshops/workshop/workshop.types'
 import { WorkshopPostsProps } from '../../types/types'
-import { htmlStringToPortableText } from '../html-string-to-portable-text'
 
 export function mappedEventsByOccurrences(events: WorkshopPostsProps): WorkshopProps[] {
 	const occurencesAsEvents: WorkshopProps[] = []
 
 	events.nodes.map((event) => {
-		const portableText = htmlStringToPortableText(event.content)
-
 		event.occurrences?.map((occurence) => {
 			const occurenceAsEvent: WorkshopProps = {
 				title: event.title,
@@ -16,7 +13,7 @@ export function mappedEventsByOccurrences(events: WorkshopPostsProps): WorkshopP
 				address: event.address,
 				city: event.city,
 				venueName: event.venueName,
-				content: portableText,
+				content: event.content,
 				startDate: occurence.startDate,
 				startTime: occurence.startTime,
 				endTime: occurence.endTime,
