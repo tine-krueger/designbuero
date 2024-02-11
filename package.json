@@ -9,8 +9,13 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@portabletext/react": "^3.0.11",
+		"@portabletext/types": "^2.0.8",
+		"@sanity/block-tools": "^3.28.0",
+		"@sanity/schema": "^3.28.0",
 		"@svgr/webpack": "^6.5.1",
 		"html-react-parser": "^3.0.4",
+		"jsdom": "^24.0.0",
 		"next": "13.0.5",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
@@ -19,6 +24,7 @@
 	},
 	"devDependencies": {
 		"@next/bundle-analyzer": "^13.0.5",
+		"@types/jsdom": "^21.1.6",
 		"@types/node": "18.11.9",
 		"@types/react": "18.0.25",
 		"@types/react-dom": "^18.0.9",
