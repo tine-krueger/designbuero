@@ -18,6 +18,7 @@ import Zweig from '../public/assets/svg/twig.svg'
 import styles from '../styles/kreativ.module.css'
 import { NGColor } from '../types/colors'
 
+import { MouseEvent } from 'react'
 import { WorkshopProps } from '../components/workshops/workshop/workshop.types'
 import Workshops from '../components/workshops/workshops'
 import { kreativData } from '../util/data-mapping/kreative-data'
@@ -61,13 +62,43 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 
 	const isBreakpoint = useMediaQuery(768)
 	const newTitle = `desingbuero - ${title}`
+
+	const disupterClickHandler = (e: MouseEvent) => {
+		e.preventDefault()
+		const workshopsElement = document.getElementById('workshops')
+		if (workshopsElement) {
+			workshopsElement.scrollIntoView({ behavior: 'smooth' })
+		}
+	}
 	return (
 		<>
 			<Head>
 				<title>{newTitle}</title>
 			</Head>
 			<main>
-				<Hero image={<CustomImage src={heroImage} alt={'Hero Background Paint'} objectFit={'cover'} priority objectPosition={'top'} />} content={<Einstein></Einstein>} layout="layout-2" />
+				<Hero
+					image={<CustomImage src={heroImage} alt={'Hero Background Paint'} objectFit={'cover'} priority objectPosition={'top'} />}
+					content={<Einstein />}
+					disrupter={
+						workshops && workshops?.length > 0 ? (
+							<Button
+								className={classNames(styles['get-in-touch'], 'font-style--highlight')}
+								layout={'round'}
+								onClick={disupterClickHandler}
+								backgroundColor={NGColor.yellow}
+								blobColor={NGColor.green}
+								as={'link'}
+								link={{
+									type: 'internal',
+									href: '/kreativ#workshops',
+								}}
+							>
+								Gönn <br /> dir deine <br /> kreative <br /> Auszeit!
+							</Button>
+						) : undefined
+					}
+					layout="layout-2"
+				/>
 
 				{imageText && (
 					<ImageText
@@ -124,7 +155,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 							</Button>
 						</HighlightedTextGroup>
 
-						{workshops && <Workshops className={styles.workshops} workshops={workshops} />}
+						<Workshops id={'workshops'} className={styles.workshops} workshops={workshops} />
 						<Zweig className={classNames(styles.zweig, 'visible-s')} />
 					</section>
 				)}
