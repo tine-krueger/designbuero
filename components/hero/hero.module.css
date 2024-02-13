@@ -42,7 +42,7 @@
 .background {
 	position: relative;
 	width: 100%;
-	z-index: 0;
+	z-index: 1;
 
 	.layout-1 &,
 	.layout-2 & {
@@ -54,11 +54,27 @@
 	}
 }
 .disrupter {
+	.layout-1 &,
 	.layout-2 & {
 		position: relative;
 		z-index: 5;
 		grid-row: 1/-1;
 		grid-column: 1 / -1;
+	}
+
+	.layout-1 & {
+		place-self: end center;
+		transform: translateX(21vw);
+
+		@media (--medium-viewport-max) {
+			transform: scale(0.8) translate(21vw, 55px);
+		}
+		@media (--medium-viewport-min) {
+			place-self: end center;
+			transform: translateX(210px);
+		}
+	}
+	.layout-2 & {
 		justify-self: start;
 		margin-left: 100px;
 
@@ -128,6 +144,8 @@
 	.layout-1 & {
 		height: min-content;
 		max-width: 45.375rem;
+		position: relative;
+		z-index: 1;
 
 		&::before {
 			width: 100%;
@@ -150,9 +168,6 @@
 		position: relative;
 		z-index: 1;
 
-		
-
-
 		&::before {
 			width: 100%;
 			aspect-ratio: 1 / 1;
@@ -169,7 +184,7 @@
 			.container--with-disrupter& {
 				margin-top: calc(var(--spacing--l) * -1);
 			}
-		}	
+		}
 
 		@supports not (aspect-ratio: 1 / 1) {
 			width: 400px;
@@ -188,7 +203,6 @@
 			height: 100%;
 			padding: 16px;
 
-			
 			@media (--extra-small-viewport-max) {
 				max-width: 70vw;
 			}

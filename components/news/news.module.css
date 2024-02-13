@@ -109,14 +109,14 @@
 			height: 120%;
 			max-height: 25rem;
 			top: -3rem;
-			width: 225px;
+			width: 250px;
 		}
 	}
 	.image-wrapper {
 		position: relative;
-		img {
+		/* img {
 			box-shadow: 1px 1px 3px 2px rgb(0 0 0 / 10%), 5px 6px 7px 2px rgb(0 0 0 / 10%);
-		}
+		} */
 	}
 	.content-wrapper {
 		@media (--small-viewport-max) {

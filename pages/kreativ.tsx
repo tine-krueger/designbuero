@@ -18,6 +18,7 @@ import Zweig from '../public/assets/svg/twig.svg'
 import styles from '../styles/kreativ.module.css'
 import { NGColor } from '../types/colors'
 
+import { MouseEvent } from 'react'
 import { WorkshopProps } from '../components/workshops/workshop/workshop.types'
 import Workshops from '../components/workshops/workshops'
 import { kreativData } from '../util/data-mapping/kreative-data'
@@ -61,6 +62,14 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 
 	const isBreakpoint = useMediaQuery(768)
 	const newTitle = `desingbuero - ${title}`
+
+	const disupterClickHandler = (e: MouseEvent) => {
+		e.preventDefault()
+		const workshopsElement = document.getElementById('workshops')
+		if (workshopsElement) {
+			workshopsElement.scrollIntoView({ behavior: 'smooth' })
+		}
+	}
 	return (
 		<>
 			<Head>
@@ -75,11 +84,12 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 							<Button
 								className={classNames(styles['get-in-touch'], 'font-style--highlight')}
 								layout={'round'}
+								onClick={disupterClickHandler}
 								backgroundColor={NGColor.yellow}
 								blobColor={NGColor.green}
 								as={'link'}
 								link={{
-									type: 'external',
+									type: 'internal',
 									href: '/kreativ#workshops',
 								}}
 							>

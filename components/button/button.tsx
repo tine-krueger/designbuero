@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import Link, { LinkProps } from 'next/link'
-import { ComponentProps, FC, memo } from 'react'
+import { ComponentProps, FC, MouseEventHandler, memo } from 'react'
 import { NGColor } from '../../types/colors'
 import styles from './button.module.css'
 
@@ -41,7 +41,7 @@ export interface IBasicButtonProps extends ComponentProps<'button'> {
 }
 
 export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
-	const { layout = 'ellipse', accent, backgroundColor, blobColor, ...attributes } = props
+	const { layout = 'ellipse', accent, backgroundColor, blobColor, onClick, ...attributes } = props
 	const classes = classNames(styles.container, props.className, styles[layout], accent ? styles[accent] : undefined, 'text-align--center text--uc', { [`c-bg--${backgroundColor}`]: backgroundColor }, { [`c-hili--${blobColor}`]: blobColor })
 
 	if (props.as === 'link') {
@@ -52,7 +52,7 @@ export const UnmemoizedButton: FC<TSharedButtonProps> = (props) => {
 				const { type, download, ...attrbiutes } = link
 
 				return (
-					<Link className={classNames(classes, 'no-link')} download={download} {...attrbiutes}>
+					<Link className={classNames(classes, 'no-link')} download={download} onClick={onClick as unknown as MouseEventHandler<HTMLAnchorElement>} {...attrbiutes}>
 						{children ?? label}
 						<span className={styles['blob-wrapper']}>
 							<span className={styles.blobs}>
