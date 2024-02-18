@@ -82,7 +82,7 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 					disrupter={
 						workshops && workshops?.length > 0 ? (
 							<Button
-								className={classNames(styles['get-in-touch'], 'font-style--highlight')}
+								className={classNames('font-style--highlight')}
 								layout={'round'}
 								onClick={disupterClickHandler}
 								backgroundColor={NGColor.yellow}
@@ -93,7 +93,10 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 									href: '/kreativ#workshops',
 								}}
 							>
-								Gönn <br /> dir deine <br /> kreative <br /> Auszeit!
+								Direkt <br /> zu den
+								<br /> Work
+								<br />
+								-shops
 							</Button>
 						) : undefined
 					}

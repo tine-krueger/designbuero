@@ -64,27 +64,26 @@
 
 	.layout-1 & {
 		place-self: end center;
-		transform: translateX(21vw);
+		transform: scale(0.6) translate(21vw, 100px);
 
-		@media (--medium-viewport-max) {
-			transform: scale(0.8) translate(21vw, 55px);
-		}
 		@media (--medium-viewport-min) {
 			place-self: end center;
-			transform: translateX(210px);
+			transform: scale(0.8) translate(240px, 30px);
 		}
 	}
 	.layout-2 & {
 		justify-self: start;
 		margin-left: 100px;
+		transform: scale(0.8);
 
 		@media (--small-viewport-max) {
 			align-self: end;
-			transform: translateY(20px);
+			margin-left: 50px;
+			transform: scale(0.8) translateY(55px);
 		}
 
-		@media (--small-viewport-min) {
-			margin-left: 165px;
+		@media (--medium-viewport-min) {
+			margin-left: 150px;
 		}
 
 		&::before {

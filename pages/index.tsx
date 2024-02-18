@@ -81,7 +81,9 @@ const Home: NextPageWithLayout & NextPage<IHomeProps> = ({ news, services, welco
 									href: '/kreativ#workshops',
 								}}
 							>
-								Hier <br /> entlang zu <br /> den Work- <br /> shops!
+								Hier <br /> entlang <br />
+								zu den
+								<br /> Work- <br /> shops!
 							</Button>
 						) : undefined
 					}
