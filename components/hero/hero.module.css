@@ -79,7 +79,7 @@
 		@media (--small-viewport-max) {
 			align-self: end;
 			margin-left: 50px;
-			transform: scale(0.8) translateY(55px);
+			transform: scale(0.8) translate(20px, 55px);
 		}
 
 		@media (--medium-viewport-min) {
@@ -96,7 +96,7 @@
 			position: absolute;
 			top: 50%;
 			left: 0;
-			transform: translate(-60%, -25%);
+			transform: translate(-80%, -25%);
 			transition: transform 0.2s ease;
 			z-index: 10;
 
