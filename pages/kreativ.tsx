@@ -17,6 +17,10 @@ import Einstein from '../public/assets/svg/einstein.svg'
 import Zweig from '../public/assets/svg/twig.svg'
 import styles from '../styles/kreativ.module.css'
 import { NGColor } from '../types/colors'
+
+import { MouseEvent } from 'react'
+import { WorkshopProps } from '../components/workshops/workshop/workshop.types'
+import Workshops from '../components/workshops/workshops'
 import { kreativData } from '../util/data-mapping/kreative-data'
 import { NextPageWithLayout } from './_app'
 
@@ -26,6 +30,7 @@ export interface IKreativProps {
 	textGroup?: string[]
 	title?: string
 	imageText?: IImageTextProps
+	workshops?: WorkshopProps[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -49,7 +54,7 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
-	const { testimonials, images, textGroup, title, imageText, ...rest } = props
+	const { testimonials, images, textGroup, title, imageText, workshops, ...rest } = props
 
 	const gridChildClasses: TMasonryGridClasses = {
 		image: classNames(styles.image),
@@ -57,13 +62,46 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 
 	const isBreakpoint = useMediaQuery(768)
 	const newTitle = `desingbuero - ${title}`
+
+	const disupterClickHandler = (e: MouseEvent) => {
+		e.preventDefault()
+		const workshopsElement = document.getElementById('workshops')
+		if (workshopsElement) {
+			workshopsElement.scrollIntoView({ behavior: 'smooth' })
+		}
+	}
 	return (
 		<>
 			<Head>
 				<title>{newTitle}</title>
 			</Head>
 			<main>
-				<Hero image={<CustomImage src={heroImage} alt={'Hero Background Paint'} objectFit={'cover'} priority objectPosition={'top'} />} content={<Einstein></Einstein>} layout="layout-2" />
+				<Hero
+					image={<CustomImage src={heroImage} alt={'Hero Background Paint'} objectFit={'cover'} priority objectPosition={'top'} />}
+					content={<Einstein />}
+					disrupter={
+						workshops && workshops?.length > 0 ? (
+							<Button
+								className={classNames('font-style--highlight')}
+								layout={'round'}
+								onClick={disupterClickHandler}
+								backgroundColor={NGColor.yellow}
+								blobColor={NGColor.green}
+								as={'link'}
+								link={{
+									type: 'internal',
+									href: '/kreativ#workshops',
+								}}
+							>
+								Direkt <br /> zu den
+								<br /> Work-
+								<br />
+								shops
+							</Button>
+						) : undefined
+					}
+					layout="layout-2"
+				/>
 
 				{imageText && (
 					<ImageText
@@ -119,6 +157,8 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 								Get in <br /> touch!
 							</Button>
 						</HighlightedTextGroup>
+
+						<Workshops id={'workshops'} className={styles.workshops} workshops={workshops} />
 						<Zweig className={classNames(styles.zweig, 'visible-s')} />
 					</section>
 				)}

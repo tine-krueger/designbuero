@@ -1,0 +1,21 @@
+@import '../../styles/global-styles/media-queries.css';
+
+.container {
+	@media (--medium-viewport-min) {
+		padding: var(--spacing--default) var(--spacing--m);
+	}
+}
+
+.headline {
+	margin-bottom: var(--spacing--default);
+}
+
+.workshops {
+	display: grid;
+
+	grid-gap: var(--spacing--m);
+
+	@media (--small-viewport-min) {
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	}
+}

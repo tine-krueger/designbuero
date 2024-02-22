@@ -1,8 +1,9 @@
 import classNames from 'classnames'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import { Button } from '../components/button/button'
 import { CustomImage } from '../components/custom-image/custom-image'
-import { ImageGridGallery, IMasonryGridGalleryProps } from '../components/gallery-group/masonry-grid/ImageGridGallery'
+import { IMasonryGridGalleryProps, ImageGridGallery } from '../components/gallery-group/masonry-grid/ImageGridGallery'
 import { Headline, IHeadlineProps } from '../components/headline/headline'
 import { Hero, IHeroProps } from '../components/hero/hero'
 import { INewsProps, News } from '../components/news/news'
@@ -24,6 +25,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	}
 
 	const homeProps: IHomeProps = mapHomeProps(initialData)
+
 	return {
 		props: {
 			...homeProps,
@@ -36,6 +38,7 @@ export interface IHomeProps {
 	news?: INewsProps | null
 	services?: IMasonryGridGalleryProps
 	welcome?: IWelcome | null
+	workshop?: any | null
 }
 
 interface IWelcome {
@@ -57,14 +60,35 @@ const heroProps: IHeroProps = {
 	},
 }
 
-const Home: NextPageWithLayout & NextPage<IHomeProps> = ({ news, services, welcome }) => {
+const Home: NextPageWithLayout & NextPage<IHomeProps> = ({ news, services, welcome, workshop }) => {
 	return (
 		<>
 			<Head>
 				<title>desiNGbüro - Nadine Giesler</title>
 			</Head>
 			<main className={classNames('c-bg--8')}>
-				<Hero {...heroProps} />
+				<Hero
+					disrupter={
+						workshop ? (
+							<Button
+								className={classNames(styles['workshops'], 'font-style--highlight')}
+								layout={'round'}
+								backgroundColor={NGColor.yellow}
+								blobColor={NGColor.green}
+								as={'link'}
+								link={{
+									type: 'external',
+									href: '/kreativ#workshops',
+								}}
+							>
+								Hier <br /> entlang <br />
+								zu den
+								<br /> Work- <br /> shops!
+							</Button>
+						) : undefined
+					}
+					{...heroProps}
+				/>
 
 				{services && <ImageGridGallery className={classNames(styles.services, 'm m-b--l m-t--m')} childElementsClasses={{ link: styles.link }} {...services} />}
 				{welcome && (

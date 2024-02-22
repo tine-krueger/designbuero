@@ -6,7 +6,7 @@ html {
 	margin: 0;
 	overscroll-behavior: none;
 	-webkit-tap-highlight-color: transparent;
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 	height: -webkit-fill-available;
 }
 
@@ -24,7 +24,7 @@ body {
 		color: var(--text-color, var(--color--grey));
 	}
 
-	&>div {
+	& > div {
 		&:first-child {
 			height: 100%;
 		}
@@ -32,7 +32,7 @@ body {
 }
 
 :target {
-	scroll-margin-top: var(--header-height, 0);
+	scroll-margin-top: var(--small-header-height, 0);
 }
 
 main {
@@ -43,12 +43,10 @@ main {
 	@media (--small-viewport-min) {
 		--footer-height: var(--small-footer-height);
 		--header-height: var(--small-header-height);
-		
 	}
 	@media (--medium-viewport-min) {
 		--header-height: var(--big-header-height);
 		margin-top: 0;
-		
 	}
 	& > * {
 		max-width: var(--max-content-width);

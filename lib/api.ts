@@ -52,6 +52,11 @@ export async function getHomepageData() {
               title
             }
           }
+          events(first: 1) {
+            nodes {
+              title
+            }
+          }
           illustration: posts(
             first: 1
             where: {categoryId: 2, imageToFront: true, orderby: {field: DATE, order: DESC}}
@@ -206,6 +211,30 @@ export async function getBusinessGraphicsData() {
 export async function getKreativData() {
 	const data = await fetchAPI(
 		` {
+      events {
+        nodes {
+          title
+          id
+          plz
+          address
+          city
+          venueName
+          content
+          occurrences {
+            endTime
+            startDate
+            startTime
+            dateString
+          }
+          featuredImage {
+            node {
+              altText
+              title
+              sourceUrl
+            }
+          }
+        }
+      }
       posts(first: 7, where: {categoryId: 15}) {
         nodes {
           testimonials {
@@ -265,6 +294,7 @@ export async function getKreativData() {
           }
         }
         title
+       
       }
     }`
 	)
