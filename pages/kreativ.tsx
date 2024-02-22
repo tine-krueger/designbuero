@@ -94,9 +94,9 @@ const Kreativ: NextPageWithLayout & NextPage<IKreativProps> = (props) => {
 								}}
 							>
 								Direkt <br /> zu den
-								<br /> Work
+								<br /> Work-
 								<br />
-								-shops
+								shops
 							</Button>
 						) : undefined
 					}
