@@ -17,6 +17,7 @@ export const UnmemoizedFooter: FC<IFooterProps> = (props) => {
 	const classes = classNames(className, styles.container)
 
 	const date = new Date().getFullYear()
+
 	return (
 		<footer className={classes} {...attributes}>
 			<div className={classNames(styles['inner-wrapper'], 'grid')}>
