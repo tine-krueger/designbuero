@@ -4,8 +4,8 @@ import { ComponentProps, FC, memo, useState } from 'react'
 import { uid } from 'react-uid'
 import { NGColor } from '../../../types/colors'
 import { CustomImage, ICustomImageProps } from '../../custom-image/custom-image'
-import { LightboxImage } from '../../lightbox/lightbox-image/lightbox-image'
 import { IPostProps } from '../gallery-wrapper'
+import { ImageSlider } from '../slider/image-slider'
 import styles from './gallery.module.css'
 
 export interface IGalleryProps extends ComponentProps<'div'> {
@@ -38,7 +38,7 @@ const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
 						</div>
 					) : undefined
 				})}
-			{lightboxIsOpen && imageToShow && <LightboxComponent setOpen={setLightboxIsOpen} content={<LightboxImage {...imageToShow} />} />}
+			{lightboxIsOpen && imageToShow && <LightboxComponent setOpen={setLightboxIsOpen} content={<ImageSlider images={images} index={0} />} />}
 		</div>
 	)
 

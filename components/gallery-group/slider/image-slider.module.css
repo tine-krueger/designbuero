@@ -1,0 +1,110 @@
+.container {
+	overflow: hidden;
+	padding: var(--spacing--m) 0;
+
+	@media (--medium-viewport-min) {
+		padding: var(--spacing--l) 0;
+	}
+}
+
+.slider {
+	--swiper-navigation-color: var(--color--green);
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+	z-index: 1;
+	touch-action: pan-y;
+
+	@media (--medium-viewport-min) {
+		padding: var(--spacing--l) 0;
+	}
+
+	& > div {
+		&:first-child {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			display: flex;
+			transition-property: transform;
+			box-sizing: content-box;
+			align-items: center;
+		}
+	}
+}
+
+.slide {
+	--scaling: var(--slide-scaling, scale3d(0.85, 0.85, 0.85));
+	flex-shrink: 0;
+	width: 95vw;
+	max-height: 600px;
+	position: relative;
+	transition-property: transform;
+
+	@media (--medium-viewport-min) {
+		height: 70vh;
+		max-height: 800px;
+		width: auto;
+	}
+}
+
+.image {
+	--overlay-opacity: 0;
+	transform: var(--scaling) !important;
+	transition: transform 0.4s ease !important;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	cursor: pointer;
+
+	@media (--medium-viewport-min) {
+		--overlay-opacity: 0.7;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: var(--color--white);
+		opacity: var(--overlay-opacity);
+		transition: opacity 0.4s ease;
+	}
+
+	&.active {
+		--overlay-opacity: 0;
+		transform: scale3d(1, 1, 1) !important;
+		cursor: default;
+	}
+}
+
+.pagination {
+	position: absolute;
+	text-align: center;
+	transition: 0.3s opacity;
+	transform: translate3d(0, 0, 0);
+	z-index: 10;
+	bottom: 10px;
+	left: 0;
+	width: 100%;
+	cursor: pointer;
+}
+
+.pagination-bullet {
+	--bullet-background-color: var(--copy-color, var(--color--white));
+	padding: 3px;
+
+	> span {
+		width: 15px;
+		height: 10px;
+		background-color: var(--bullet-background-color);
+		display: inline-block;
+	}
+
+	&--active {
+		--bullet-background-color: var(--accent-color, var(--color--green));
+	}
+}
