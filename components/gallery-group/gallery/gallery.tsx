@@ -38,7 +38,7 @@ const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
 						</div>
 					) : undefined
 				})}
-			{lightboxIsOpen && imageToShow != undefined && <LightboxComponent setOpen={setLightboxIsOpen} content={<ImageSlider images={images} index={imageToShow} />} />}
+			{lightboxIsOpen && <LightboxComponent setOpen={setLightboxIsOpen} content={<ImageSlider images={images} index={imageToShow} />} />}
 		</div>
 	)
 
