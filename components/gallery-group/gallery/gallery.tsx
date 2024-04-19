@@ -20,7 +20,7 @@ const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
 	const { className, children, images, highlightColor, texts, ...attributes } = props
 	const classes = classNames(className, styles.container, 'grid', { [`c-hili--${highlightColor}`]: highlightColor })
 	const [lightboxIsOpen, setLightboxIsOpen] = useState<boolean>(false)
-	const [imageToShow, setImagetoShow] = useState<number>()
+	const [imageToShow, setImagetoShow] = useState<number>(0)
 
 	return (
 		<div className={classes} {...attributes}>
@@ -38,11 +38,12 @@ const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
 						</div>
 					) : undefined
 				})}
-			{lightboxIsOpen && imageToShow && <LightboxComponent setOpen={setLightboxIsOpen} content={<ImageSlider images={images} index={imageToShow} />} />}
+			{lightboxIsOpen && imageToShow != undefined && <LightboxComponent setOpen={setLightboxIsOpen} content={<ImageSlider images={images} index={imageToShow} />} />}
 		</div>
 	)
 
 	function handleImageClick(index: number) {
+		console.log('click')
 		setLightboxIsOpen(true)
 		setImagetoShow(index)
 	}
