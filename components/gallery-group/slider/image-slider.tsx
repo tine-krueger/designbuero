@@ -5,7 +5,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Keyboard, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { PaginationOptions } from 'swiper/types'
+
 import { CustomImage } from '../../custom-image/custom-image'
 import styles from './image-slider.module.css'
 import { IImageSliderProps } from './image-slider.types'
@@ -13,12 +13,12 @@ import { IImageSliderProps } from './image-slider.types'
 const UnmemoizedImageSlider: FC<PropsWithChildren<IImageSliderProps>> = (props) => {
 	const { images, index = 0 } = props
 
-	const pagination: PaginationOptions = {
+	const pagination = {
 		horizontalClass: styles.pagination,
 		clickable: true,
 		bulletClass: styles['pagination-bullet'],
 		bulletActiveClass: styles['pagination-bullet--active'],
-		renderBullet: function (index, className) {
+		renderBullet: function (index: number, className: string) {
 			return `<span class="${className}"><span></span></span>`
 		},
 	}
