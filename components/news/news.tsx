@@ -1,18 +1,21 @@
 import classNames from 'classnames'
-import { AnchorHTMLAttributes, ComponentProps, DetailedHTMLProps, FC, memo, useEffect, useRef } from 'react'
+import { AnchorHTMLAttributes, DetailedHTMLProps, FC, memo, useEffect, useRef } from 'react'
 import { useMediaQuery } from '../../hooks/media-query-hook'
 import Bird from '../../public/assets/svg/bird.svg'
 import Flowers from '../../public/assets/svg/flowers.svg'
 import Note from '../../public/assets/svg/note.svg'
 import { NGColor } from '../../types/colors'
+import { ICkHTMLAttributes } from '../../types/types'
 import { CustomImage, ICustomImageProps } from '../custom-image/custom-image'
 import { Headline, IHeadlineProps } from '../headline/headline'
 import styles from './news.module.css'
 
-export interface INewsProps extends ComponentProps<'section'> {
+
+
+export interface INewsProps extends ICkHTMLAttributes<HTMLElement> {
 	image?: ICustomImageProps | null
 	headline?: IHeadlineProps
-	content?: string | null
+	content?: string | null | undefined
 	link?:
 		| (DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
 				label: string

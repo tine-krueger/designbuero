@@ -1,3 +1,5 @@
+import { HTMLAttributes } from "react"
+
 export interface Posts {
 	nodes: Node[]
 }
@@ -74,3 +76,5 @@ export interface WorkshopNode {
 interface feauredImageNode {
 	node: Image
 }
+
+export interface ICkHTMLAttributes<T> extends Omit<HTMLAttributes<T>, 'content'> {}
