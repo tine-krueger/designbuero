@@ -43,7 +43,6 @@ const UnmemoizedGallery: FC<IGalleryProps> = (props) => {
 	)
 
 	function handleImageClick(index: number) {
-		console.log('click')
 		setLightboxIsOpen(true)
 		setImagetoShow(index)
 	}
