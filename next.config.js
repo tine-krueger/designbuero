@@ -2,10 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['backend.desingbuero.de'],
     deviceSizes: [750, 828, 1080, 1200, 1920],
     imageSizes: [32, 64, 128, 384],
     minimumCacheTTL: 31536000,
+    remotePatterns: [ {
+      protocol: 'https',
+      hostname: 'backend.desingbuero.de',
+      pathname: '/**',
+    },],
   },
   webpack(config) {
     config.module.rules.push({
