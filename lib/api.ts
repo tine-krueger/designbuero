@@ -10,16 +10,19 @@ async function fetchAPI(query, { variables } = { variables: {} }) {
 			headers,
 			body: JSON.stringify({ query, variables }),
 		})
+		if (!result.ok) {
+			throw new Error(`WordPress API responded with ${result.status} ${result.statusText}`)
+		}
 		const data = await result.json()
 
-		if (!data) {
-			console.log(data.errors)
-			console.log('error details', query, variables)
-			throw new Error('Failes to fetch API!')
+		if (!data?.data) {
+			console.error('WordPress API errors:', data?.errors)
+			throw new Error('Failed to fetch API!')
 		}
 		return data.data
 	} catch (error) {
-		console.log(error)
+		console.error(`fetchAPI failed (WP_API_URL ${API_URL ? 'set' : 'NOT SET'}):`, error)
+		return null
 	}
 }
 

@@ -14,12 +14,14 @@ export interface IImprintProps {
 export const getStaticProps: GetStaticProps = async () => {
 	const data = await getPageData(497)
 
-	if (data === null) {
+	if (!data?.page) {
 		return {
 			props: {
 				title: null,
 				content: null,
 			},
+			// retry soon instead of freezing the error page until the next deploy
+			revalidate: 10,
 		}
 	}
 

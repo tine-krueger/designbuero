@@ -14,12 +14,14 @@ export interface IPrivacyProps {
 export const getStaticProps: GetStaticProps = async () => {
 	const data = await getPageData(501)
 
-	if (data === null) {
+	if (!data?.page) {
 		return {
 			props: {
-				title: undefined,
-				content: undefined,
+				title: null,
+				content: null,
 			},
+			// retry soon instead of freezing the error page until the next deploy
+			revalidate: 10,
 		}
 	}
 

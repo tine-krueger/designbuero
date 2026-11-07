@@ -19,11 +19,14 @@ export interface IAboutMeProps {
 export const getStaticProps: GetStaticProps = async () => {
 	const data: IAboutMeWordpress = await getAboutMeData()
 
-	if (data === null) {
+	if (!data?.page) {
 		return {
 			props: {
 				content: null,
+				headline: null,
 			},
+			// retry soon instead of freezing the error page until the next deploy
+			revalidate: 10,
 		}
 	}
 
@@ -47,7 +50,8 @@ const AboutMe: NextPageWithLayout & NextPage<IAboutMeProps> = (props) => {
 				<title>{title}</title>
 			</Head>
 			<main className={styles.container}>
-				<Headline className={styles.headline} text={headline} />
+				{headline != null && <Headline className={styles.headline} text={headline} />}
+				{content == null && <p>Uups, keine Verbindung zur Datenbank. Hier muss der Administrator ran!</p>}
 				<div className={classNames(styles['image-text-wrapper'])}>
 					{content &&
 						content.map((item) => (
